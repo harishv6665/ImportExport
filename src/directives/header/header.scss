@@ -1,21 +1,21 @@
-.bk-header {
-  height: 70px;
+bk-header {
+  display: block;
+  height: 60px;
   border-bottom: 1px solid #647483;
 }
 
 .bk-header__logo {
   height: 100%;
-  width: 250px;
-  padding-left: 20px;
-  padding-top: 15px;
+  width: 200px;
+  padding: 14px 0 0 20px;
 }
 
 .bk-header__logo__image {
-  height: 75%;
+  height: 65%;
 }
 
 .bk-header__profile-dropdown {
-  width: 200px;
+  width: 170px;
   height: 100%;
 }
 
@@ -26,21 +26,23 @@
 
 .bk-header__profile-dropdown__header {
   height: 100%;
-  padding: 15px 5px;
+  padding: 12px 5px;
 }
 
 .bk-header__profile-dropdown__header__prof-pic {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
-  background: #607D8B;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(images/prof-pic.jpg);
 }
 
 .bk-header__profile-dropdown__header__prof-title {
-  font-size: 14px;
-  padding-top: 11px;
-  padding-left: 8px;
-  color: #607D8B;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 0 0 8px;
+  color: #313942;
   max-width: calc(100% - 75px);
   white-space: nowrap;
   overflow: hidden;
@@ -50,10 +52,9 @@
 .bk-header__profile-dropdown__header__prof-icon {
   width: 10px;
   height: 10px;
-  border: 2px solid #9E9E9E;
+  border: 2px solid #818c9b;
   border-right: none;
   border-top: none;
   transform: rotate(-45deg);
-  margin-top: 13px;
-  margin-right: 10px;
+  margin: 10px 10px 0 0;
 }
