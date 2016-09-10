@@ -1,0 +1,74 @@
+.bk-page__table__wrapper {
+  padding: 20px 15px;
+  position: relative;
+}
+
+table.bk-table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid #dfe1e4;
+  border-bottom-width: 3px;
+}
+
+table.bk-table tr:hover td {
+  background: rgba(100, 116, 131, 0.3) !important;
+}
+
+table.bk-table th {
+  height: 48px;
+  font-weight: 600;
+  color: #313942;
+}
+
+table.bk-table td {
+  height: 40px;
+  color: #708293;
+  transition: all 0.15s ease-out;
+}
+
+table.bk-table th, table.bk-table td {
+  padding: 0 30px 0 10px;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+table.bk-table tr:nth-child(odd) td {
+  background: #f3f5f7;
+}
+
+table.bk-table th:first-child,
+table.bk-table td:first-child,
+table.bk-table th:nth-child(3),
+table.bk-table td:nth-child(3) {
+  padding: 0 15px;
+  text-align: center;
+}
+
+button.bk-table__action-button {
+  height: 22px;
+  border: none;
+  border-radius: 3px;
+  padding: 0px 15px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 100;
+}
+
+button.bk-table__action-button.edit {
+  background: rgba(25, 157, 220, 0.8);
+  margin-right: 10px;
+}
+
+button.bk-table__action-button.delete {
+  background: rgba(244, 67, 54, 0.8);
+}
+
+button.bk-table__action-button.edit:hover {
+  background: rgba(25, 157, 220, 1);
+}
+
+button.bk-table__action-button.delete:hover {
+  background: rgba(244, 67, 54, 1);
+}

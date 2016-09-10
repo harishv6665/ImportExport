@@ -1,0 +1,70 @@
+.bk-page__table-pagination__wrapper {
+  position: absolute;
+  width: 100%;
+  background: #fff;
+  left: 0;
+  bottom: 0;
+  height: 50px;
+  padding: 14px 15px;
+}
+
+.bk-page__table-pagination__details {
+  padding-top: 3px;
+}
+
+.bk-page__table-pagination__details__title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #313942;
+}
+
+.bk-page__table-pagination__details__sub-title {
+  font-size: 13px;
+  padding-left: 6px;
+  color: #313942;
+}
+
+.bk-page__table-pagination__nav__button {
+  width: 22px;
+  height: 22px;
+  float: left;
+  margin-left: 10px;
+  border: none;
+  background: none;
+  position: relative;
+  border-radius: 3px;
+  line-height: 14px;
+  color: #647483;
+}
+
+.bk-page__table-pagination__nav__button__title {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.bk-page__table-pagination__nav__button.prev span:before,
+.bk-page__table-pagination__nav__button.next span:before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  width: 7px;
+  height: 7px;
+  border: 2px solid #647483;
+  border-right: none;
+  border-top: none;
+  transform: rotate(45deg) translateY(-6px);
+}
+
+.bk-page__table-pagination__nav__button.next span:before {
+  transform: rotate(-135deg) translateY(6px);
+  left: 0;
+}
+
+.bk-page__table-pagination__nav__button:hover {
+  background: rgba(100, 116, 131, 0.3);
+}
+
+.bk-page__table-pagination__nav__button.active {
+  background: #199ddc;
+  color: #fff;
+}

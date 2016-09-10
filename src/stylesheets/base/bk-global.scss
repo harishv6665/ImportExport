@@ -29,6 +29,22 @@ input, button {
   outline: none;
 }
 
+input::-webkit-input-placeholder {
+  color: inherit;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+  color: inherit;
+}
+
+input::-moz-placeholder { /* Firefox 19+ */
+  color: inherit;
+}
+
+input:-ms-input-placeholder {
+  color: inherit;
+}
+
 /* :::: RESET CLASSES ENDS HERE :::: */
 
 
