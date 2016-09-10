@@ -1,4 +1,40 @@
-<div>
-    <h1>Login page</h1>
-    <button ui-sref="main">Login</button>
+<div class="bk-login__wrapper">
+    <div class="bk-login">
+        <div class="bk-login__left">
+            <div class="bk-login__left__form">
+                <h4 class="bk-login__left__form__title">Login</h4>
+                <input type="text"
+                       class="bk-login__left__form__input-box"
+                       placeholder="Email">
+                <input type="password"
+                       class="bk-login__left__form__input-box"
+                       placeholder="Password">
+                <div class="bk-login__left__form__button__wrapper clearfix">
+                    <button class="bk-login__left__form__button fleft" ui-sref="main">Login</button>
+                    <div class="bk-login__left__form__check-box__wrapper fright">
+                        <input type="checkbox" class="bk-login__left__form__check-box" id="loginRememberMe">
+                        <label class="bk-login__left__form__check-box-label" for="loginRememberMe">Remember me</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bk-login__right">
+            <div class="bk-login__right__choice-box">
+                <h4 class="bk-login__right__choice-box__title">Login as</h4>
+                <ul class="bk-login__right__choice-box__list">
+
+                    <li class="bk-login__right__choice-box__list__item">
+                        <div class="bk-login__right__choice-box__list__item__image"></div>
+                        <span class="bk-login__right__choice-box__list__item__title">User</span>
+                    </li>
+
+                    <li class="bk-login__right__choice-box__list__item">
+                        <div class="bk-login__right__choice-box__list__item__image"></div>
+                        <span class="bk-login__right__choice-box__list__item__title">Admin</span>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
