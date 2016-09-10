@@ -1,4 +1,4 @@
-angular.module('ImportExport',['ui.router'])
+angular.module('BookKeeper',['ui.router'])
     .config(['$urlRouterProvider',
             '$stateProvider',
             '$locationProvider',
@@ -24,13 +24,14 @@ angular.module('ImportExport',['ui.router'])
                         url: "/main",
                         // abstract: true,
                         templateUrl: "dist/views/main.html",
+
                     })
                     .state("main.page", {
                         url: "/page/:page",
                         views: {
-                          container: {
-                              templateUrl: "dist/pageTemplate.html",
-                              controller: "pageController as page"
+                          Container: {
+                              templateUrl: "dist/views/pageTemplate.html",
+                              controller: "pageController as pageCtrl"
                           }
                         },
                         // resovle: {
