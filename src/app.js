@@ -28,12 +28,15 @@ angular.module('BookKeeper',['ui.router'])
                     })
                     .state("main.page", {
                         url: "/page/:page",
+                        params:{
+                            page: "aggrade"
+                        },
                         views: {
                           Container: {
                               templateUrl: "dist/views/pageTemplate.html",
                               controller: "pageController as pageCtrl"
                           }
-                        },
+                        }
                         // resovle: {
                         //     /* TODO: uncomment when integrating */
                         //     data: function ($stateParams) {
