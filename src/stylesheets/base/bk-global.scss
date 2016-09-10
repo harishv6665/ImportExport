@@ -1,0 +1,52 @@
+/* :::: RESET CLASSES STARTS HERE :::: */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 14px;
+  height: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* :::: RESET CLASSES ENDS HERE :::: */
+
+
+
+/* :::: COMMONLY USED CLASSES STARTS HERE :::: */
+
+.fleft {
+  float: left;
+}
+
+.fright {
+  float: right;
+}
+
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.bk-height-100per {
+  height: 100%;
+}
+
+/* :::: COMMONLY USED CLASSES ENDS HERE :::: */
