@@ -1,7 +1,6 @@
 bk-header {
   display: block;
   height: 60px;
-  border-bottom: 1px solid #647483;
 }
 
 .bk-header__logo {
@@ -21,12 +20,44 @@ bk-header {
 
 .bk-header__profile-dropdown__list {
   position: absolute;
-  display: none;
+  width: 100%;
+  list-style: none;
+  border: 1px solid #e2e2e2;
+  border-top: 1px solid rgba(226, 226, 226, 0);
+  box-shadow: -2px 2px 8px 0px #e2e2e2;
+  opacity: 0;
+  transform: translateY(10px);
+  visibility: hidden;
+  transition: opacity 0.15s ease-in, transform 0.15s ease-in;
+}
+
+.bk-header__profile-dropdown:hover .bk-header__profile-dropdown__list {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.bk-header__profile-dropdown__list__item {
+  display: block;
+  height: 40px;
+  font-size: 16px;
+  padding: 11px 15px;
+  color: #313942;
+  background: rgba(226, 226, 226, 0);
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+}
+
+
+.bk-header__profile-dropdown__list__item:hover {
+  background: rgba(226, 226, 226, 0.2);
 }
 
 .bk-header__profile-dropdown__header {
   height: 100%;
-  padding: 12px 5px;
+  padding: 12px 5px 0 12px;
+  border-left: 1px solid #e2e2e2;
+  cursor: pointer;
 }
 
 .bk-header__profile-dropdown__header__prof-pic {
