@@ -1,14 +1,21 @@
-angular.module('BookKeeper',['ui.router'])
+angular.module('BookKeeper',['ui.router', 'restangular'])
     .config(['$urlRouterProvider',
             '$stateProvider',
             '$locationProvider',
-            function($urlRouterProvider,$stateProvider,$locationProvider){
+            'RestangularProvider',
+            function($urlRouterProvider, $stateProvider, $locationProvider, RestangularProvider){
                 $locationProvider.html5Mode({
                     enabled: true,
                     requireBase: false
                 });
 
                 $urlRouterProvider.when("", "/");
+                
+                RestangularProvider.setBaseUrl('/rest');
+
+                RestangularProvider.setDefaultHeaders({
+                    "Content-Type": "application/json"
+                });
 
                 $urlRouterProvider.otherwise(function ($injector) {
                     var $state = $injector.get('$state');
@@ -33,18 +40,23 @@ angular.module('BookKeeper',['ui.router'])
                         },
                         views: {
                           Container: {
-                              templateUrl: "dist/views/pageTemplate.html",
-                              controller: "pageController as pageCtrl"
+                              templateUrl: "dist/views/page.html",
+                              controller: "PageController as pageCtrl"
+
                           }
+                        },
+                        resovle: {
+                            /* TODO: uncomment when integrating */
+                            Data: function ($stateParams) {
+                                return {
+                                    headers: [],
+                                    columns: []
+                                }
+                                return Restangular.one("url/"+$stateParams.page).then(function (data) {
+                                    return data
+                                })
+                            }
                         }
-                        // resovle: {
-                        //     /* TODO: uncomment when integrating */
-                        //     data: function ($stateParams) {
-                        //         Restangular.one("url/"+$stateParams.page).then(function (data) {
-                        //             return data
-                        //         })
-                        //     }
-                        // }
                     })
                     .state("404", {
                         templateUrl:"dist/views/404.html"
