@@ -111,19 +111,47 @@
 .bk-login__right__choice-box__list__item {
   text-align: center;
   margin-bottom: 25px;
+  position: relative;
+  color: #fff;
 }
 
-.bk-login__right__choice-box__list__item__image {
-  width: 65px;
-  height: 65px;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  margin: auto;
+.bk-login__right__choice-box__list__item__image.flaticon-user:before,
+.bk-login__right__choice-box__list__item__image.flaticon-user-1:before {
+  color: inherit;
+  font-size: 50px;
 }
 
 .bk-login__right__choice-box__list__item__title {
   display: block;
   font-size: 13px;
-  color: #fff;
   padding-top: 7px;
+  font-weight: 600;
+}
+
+.bk-login__right__choice-box__list__item.active {
+  color: #2196F3;
+}
+
+.bk-login__right__choice-box__list__item.active:before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: calc(50% + 10px);
+  width: 22px;
+  height: 22px;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.bk-login__right__choice-box__list__item.active:after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 5px;
+  border: 2px solid #2196F3;
+  border-top: none;
+  border-right: none;
+  transform: rotate(-45deg);
+  top: 8px;
+  left: calc(50% + 15px);
 }

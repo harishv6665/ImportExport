@@ -22,12 +22,14 @@ bk-header {
   position: absolute;
   width: 100%;
   list-style: none;
+  background-color: #fff;
   border: 1px solid #e2e2e2;
   border-top: 1px solid rgba(226, 226, 226, 0);
   box-shadow: -2px 2px 8px 0px #e2e2e2;
   opacity: 0;
   transform: translateY(10px);
   visibility: hidden;
+  z-index: 9;
   transition: opacity 0.15s ease-in, transform 0.15s ease-in;
 }
 
