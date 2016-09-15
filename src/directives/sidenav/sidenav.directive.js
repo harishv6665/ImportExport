@@ -1,55 +1,60 @@
 angular.module('BookKeeper')
-    .directive('bkSidenav', function () {
+    .directive('bkSidenav', function ($http) {
         return {
             templateUrl: "/dist/views/sidenav.html",
             restrict: "E",
-            controller: ['$scope', '$route', function ($scope, $route) {
-                $scope.$route = $route;
+            controller: ['$scope', '$http', function ($scope, $http) {
+
+                // $scope.getData = function(path) {
+                //     $http.get(path).then(function (result) {
+                //         console.log("got the path", result);
+                //     })
+                // }
 
                 $scope.sideNavLinks = [
                     {
                         label: "AGGRADE",
-                        sref: "/aggrade"
+                        sref: "main.page({page: 'aggrade'})"
                     },
                     {
                         label: "BITUMEN",
-                        sref: "/bitumen"
+                        sref: "main.page"
                     },
                     {
                         label: "LDO",
-                        sref: "/ldo"
+                        sref: "main.page"
                     },
                     {
                         label: "DISEAL",
-                        sref: "/diseal"
+                        sref: "main.page"
                     },
                     {
                         label: "OTHER INCOMING OIL",
-                        sref: "/otherIncomingOil"
+                        sref: "main.page"
                     },
                     {
                         label: "POWER READING",
-                        sref: "/powerReading"
+                        sref: "main.page"
                     },
                     {
                         label: "OUTGOING MATERIAL",
-                        sref: "/outgoingMaterial"
+                        sref: "main.page"
                     },
                     {
                         label: "SALARY",
-                        sref: "/salary"
+                        sref: "main.page"
                     },
                     {
                         label: "CASH BOX",
-                        sref: "/cashBox"
+                        sref: "main.page"
                     },
                     {
                         label: "EXPENDITURE",
-                        sref: "/expenditure"
+                        sref: "main.page"
                     },
                     {
                         label: "SUMMARY",
-                        sref: "/Summary"
+                        sref: "main.page"
                     }
                 ];
             }]

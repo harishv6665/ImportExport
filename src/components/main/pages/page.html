@@ -3,32 +3,36 @@
         <input type="text" class="bk-page__header__input-box" placeholder="Search">
         <span class="bk-page__header__input-icon"></span>
     </div>
-    <button class="bk-page__header__button fleft clearfix">
+    <button class="bk-page__header__button fleft clearfix"
+            ng-click="pageCtrl.filterSlider.show()">
         <span class="bk-page__header__button__icon filter-icon fleft"></span>
         <span class="bk-page__header__button__title fright">Filter</span>
     </button>
 
-    <button class="bk-page__header__button primary small fright clearfix">
+    <button class="bk-page__header__button primary small fright clearfix"
+            ng-click="pageCtrl.contentPopup.show()">
         <span class="bk-page__header__button__icon add-icon fleft">+</span>
         <span class="bk-page__header__button__title fright">Add</span>
     </button>
 </div>
+
 <div class="bk-page__table__wrapper">
-    <table class="bk-table">
-        <thead>
+    <div class="bk-table__wrapper">
+        <table class="bk-table">
+            <thead>
             <tr>
                 <th><input class="bk-table__checkbox" type="checkbox"></th>
                 <th>Sl no</th>
                 <th class="bk-text-align-center">Actions</th>
-                <th>Date</th>
-                <th>Trip sheet no</th>
-                <th>Supplier Name</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>IP address</th>
             </tr>
-        </thead>
-        <tbody>
-            <tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="cell in pageCtrl.tableData.data">
                 <td><input class="bk-table__checkbox" type="checkbox"></td>
-                <td>1</td>
+                <td>{{cell.id}}</td>
                 <td>
                     <div class="bk-table__action-button__wrapper">
 
@@ -42,132 +46,13 @@
 
                     </div>
                 </td>
-                <td>22/Aug/2016</td>
-                <td>#638121</td>
-                <td>Flipkart</td>
+                <td>{{cell.first_name}}</td>
+                <td>{{cell.last_name}}</td>
+                <td>{{cell.ip_address}}</td>
             </tr>
-            <tr>
-                <td><input class="bk-table__checkbox" type="checkbox"></td>
-                <td>1</td>
-                <td>
-                    <div class="bk-table__action-button__wrapper">
-
-                        <button class="bk-table__action-button edit">
-                            Edit
-                        </button>
-
-                        <button class="bk-table__action-button delete">
-                            Delete
-                        </button>
-
-                    </div>
-                </td>
-                <td>22/Aug/2016</td>
-                <td>#638121</td>
-                <td>Flipkart</td>
-            </tr>
-            <tr>
-                <td><input class="bk-table__checkbox" type="checkbox"></td>
-                <td>1</td>
-                <td>
-                    <div class="bk-table__action-button__wrapper">
-
-                        <button class="bk-table__action-button edit">
-                            Edit
-                        </button>
-
-                        <button class="bk-table__action-button delete">
-                            Delete
-                        </button>
-
-                    </div>
-                </td>
-                <td>22/Aug/2016</td>
-                <td>#638121</td>
-                <td>Flipkart</td>
-            </tr>
-            <tr>
-                <td><input class="bk-table__checkbox" type="checkbox"></td>
-                <td>1</td>
-                <td>
-                    <div class="bk-table__action-button__wrapper">
-
-                        <button class="bk-table__action-button edit">
-                            Edit
-                        </button>
-
-                        <button class="bk-table__action-button delete">
-                            Delete
-                        </button>
-
-                    </div>
-                </td>
-                <td>22/Aug/2016</td>
-                <td>#638121</td>
-                <td>Flipkart</td>
-            </tr>
-            <tr>
-                <td><input class="bk-table__checkbox" type="checkbox"></td>
-                <td>1</td>
-                <td>
-                    <div class="bk-table__action-button__wrapper">
-
-                        <button class="bk-table__action-button edit">
-                            Edit
-                        </button>
-
-                        <button class="bk-table__action-button delete">
-                            Delete
-                        </button>
-
-                    </div>
-                </td>
-                <td>22/Aug/2016</td>
-                <td>#638121</td>
-                <td>Flipkart</td>
-            </tr>
-            <tr>
-                <td><input class="bk-table__checkbox" type="checkbox"></td>
-                <td>1</td>
-                <td>
-                    <div class="bk-table__action-button__wrapper">
-
-                        <button class="bk-table__action-button edit">
-                            Edit
-                        </button>
-
-                        <button class="bk-table__action-button delete">
-                            Delete
-                        </button>
-
-                    </div>
-                </td>
-                <td>22/Aug/2016</td>
-                <td>#638121</td>
-                <td>Flipkart</td>
-            </tr>
-            <tr>
-                <td><input class="bk-table__checkbox" type="checkbox"></td>
-                <td>1</td>
-                <td>
-                    <div class="bk-table__action-button__wrapper">
-
-                        <button class="bk-table__action-button edit">
-                            Edit
-                        </button>
-
-                        <button class="bk-table__action-button delete">
-                            Delete
-                        </button>
-
-                    </div>
-                </td>
-                <td>22/Aug/2016</td>
-                <td>#638121</td>
-                <td>Flipkart</td>
-            </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 
     <div class="bk-page__table-pagination__wrapper clearfix">
 
@@ -189,10 +74,74 @@
             <button class="bk-page__table-pagination__nav__button">
                 <span class="bk-page__table-pagination__nav__button__title">3</span>
             </button>
+            <button class="bk-page__table-pagination__nav__button">
+                <span class="bk-page__table-pagination__nav__button__title">4</span>
+            </button>
             <button class="bk-page__table-pagination__nav__button next">
                 <span class="bk-page__table-pagination__nav__button__title"></span>
             </button>
         </div>
     </div>
 
+</div>
+
+<div class="bk-page__filter__wrapper"
+ng-if="pageCtrl.filterSlider.visible">
+    <div class="bk-page__filter__header clearfix">
+        <h6 class="bk-page__filter__header__title fleft">Filter</h6>
+        <button class="bk-page__filter__header__close-button fright"
+                ng-click="pageCtrl.filterSlider.onClose()">
+            <span class="bk-page__filter__header__close-button__icon"></span>
+        </button>
+    </div>
+</div>
+
+<div class="bk-page__form-popup__wrapper"
+ng-if="pageCtrl.contentPopup.visibile">
+    <div class="bk-page__form-popup">
+        <div class="bk-page__form-popup__header">
+            <h6 class="bk-page__form-popup__header__title">Form</h6>
+        </div>
+        <div class="bk-page__form-popup__content">
+            <form class="bk-page__form-popup__content__form">
+
+                <div class="bk-page__form-popup__content__form__row">
+                    <div class="bk-page__form-popup__content__form__row__input-label">
+                        <span class="bk-page__form-popup__content__form__row__input-label__title">Name :</span>
+                    </div>
+                    <div class="bk-page__form-popup__content__form__row__input__wrapper">
+                        <input type="text" class="bk-page__form-popup__content__form__row__input">
+                    </div>
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row">
+                    <div class="bk-page__form-popup__content__form__row__input-label">
+                        <span class="bk-page__form-popup__content__form__row__input-label__title">Customer ID :</span>
+                    </div>
+                    <div class="bk-page__form-popup__content__form__row__input__wrapper">
+                        <input type="text" class="bk-page__form-popup__content__form__row__input">
+                    </div>
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row">
+                    <div class="bk-page__form-popup__content__form__row__input-label">
+                        <span class="bk-page__form-popup__content__form__row__input-label__title">Customer ID :</span>
+                    </div>
+                    <div class="bk-page__form-popup__content__form__row__input__wrapper">
+                        <input type="text" class="bk-page__form-popup__content__form__row__input">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="bk-page__form-popup__footer">
+            <button class="bk-page__form-popup__footer__button save fright">
+                <span class="bk-page__form-popup__footer__button__title">Save</span>
+            </button>
+            <button class="bk-page__form-popup__footer__button cancel fright"
+                    ng-click="pageCtrl.contentPopup.onClose()">
+                <span class="bk-page__form-popup__footer__button__title">Cancel</span>
+            </button>
+        </div>
+    </div>
 </div>

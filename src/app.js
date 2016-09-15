@@ -29,9 +29,7 @@ angular.module('BookKeeper',['ui.router', 'restangular'])
                     })
                     .state("main", {
                         url: "/main",
-                        // abstract: true,
-                        templateUrl: "dist/views/main.html",
-
+                        templateUrl: "dist/views/main.html"
                     })
                     .state("main.page", {
                         url: "/page/:page",
@@ -45,17 +43,13 @@ angular.module('BookKeeper',['ui.router', 'restangular'])
 
                           }
                         },
-                        resovle: {
+                        resolve: {
                             /* TODO: uncomment when integrating */
-                            Data: function ($stateParams) {
-                                return {
-                                    headers: [],
-                                    columns: []
-                                }
-                                return Restangular.one("url/"+$stateParams.page).then(function (data) {
-                                    return data
+                            Data: ['$http', '$stateParams', function ($http, $stateParams) {
+                                return $http.get("/dist/json/"+ $stateParams.page + "Data.json").then(function (data) {
+                                    return data;
                                 })
-                            }
+                            }]
                         }
                     })
                     .state("404", {
