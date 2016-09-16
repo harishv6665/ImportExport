@@ -40,7 +40,7 @@ angular.module('BookKeeper')
             }
 
 			self.tableData =  Data;
-			console.log(Data)
+			self.delete = Service.delete;
 			
 			// self.editContent =  function (data){
 			// 	self.contentPopup.show(data);

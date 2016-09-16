@@ -36,6 +36,20 @@
             <tbody>
             <tr ng-repeat="cell in pageCtrl.tableData.itemsData">
                 <td ng-repeat="header in pageCtrl.tableData.dataOrder">
+                    <div class="bk-table__action-button__wrapper"
+                        ng-if="header === 'action'">
+
+                        <button class="bk-table__action-button edit"
+                            ng-click="pageCtrl.contentPopup.show(cell[header])">
+                            Edit
+                        </button>
+
+                        <button class="bk-table__action-button delete"
+                            ng-click="pageCtrl.delete(cell)">
+                            Delete
+                        </button>
+
+                    </div>
                     {{cell[header]}}
                 </td>
                 <!-- <td><input class="bk-table__checkbox" type="checkbox"></td>
@@ -104,7 +118,7 @@
 </div>
 
 <div class="bk-page__filter__wrapper"
-ng-if="pageCtrl.filterSlider.visible">
+    ng-if="pageCtrl.filterSlider.visible">
     <div class="bk-page__filter__header clearfix">
         <h6 class="bk-page__filter__header__title fleft">Filter</h6>
         <button class="bk-page__filter__header__close-button fright"

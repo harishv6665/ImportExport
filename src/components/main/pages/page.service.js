@@ -7,18 +7,22 @@ angular.module('BookKeeper')
 		function($rootScope, $stateParams, Restangular){
 
 			var self = this;
-			var aggrade = ["id", "aggradeItemEntryDate", "aggradeItemEntryTime", "tripSheetNumber","vehicleNumber","supplierName","material","quantityInTonnes","ratePerTonne","totalAmount","created","lastmodified","buserid"]
+			var aggrade = ["id", "action", "aggradeItemEntryDate", "aggradeItemEntryTime", "tripSheetNumber","vehicleNumber","supplierName","material","quantityInTonnes","ratePerTonne","totalAmount","created","lastmodified","buserid"]
 			self.getData = function ({category, page, userid}){
-				return Restangular.one("/item/view")
+				return Restangular.one("item/view")
 					.get({category, page, userid})
 					.then(function({data}){
 						data.dataOrder = aggrade;
+						data.headers = [...data.headers.slice(0,1), 'Actions', 
+							...data.headers.slice(1)];
 						return data
 					})
 			};
 
-			self.delete = function ({page, id}){
-				return Restangular.one("rest", page).one(id)
+			self.delete = function ({id}){
+				console.log("delete", id)
+				return Restangular.one("item/view", $stateParams.page)
+				.one(id)
 				.remove()
 			}
 
