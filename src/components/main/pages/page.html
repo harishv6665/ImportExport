@@ -23,6 +23,7 @@
             <tr>
                 <!-- <th><input class="bk-table__checkbox" type="checkbox"></th>
                 <th>Sl no</th>
+                <th>Status</th>
                 <th class="bk-text-align-center">Actions</th>
                 <th>First Name</th>
                 <th>Last Name</th>
@@ -39,6 +40,17 @@
                 </td>
                 <!-- <td><input class="bk-table__checkbox" type="checkbox"></td>
                 <td>{{cell.id}}</td>
+                <td>
+                    <div class="bk-table__toggler__wrapper">
+                        <input class="bk-table__toggler__input-ckbox" type="checkbox" id="box1">
+                        <label class="bk-table__toggler__label" for="box1">
+                            <span class="bk-table__toggler__label__control">
+                                <span class="bk-table__toggler__label__control__slider"></span>
+                            </span>
+                            <span class="bk-table__toggler__label__tooltip"></span>
+                        </label>
+                    </div>
+                </td>
                 <td>
                     <div class="bk-table__action-button__wrapper">
 
@@ -112,29 +124,96 @@ ng-if="pageCtrl.contentPopup.visibile">
             <form class="bk-page__form-popup__content__form">
 
                 <div class="bk-page__form-popup__content__form__row">
-                    <div class="bk-page__form-popup__content__form__row__input-label">
-                        <span class="bk-page__form-popup__content__form__row__input-label__title">Name :</span>
-                    </div>
-                    <div class="bk-page__form-popup__content__form__row__input__wrapper">
-                        <input type="text" class="bk-page__form-popup__content__form__row__input">
-                    </div>
-                </div>
-
-                <div class="bk-page__form-popup__content__form__row">
-                    <div class="bk-page__form-popup__content__form__row__input-label">
-                        <span class="bk-page__form-popup__content__form__row__input-label__title">Customer ID :</span>
-                    </div>
-                    <div class="bk-page__form-popup__content__form__row__input__wrapper">
-                        <input type="text" class="bk-page__form-popup__content__form__row__input">
+                    <div class="bk-page__form-popup__content__form__row__cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Trip sheet No :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text" class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
                     </div>
                 </div>
 
                 <div class="bk-page__form-popup__content__form__row">
-                    <div class="bk-page__form-popup__content__form__row__input-label">
-                        <span class="bk-page__form-popup__content__form__row__input-label__title">Customer ID :</span>
+                    <div class="bk-page__form-popup__content__form__row__cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Vehicle No :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text" class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
                     </div>
-                    <div class="bk-page__form-popup__content__form__row__input__wrapper">
-                        <input type="text" class="bk-page__form-popup__content__form__row__input">
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell fleft half-cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Date :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text" class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+
+                    <div class="bk-page__form-popup__content__form__row__cell fright half-cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Time :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text" class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell fleft half-cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Load weight(Kgs) :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text" class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+
+                    <div class="bk-page__form-popup__content__form__row__cell fright half-cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Empty weight(Kgs) :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text" class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell fleft half-cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Total Net litre :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text" class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+
+                    <div class="bk-page__form-popup__content__form__row__cell fright half-cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Price per litre :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text" class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row">
+                    <div class="bk-page__form-popup__content__form__row__cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label clearfix">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title fleft">Consumed litres :</span>
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title bold fright">Total litre : <span class="bold">5</span></span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text" class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
                     </div>
                 </div>
 
