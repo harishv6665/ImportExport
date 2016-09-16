@@ -23,6 +23,7 @@
             <tr>
                 <th><input class="bk-table__checkbox" type="checkbox"></th>
                 <th>Sl no</th>
+                <th>Status</th>
                 <th class="bk-text-align-center">Actions</th>
                 <th>First Name</th>
                 <th>Last Name</th>
@@ -33,6 +34,17 @@
             <tr ng-repeat="cell in pageCtrl.tableData.data">
                 <td><input class="bk-table__checkbox" type="checkbox"></td>
                 <td>{{cell.id}}</td>
+                <td>
+                    <div class="bk-table__toggler__wrapper">
+                        <input class="bk-table__toggler__input-ckbox" type="checkbox" id="box1">
+                        <label class="bk-table__toggler__label" for="box1">
+                            <span class="bk-table__toggler__label__control">
+                                <span class="bk-table__toggler__label__control__slider"></span>
+                            </span>
+                            <span class="bk-table__toggler__label__tooltip"></span>
+                        </label>
+                    </div>
+                </td>
                 <td>
                     <div class="bk-table__action-button__wrapper">
 
