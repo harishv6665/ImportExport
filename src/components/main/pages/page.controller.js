@@ -10,8 +10,19 @@ angular.module('BookKeeper')
 
 			self.contentPopup = {
 				visibile: false,
-				show: function () {
+				model: {},
+				show: function (obj) {
+					if(obj) this.model = obj;
+					else this.model = {}
 					this.visibile = true;
+				},
+				onAdd: function (form, obj){
+					if(form.$valid)
+						Service.create({page: $stateParams.page, data: obj})
+							.then((data)=>{
+								this.visibile = false;
+								self.tableData.itemsData.push(data);
+							})
 				},
 				onClose: function () {
 					this.visibile = false;
@@ -30,8 +41,9 @@ angular.module('BookKeeper')
 
 			self.tableData =  Data;
 			console.log(Data)
+			
 			// self.editContent =  function (data){
-			// 	$roorScope.contentPopup.show(data);
+			// 	self.contentPopup.show(data);
 			// };
 
 			// self.remove = service.delete;

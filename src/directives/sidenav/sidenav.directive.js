@@ -18,43 +18,43 @@ angular.module('BookKeeper')
                     },
                     {
                         label: "BITUMEN",
-                        sref: "main.page"
+                        sref: "main.page({page: 'bitumen'})"
                     },
                     {
                         label: "LDO",
-                        sref: "main.page"
+                        sref: "main.page({page: 'ldo'})"
                     },
                     {
                         label: "DISEAL",
-                        sref: "main.page"
+                        sref: "main.page({page: 'diseal'})"
                     },
                     {
                         label: "OTHER INCOMING OIL",
-                        sref: "main.page"
+                        sref: "main.page({page: 'other incoming oil'})"
                     },
                     {
                         label: "POWER READING",
-                        sref: "main.page"
+                        sref: "main.page({page: 'power reading'})"
                     },
                     {
                         label: "OUTGOING MATERIAL",
-                        sref: "main.page"
+                        sref: "main.page({page: 'outgoing material'})"
                     },
                     {
                         label: "SALARY",
-                        sref: "main.page"
+                        sref: "main.page({page: 'salary'})"
                     },
                     {
                         label: "CASH BOX",
-                        sref: "main.page"
+                        sref: "main.page({page: 'cash box'})"
                     },
                     {
                         label: "EXPENDITURE",
-                        sref: "main.page"
+                        sref: "main.page({page: 'expenditure'})"
                     },
                     {
                         label: "SUMMARY",
-                        sref: "main.page"
+                        sref: "main.page({page: 'summary'})"
                     }
                 ];
             }]
