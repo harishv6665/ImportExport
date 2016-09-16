@@ -1,16 +1,27 @@
 <div class="bk-login__wrapper">
-    <div class="bk-login">
+    <form novalidate 
+        name="loginform"
+        ng-init="LoginCtrl.userType = 'admin'"
+        class="bk-login">
         <div class="bk-login__left">
             <div class="bk-login__left__form">
                 <h4 class="bk-login__left__form__title">Login</h4>
                 <input type="text"
                        class="bk-login__left__form__input-box"
+                        ng-model="LoginCtrl.username"
+                        required="true" 
                        placeholder="Email">
                 <input type="password"
+                        required="true" 
+                        ng-model="LoginCtrl.password"
                        class="bk-login__left__form__input-box"
                        placeholder="Password">
                 <div class="bk-login__left__form__button__wrapper clearfix">
-                    <button class="bk-login__left__form__button fleft" ui-sref="main.page">Login</button>
+                    <button 
+                        class="bk-login__left__form__button fleft" 
+                        ng-click="LoginCtrl.validate(loginform)">
+                        Login
+                    </button>
                     <div class="bk-login__left__form__check-box__wrapper fright">
                         <input type="checkbox" class="bk-login__left__form__check-box" id="loginRememberMe">
                         <label class="bk-login__left__form__check-box-label" for="loginRememberMe">Remember me</label>
@@ -23,12 +34,20 @@
                 <h4 class="bk-login__right__choice-box__title">Login as</h4>
                 <ul class="bk-login__right__choice-box__list">
 
-                    <li class="bk-login__right__choice-box__list__item">
+                    <li class="bk-login__right__choice-box__list__item"
+                        ng-class="{
+                            active: LoginCtrl.userType == 'user'
+                        }"
+                        ng-click="LoginCtrl.userType = 'user'">
                         <div class="bk-login__right__choice-box__list__item__image flaticon-user"></div>
                         <span class="bk-login__right__choice-box__list__item__title">User</span>
                     </li>
 
-                    <li class="bk-login__right__choice-box__list__item">
+                    <li class="bk-login__right__choice-box__list__item"
+                        ng-class="{
+                            active: LoginCtrl.userType == 'admin'
+                        }"
+                        ng-click="LoginCtrl.userType = 'admin'">
                         <div class="bk-login__right__choice-box__list__item__image flaticon-user-1"></div>
                         <span class="bk-login__right__choice-box__list__item__title">Admin</span>
                     </li>
@@ -36,5 +55,5 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </form>
 </div>

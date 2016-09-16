@@ -21,17 +21,23 @@
         <table class="bk-table">
             <thead>
             <tr>
-                <th><input class="bk-table__checkbox" type="checkbox"></th>
+                <!-- <th><input class="bk-table__checkbox" type="checkbox"></th>
                 <th>Sl no</th>
                 <th class="bk-text-align-center">Actions</th>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>IP address</th>
+                <th>IP address</th> -->
+                <th ng-repeat="header in pageCtrl.tableData.headers">
+                    {{header}}
+                </th>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="cell in pageCtrl.tableData.data">
-                <td><input class="bk-table__checkbox" type="checkbox"></td>
+            <tr ng-repeat="cell in pageCtrl.tableData.itemsData">
+                <td ng-repeat="header in pageCtrl.tableData.dataOrder">
+                    {{cell[header]}}
+                </td>
+                <!-- <td><input class="bk-table__checkbox" type="checkbox"></td>
                 <td>{{cell.id}}</td>
                 <td>
                     <div class="bk-table__action-button__wrapper">
@@ -48,7 +54,7 @@
                 </td>
                 <td>{{cell.first_name}}</td>
                 <td>{{cell.last_name}}</td>
-                <td>{{cell.ip_address}}</td>
+                <td>{{cell.ip_address}}</td> -->
             </tr>
             </tbody>
         </table>

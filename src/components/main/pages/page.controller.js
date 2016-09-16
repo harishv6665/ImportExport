@@ -29,7 +29,7 @@ angular.module('BookKeeper')
             }
 
 			self.tableData =  Data;
-
+			console.log(Data)
 			// self.editContent =  function (data){
 			// 	$roorScope.contentPopup.show(data);
 			// };

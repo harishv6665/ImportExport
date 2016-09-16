@@ -11,12 +11,14 @@ angular.module('BookKeeper',['ui.router', 'restangular'])
 
                 $urlRouterProvider.when("", "/");
                 
-                RestangularProvider.setBaseUrl('/rest');
+                RestangularProvider.setBaseUrl('services');
 
                 RestangularProvider.setDefaultHeaders({
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "x-access-token": function() {
+                        return sessionStorage.getItem('token');
+                    }
                 });
-
                 $urlRouterProvider.otherwise(function ($injector) {
                     var $state = $injector.get('$state');
                     $state.go('404');
@@ -26,6 +28,7 @@ angular.module('BookKeeper',['ui.router', 'restangular'])
                     .state("login",{
                         url: "/",
                         templateUrl: "dist/views/login.html",
+                        controller: "LoginController as LoginCtrl"
                     })
                     .state("main", {
                         url: "/main",
@@ -34,7 +37,8 @@ angular.module('BookKeeper',['ui.router', 'restangular'])
                     .state("main.page", {
                         url: "/page/:page",
                         params:{
-                            page: "aggrade"
+                            page: "aggrade",
+                            pageno: "0"
                         },
                         views: {
                           Container: {
@@ -45,8 +49,13 @@ angular.module('BookKeeper',['ui.router', 'restangular'])
                         },
                         resolve: {
                             /* TODO: uncomment when integrating */
-                            Data: ['$http', '$stateParams', function ($http, $stateParams) {
-                                return $http.get("/dist/json/"+ $stateParams.page + "Data.json").then(function (data) {
+                            Data: ['PageService', '$stateParams', function (PageService, $stateParams) {
+                                return PageService.getData({
+                                        category: $stateParams.page,
+                                        page: $stateParams.pageno,
+                                        userid: sessionStorage.getItem("user")
+                                         })
+                                    .then(function (data) {
                                     return data;
                                 })
                             }]

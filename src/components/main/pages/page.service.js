@@ -5,10 +5,16 @@ angular.module('BookKeeper')
 		"$stateParams",
 		"Restangular",
 		function($rootScope, $stateParams, Restangular){
-			var self = this;
 
-			self.getData = function ({page, params}){
-				return Restangular.one("rest", page).get(params)
+			var self = this;
+			var aggrade = ["id", "aggradeItemEntryDate", "aggradeItemEntryTime", "tripSheetNumber","vehicleNumber","supplierName","material","quantityInTonnes","ratePerTonne","totalAmount","created","lastmodified","buserid"]
+			self.getData = function ({category, page, userid}){
+				return Restangular.one("/item/view")
+					.get({category, page, userid})
+					.then(function({data}){
+						data.dataOrder = aggrade;
+						return data
+					})
 			};
 
 			self.delete = function ({page, id}){
