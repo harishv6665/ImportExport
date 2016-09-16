@@ -1,17 +1,40 @@
 .bk-login__wrapper {
   position: relative;
   height: 100%;
-  background: #313942;
+  background: url(images/login-bg.jpeg) no-repeat;
+  background-size: cover;
+}
+
+.bk-login__wrapper:before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(57, 58, 60, 0.7);
 }
 
 .bk-login {
   position: relative;
-  top: 50%;
+  top: calc(50% + 60px);
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  height: 350px;
+  height: 370px;
   width: 600px;
   box-shadow: 15px 20px 80px 10px rgba(0, 0, 0, 0.3);
+}
+
+.bk-login__logo {
+  position: absolute;
+  width: 300px;
+  height: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -130px;
+  background: url(images/bluedart.png) no-repeat;
+  background-size: contain;
+  background-position: center center;
 }
 
 .bk-login__left {
@@ -113,6 +136,12 @@
   margin-bottom: 25px;
   position: relative;
   color: #fff;
+  opacity: 0.8;
+}
+
+.bk-login__right__choice-box__list__item:hover,
+.bk-login__right__choice-box__list__item.active {
+  opacity: 1;
 }
 
 .bk-login__right__choice-box__list__item__image.flaticon-user:before,
