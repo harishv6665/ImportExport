@@ -3,8 +3,16 @@
         <input type="text" class="bk-page__header__input-box" placeholder="Search">
         <span class="bk-page__header__input-icon"></span>
     </div>
-    <button class="bk-page__header__button fleft clearfix"
+
+    <button class="bk-page__header__button refresh fleft clearfix"
             ng-click="pageCtrl.filterSlider.show()">
+        <span class="bk-page__header__button__icon flaticon-arrows fleft"></span>
+        <span class="bk-page__header__button__title fright">Refresh</span>
+    </button>
+
+    <button class="bk-page__header__button fleft clearfix"
+            ng-click="pageCtrl.filterSlider.show()"
+            ng-if="false">
         <span class="bk-page__header__button__icon filter-icon fleft"></span>
         <span class="bk-page__header__button__title fright">Filter</span>
     </button>
@@ -42,12 +50,14 @@
 
                         <button class="bk-table__action-button edit"
                             ng-click="pageCtrl.contentPopup.show(cell)">
-                            Edit
+                            <span class="bk-table__action-button__icon flaticon-draw"></span>
+                            <span class="bk-table__action-button__title">Edit</span>
                         </button>
 
                         <button class="bk-table__action-button delete"
                             ng-click="pageCtrl.delete(cell)">
-                            Delete
+                            <span class="bk-table__action-button__icon flaticon-delete"></span>
+                            <span class="bk-table__action-button__title">Delete</span>
                         </button>
 
                     </div>
@@ -119,7 +129,8 @@
 </div>
 
 <div class="bk-page__filter__wrapper"
-    ng-if="pageCtrl.filterSlider.visible">
+     ng-if="flase">
+    <!--ng-if="pageCtrl.filterSlider.visible"-->
     <div class="bk-page__filter__header clearfix">
         <h6 class="bk-page__filter__header__title fleft">Filter</h6>
         <button class="bk-page__filter__header__close-button fright"
@@ -130,3 +141,5 @@
 </div>
 
 <div ng-include="'dist/views/aggrade.popup.html'"></div>
+<div ng-include="'dist/views/bitumen.popup.html'"
+ng-if="false"></div>

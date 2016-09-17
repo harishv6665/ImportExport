@@ -57,10 +57,11 @@
   height: 22px;
   border: none;
   border-radius: 3px;
-  padding: 0px 15px;
+  padding: 0px 10px 0px 25px;
   color: #fff;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 100;
+  position: relative;
 }
 
 .bk-table__action-button.edit {
@@ -78,4 +79,14 @@
 
 .bk-table__action-button.delete:hover {
   background: rgba(244, 67, 54, 1);
+}
+
+.bk-table__action-button__icon {
+  position: absolute;
+  left: 10px;
+  top: 3px;
+}
+
+.bk-table__action-button__icon:before {
+  font-size: 10px;
 }
