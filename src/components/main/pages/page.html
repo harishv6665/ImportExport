@@ -35,9 +35,10 @@
             </thead>
             <tbody>
             <tr ng-repeat="cell in pageCtrl.tableData.itemsData">
-                <td ng-repeat="header in pageCtrl.tableData.dataOrder">
+                <td ng-repeat="header in pageCtrl.tableData.headers"
+                    ng-init="head = pageCtrl.tableData.dataOrder[header]">
                     <div class="bk-table__action-button__wrapper"
-                        ng-if="header === 'action'">
+                        ng-if="header === 'ACTIONS'">
 
                         <button class="bk-table__action-button edit"
                             ng-click="pageCtrl.contentPopup.show(cell)">
@@ -50,7 +51,7 @@
                         </button>
 
                     </div>
-                    {{cell[header]}}
+                    {{head.type? head.type(cell[head.header]):cell[head.header]}}
                 </td>
                 <!-- <td><input class="bk-table__checkbox" type="checkbox"></td>
                 <td>{{cell.id}}</td>
