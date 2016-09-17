@@ -17,8 +17,9 @@ angular.module('BookKeeper')
 					this.visibile = true;
 				},
 				onAdd: function (form, obj){
+					let context = this;
 					if(form.$valid)
-						Service.create({page: $stateParams.page, data: context.model})
+						Service.create({page: $stateParams.page, data: this.model})
 							.then((data)=>{
 								this.visibile = false;
 								self.tableData.itemsData.push(data);
