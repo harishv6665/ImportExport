@@ -6,7 +6,7 @@ var gulp = require('gulp'),
     autoprefixer = lazyReq('gulp-autoprefixer'),
     flatten = lazyReq('gulp-flatten'),
     del = lazyReq('del'),
-    sass = lazyReq('gulp-sass'),
+    // sass = lazyReq('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps');
 
 var closureCompiler = require('google-closure-compiler').gulp();
@@ -57,7 +57,7 @@ gulp.task('js-closure', function () {
 gulp.task('sass', function () {
     return gulp.src('src/**/*.scss')
     //        .pipe(sourcemaps.init())
-        .pipe(sass()())
+        // .pipe(sass()())
         .pipe(concat()('app.css'))
         .pipe(autoprefixer()({
             browsers: ['last 2 versions'],
