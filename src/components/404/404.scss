@@ -1,0 +1,38 @@
+.bk-pnp__primary-title {
+  font-size: 45px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-top: 50px;
+  color: #f24125;
+}
+
+.bk-pnp {
+  text-align: center;
+}
+
+h5.bk-pnp__primary-sub-title {
+  font-size: 20px;
+  margin-bottom: 50px;
+  color: #5e5e5e;
+}
+
+h3.bk-pnp__secondary-title {
+  font-size: 26px;
+  font-weight: 500;
+  color: #323233;
+}
+
+.bk-pnp__image-container {
+  height: 230px;
+  margin: 70px;
+  background: url(dist/images/alien.png) no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+a.bk-pnp__home-link {
+  font-size: 20px;
+  text-decoration: underline;
+  color: #44cc27;
+  font-weight: 700;
+}
