@@ -31,6 +31,19 @@ gulp.task('js', function () {
 
 gulp.task('js-closure', function () {
     return gulp.src([
+        'libs/*.js',
+        'src/app.js',
+        'src/app.controller.js',
+        '!src/**/*compiled.js',
+        'src/**/*.js'
+    ])
+        .pipe(babel({
+            presets: ['es2015', 'stage-0']
+        }))
+        .pipe(concat()('app.js'))  
+        .pipe(gulp.dest('dist'));
+
+    return gulp.src([
             'src/app.js',
             'src/app.controller.js',
             '!src/**/*compiled.js',

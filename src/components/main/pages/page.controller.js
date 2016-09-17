@@ -18,10 +18,26 @@ angular.module('BookKeeper')
 				},
 				onAdd: function (form, obj){
 					if(form.$valid)
-						Service.create({page: $stateParams.page, data: obj})
+						Service.create({page: $stateParams.page, data: context.model})
 							.then((data)=>{
 								this.visibile = false;
 								self.tableData.itemsData.push(data);
+							})
+				},
+				onEdit: function (form, obj){
+					let context = this;
+					if(form.$valid)
+						Service.edit({page: $stateParams.page, data: context.model})
+							.then((data)=>{
+
+								this.visibile = false;
+								
+								var findItem = self.tableData.itemsData.find(function(item){
+									return item.buserid = context.model.userid
+								});
+								
+								_.assign(findItem, context.model);
+
 							})
 				},
 				onClose: function () {
