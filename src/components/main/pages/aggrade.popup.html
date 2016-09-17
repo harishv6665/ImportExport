@@ -6,7 +6,7 @@
             <h6 class="bk-page__form-popup__header__title">Form</h6>
         </div>
         <div class="bk-page__form-popup__content">
-            <form class="bk-page__form-popup__content__form">
+            <div class="bk-page__form-popup__content__form">
 
                 <div class="bk-page__form-popup__content__form__row">
                     <div class="bk-page__form-popup__content__form__row__cell">
@@ -42,7 +42,7 @@
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Date :</span>
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
-                            <input type="text" 
+                            <input type="date" 
                             name="aggradeItemEntryDate"
                             ng-model="pageCtrl.contentPopup.model.aggradeItemEntryDate"
                             class="bk-page__form-popup__content__form__row__cell__input">
@@ -54,7 +54,9 @@
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Time :</span>
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
-                            <input type="text" 
+                            <input type="time"
+                            autocomplete = "on"  
+                            placeholder="hrs:mins"
                             name="aggradeItemEntryTime"
                             ng-model="pageCtrl.contentPopup.model.aggradeItemEntryTime"
                             class="bk-page__form-popup__content__form__row__cell__input">
@@ -68,7 +70,7 @@
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Load weight(Tonnes) :</span>
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
-                            <input type="text" 
+                            <input type="number"
                             name="quantityInTonnes"
                             ng-model="pageCtrl.contentPopup.model.quantityInTonnes"
                             class="bk-page__form-popup__content__form__row__cell__input">
@@ -106,10 +108,10 @@
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Price per litre :</span>
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
-                            <input type="text" 
-                            name="ratePerTonne"
-                            ng-model="pageCtrl.contentPopup.model.ratePerTonne"
-                            class="bk-page__form-popup__content__form__row__cell__input">
+                            <input type="number" 
+                                name="ratePerTonne"
+                                ng-model="pageCtrl.contentPopup.model.ratePerTonne"
+                                class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
                 </div>
@@ -121,16 +123,17 @@
                             <!-- <span class="bk-page__form-popup__content__form__row__cell__input-label__title bold fright">Total litre : <span class="bold">5</span></span> -->
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
-                            <input type="text" 
-                            name="totalAmount"
-                            ng-model="pageCtrl.contentPopup.model.totalAmount"
-                            class="bk-page__form-popup__content__form__row__cell__input"
+                            <input type="number"
+                                disabled="true" 
+                                name="totalAmount"
+                                ng-value="(pageCtrl.contentPopup.model.quantityInTonnes||0) * (pageCtrl.contentPopup.model.ratePerTonne||0)"
+                                class="bk-page__form-popup__content__form__row__cell__input"
                             >
                         </div>
                     </div>
                 </div>
 
-            </form>
+            </div>
         </div>
         <div class="bk-page__form-popup__footer">
             <button class="bk-page__form-popup__footer__button save fright"
