@@ -59,14 +59,5 @@ angular.module('BookKeeper')
 			self.tableData =  Data;
 			self.delete = Service.delete;
 			
-			// self.editContent =  function (data){
-			// 	self.contentPopup.show(data);
-			// };
-
-			// self.remove = service.delete;
-
-			// self.goto = function ({pageno, sortby}){
-			// 	$state.go($state.current, { pageno, sortby });
-			// };
 		}
 ])

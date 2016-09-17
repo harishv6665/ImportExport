@@ -27,12 +27,12 @@ angular.module('BookKeeper')
 			}
 
 			self.update = function ({page, id, data}){
-				return Restangular.one("rest", page).one(id)
+				return Restangular.one("item/add", page).one(id)
 				.customPUT(data)
 			}
 
 			self.create = function ({page, data}){
-				return Restangular.one("rest", page)
+				return Restangular.one("item/add", page)
 				.customPOST(data)
 			}
 		}
