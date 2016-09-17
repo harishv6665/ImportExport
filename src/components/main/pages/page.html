@@ -46,22 +46,31 @@
                 <td ng-repeat="header in pageCtrl.tableData.headers"
                     ng-init="head = pageCtrl.tableData.dataOrder[header]">
                     <div class="bk-table__action-button__wrapper"
-                        ng-if="header === 'ACTIONS'">
+                        ng-if="header === 'ACTIONS'"
+                        ng-init="disable = head.type(cell)">
 
                         <button class="bk-table__action-button edit"
+                            ng-disable="disable"
+                            ng-class="{
+                                'disable': disable 
+                            }"
                             ng-click="pageCtrl.contentPopup.show(cell)">
                             <span class="bk-table__action-button__icon flaticon-draw"></span>
                             <span class="bk-table__action-button__title">Edit</span>
                         </button>
 
                         <button class="bk-table__action-button delete"
+                            ng-disable="disable"
+                            ng-class="{
+                                'disable': disable 
+                            }"
                             ng-click="pageCtrl.delete(cell)">
                             <span class="bk-table__action-button__icon flaticon-delete"></span>
                             <span class="bk-table__action-button__title">Delete</span>
                         </button>
 
                     </div>
-                    {{head.type? head.type(cell[head.header]):cell[head.header]}}
+                    {{(cell[head.header] && head.type)? head.type(cell[head.header]):cell[head.header]}}
                 </td>
                 <!-- <td><input class="bk-table__checkbox" type="checkbox"></td>
                 <td>{{cell.id}}</td>

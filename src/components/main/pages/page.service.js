@@ -12,6 +12,7 @@ angular.module('BookKeeper')
 			function converttodate(time) {
 				var date = new Date(time);
 				return $filter('date')(time, 'd/MMM/yyyy')
+
 				return ("0" + date.getDate().toString()).substr(-2) + "/" + ("0" + (date.getMonth() + 1).toString()).substr(-2) + "/" + (date.getFullYear().toString()).substr(2);
 			
 			}
@@ -27,12 +28,16 @@ angular.module('BookKeeper')
 				return converttodate(time) + ", "+ converttotime(time)
 			}
 
+
+
 			self.aggrade = {
 					"SI NO": { header: "id",
 								type: ""
 							},
 					"ACTIONS": { header:"action",
-								type: ""
+								type: function(cell){
+										return (((converttodate(new Date ())-converttodate(cell.created)) / (1000 * 24 * 60 * 60)) < 1)  && (cell.buserid === sessionStorage.getItem("user"))
+									}
 								},
 					"ENTRY DATE": { header:"aggradeItemEntryDate",
 								type: converttodate
@@ -75,6 +80,11 @@ angular.module('BookKeeper')
 				"SI NO" : { header:"id",
 							type: ""
 							},
+				"ACTIONS": { header:"action",
+								type: function(cell){
+										return (((converttodate(new Date ())-converttodate(cell.created)) / (1000 * 24 * 60 * 60)) < 1)  && (cell.buserid === sessionStorage.getItem("user"))
+									}
+								},
 				"ENTRY DATE": { header:"bitumenItemEntryDate",
 							type: converttodate
 							},
@@ -111,6 +121,11 @@ angular.module('BookKeeper')
 				"SI NO" : { header:"id",
 							type: ""
 							},
+				"ACTIONS": { header:"action",
+					type: function(cell){
+							return (((converttodate(new Date ())-converttodate(cell.created)) / (1000 * 24 * 60 * 60)) > 1)  || (cell.buserid != sessionStorage.getItem("user"))
+						}
+					},
 				"ENTRY DATE" : { header:"ldoEntryDate",
 							type: converttodate
 							},
