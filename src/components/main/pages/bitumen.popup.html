@@ -14,6 +14,7 @@
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
                             <input type="text"
+                                    ng-model="pageCtrl.contentPopup.model.invoiceNo"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
@@ -24,6 +25,7 @@
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
                             <input type="date"
+                                   ng-model="pageCtrl.contentPopup.model.bitumenItemEntryDate"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
@@ -36,6 +38,7 @@
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
                             <input type="text"
+                                   ng-model="pageCtrl.contentPopup.model.supplierName"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
@@ -48,6 +51,7 @@
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
                             <input type="text"
+                                   ng-model="pageCtrl.contentPopup.model.vehicleNumber"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
@@ -59,7 +63,9 @@
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Invoice Amount :</span>
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
-                            <input type="text"
+                            <input type="number"
+                                    min="0"
+                                    ng-model="pageCtrl.contentPopup.model.invoiceAmount"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
@@ -72,23 +78,28 @@
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__wrapper">
                             <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header">
-                                <span class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__title">Select material</span>
+                                <span class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__title">{{pageCtrl.contentPopup.model.material||'Select material'}}</span>
                             </div>
                             <ul class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list">
-                                <li class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list__item">Item 1</li>
-                                <li class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list__item">Item 2</li>
-                                <li class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list__item">Item 3</li>
-                                <li class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list__item">Item 4</li>
+                                <li class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list__item"
+                                    ng-repeat="item in ['6mm', '10mm', '12mm', '20mm', '40mm', 'msand', 'others']"
+                                    ng-click="pageCtrl.contentPopup.model.material = item"
+                                    >{{item}}</li>
                             </ul>
                         </div>
                     </div>
+
+
+
 
                     <div class="bk-page__form-popup__content__form__row__cell half-cell fright">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Total tone :</span>
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
-                            <input type="text"
+                            <input type="number"
+                                    min="0"
+                                   ng-model="pageCtrl.contentPopup.model.totalTone"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
@@ -98,7 +109,7 @@
         </div>
         <div class="bk-page__form-popup__footer">
             <button class="bk-page__form-popup__footer__button save fright"
-                    ng-click="pageCtrl.contentPopup.onAdd(aggrade_form, pageCtrl.contentPopup.model)">
+                    ng-click="pageCtrl.contentPopup.onAdd(bitumen_form, pageCtrl.contentPopup.model)">
                 <span class="bk-page__form-popup__footer__button__title">Save</span>
             </button>
             <button class="bk-page__form-popup__footer__button cancel fright"

@@ -149,6 +149,5 @@
     </div>
 </div>
 
-<div ng-include="'dist/views/aggrade.popup.html'"></div>
-<div ng-include="'dist/views/bitumen.popup.html'"
-ng-if="false"></div>
+<div ng-include="'dist/views/aggrade.popup.html'" ng-if="pageCtrl.contentPopup.aggradevisibile"></div>
+<div ng-include="'dist/views/bitumen.popup.html'" ng-if="pageCtrl.contentPopup.bitumenvisibile"></div>

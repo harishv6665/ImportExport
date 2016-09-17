@@ -9,19 +9,18 @@ angular.module('BookKeeper')
 			var self = this;
 
 			self.contentPopup = {
-				visibile: false,
 				model: {},
 				show: function (obj) {
 					if(obj) this.model = obj;
 					else this.model = {}
-					this.visibile = true;
+					this[$stateParams.page + 'visibile'] = true;
 				},
 				onAdd: function (form, obj){
 					let context = this;
 					if(form.$valid)
 						Service.create({page: $stateParams.page, data: this.model})
 							.then((data)=>{
-								this.visibile = false;
+								this[$stateParams.page + 'visibile'] = false;
 								self.tableData.itemsData.push(data);
 							})
 				},
@@ -31,7 +30,7 @@ angular.module('BookKeeper')
 						Service.edit({page: $stateParams.page, data: context.model})
 							.then((data)=>{
 
-								this.visibile = false;
+								this[$stateParams.page + 'visibile'] = false;
 								
 								var findItem = self.tableData.itemsData.find(function(item){
 									return item.buserid = context.model.userid
@@ -42,7 +41,7 @@ angular.module('BookKeeper')
 							})
 				},
 				onClose: function () {
-					this.visibile = false;
+					this[$stateParams.page + 'visibile'] = false;
 				}
 			};
 
