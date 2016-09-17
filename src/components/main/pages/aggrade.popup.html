@@ -91,7 +91,7 @@
                 </div>
 
                 <div class="bk-page__form-popup__content__form__row clearfix">
-                    <div class="bk-page__form-popup__content__form__row__cell fleft half-cell">
+                    <!-- <div class="bk-page__form-popup__content__form__row__cell fleft half-cell">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Material :</span>
                         </div>
@@ -101,8 +101,30 @@
                             ng-model="pageCtrl.contentPopup.model.material"
                             class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
+                    </div> -->
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fleft">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Material :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__wrapper">
+                            <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header">
+                                <span class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__title">
+                                <input type="text" 
+                                    name="material" 
+                                    disabled="true"
+                                    ng-model="pageCtrl.contentPopup.model.material"
+                                    placeholder="Select material">
+                                
+                                </span>
+                            </div>
+                            <ul class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list">
+                                <li class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list__item"
+                                    ng-repeat="item in ['6mm', '10mm', '12mm', '20mm', '40mm', 'msand', 'others']"
+                                    ng-click="pageCtrl.contentPopup.model.material = item"
+                                    >{{item}}</li>
+                            </ul>
+                        </div>
                     </div>
-
                     <div class="bk-page__form-popup__content__form__row__cell fright half-cell">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Price per litre :</span>

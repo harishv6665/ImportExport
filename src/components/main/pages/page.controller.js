@@ -11,8 +11,24 @@ angular.module('BookKeeper')
 			self.contentPopup = {
 				model: {},
 				show: function (obj) {
-					if(obj) this.model = obj;
-					else this.model = {}
+					if(obj) {
+						let data = {}
+						
+						data[$stateParams.page + "ItemEntryDate"] = obj[$stateParams.page + "ItemEntryDate"]
+						data[$stateParams.page + "EntryDate"] = obj[$stateParams.page + "EntryDate"]
+						
+						let data2 = _.forEach(data, function(val, key){ 
+						   data[key] = new Date(val)
+						})
+						
+						let time = obj[$stateParams.page + "ItemEntryTime"].split(":")
+						data2[$stateParams.page + "ItemEntryTime"] = new Date(1970, 0, 1, time[0], time[1], 0)
+						this.model = {
+							...obj,
+							...data2
+						};
+					}
+					
 					this[$stateParams.page + 'visibile'] = true;
 				},
 				onAdd: function (form, obj){
@@ -42,6 +58,7 @@ angular.module('BookKeeper')
 				},
 				onClose: function () {
 					this[$stateParams.page + 'visibile'] = false;
+					this.model = {}
 				}
 			};
 

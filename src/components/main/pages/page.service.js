@@ -118,7 +118,7 @@ angular.module('BookKeeper')
 			}
 
 
-			let modifyDateTime = function(cell) {
+			self.modifyDateTime = function(cell) {
 				let data = {}
 				if (cell[$stateParams.page + "ItemEntryDate"])
 					data[$stateParams.page + "ItemEntryDate"] = $filter('date')(cell[$stateParams.page+ "ItemEntryDate"], 'dd/MM/yyyy');
@@ -131,7 +131,7 @@ angular.module('BookKeeper')
 			}
 
 			self.create = function ({page, data}){
-				let convertedDatetime = modifyDateTime (data)
+				let convertedDatetime = self.modifyDateTime (data)
 
 				return Restangular.one("item/add", page)
 				.customPOST({
