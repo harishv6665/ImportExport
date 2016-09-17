@@ -3,3 +3,26 @@
     <bk-sidenav></bk-sidenav>
     <div ui-view="Container" class="bk-page__wrapper"></div>
 </div>
+
+<div class="bk-conformation-dialogue__wrapper"
+     ng-if="false">
+    <div class="bk-conformation-dialogue">
+        <div class="bk-conformation-dialogue__header">
+            <span class="bk-conformation-dialogue__header__title">Confirm Deletion?</span>
+        </div>
+        <div class="bk-conformation-dialogue__content">
+            <p class="bk-conformation-dialogue__content__text">
+                Are your sure you want to delete the record? <br> <br>
+                <span class="bold">Note:</span> This action can't be undone!
+            </p>
+        </div>
+        <div class="bk-conformation-dialogue__footer">
+            <button class="bk-conformation-dialogue__footer__button primary">
+                Delete
+            </button>
+            <button class="bk-conformation-dialogue__footer__button secondary">
+                Cancel
+            </button>
+        </div>
+    </div>
+</div>
