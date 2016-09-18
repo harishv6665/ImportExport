@@ -105,6 +105,8 @@ angular.module('BookKeeper')
 		  "SHORT DESCRIPTION": {"header": "shortDescription", "type": ""},
 		  "TOTAL CONSUMED (Hrs) ": {"header": "totalHrsConsumed", "type": ""},
 		  "DELIVERED SITE": {"header": "deliveredSite", "type": ""},
-		  "TYPE OF MATERIAL": {"header": "typeOfMaterial", "type": ""}
+		  "TYPE OF MATERIAL": {"header": "typeOfMaterial", "type": ""},
+		  "BALANCE (ltrs)": {"header": "balanceInLtrs", "type": ""},
+		  
 		}
 }])

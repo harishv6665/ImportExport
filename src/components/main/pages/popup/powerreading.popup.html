@@ -66,6 +66,7 @@
                             <input type="number" 
                             name="startReading"
                             ng-model="pageCtrl.contentPopup.model.startReading"
+                            ng-change="pageCtrl.contentPopup.model.totalHrsConsumed =pageCtrl.contentPopup.model.endReading - pageCtrl.contentPopup.model.startReading"
                             class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
@@ -77,6 +78,7 @@
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
                             <input type="number"  
                                 name="endReading"
+                                ng-change="pageCtrl.contentPopup.model.totalHrsConsumed = pageCtrl.contentPopup.model.endReading - pageCtrl.contentPopup.model.startReading"
                                 ng-model="pageCtrl.contentPopup.model.endReading"
                             class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
