@@ -51,7 +51,11 @@ angular.module('BookKeeper')
 					data[$stateParams.page + "ItemEntryTime"] = HeaderService.converttotime(cell[$stateParams.page+ "ItemEntryTime"]);
 				if (cell[$stateParams.page + "EntryDate"])
 					data[$stateParams.page + "EntryDate"] = $filter('date')(cell[$stateParams.page+ "EntryDate"], 'dd/MM/yyyy');
-				
+				if (cell["entryDate"])
+					data["entryDate"] = $filter('date')(cell["entryDate"], 'dd/MM/yyyy');
+				if (cell["entryTime"])
+					data["entryTime"] = HeaderService.converttotime(cell[$stateParams.page+ "entryTime"]);
+
 				return data;
 			}
 
@@ -62,7 +66,7 @@ angular.module('BookKeeper')
 				.customPOST({
 					...data,
 					...convertedDatetime||{},
-					buserid: sessionStorage.getItem("user")
+					userid: Number(sessionStorage.getItem("user"))
 				})
 			}
 		}
