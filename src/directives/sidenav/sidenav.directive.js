@@ -29,8 +29,8 @@ angular.module('BookKeeper')
                         sref: "main.page({page: 'diesel'})"
                     },
                     {
-                        label: "OTHER INCOMING OIL",
-                        sref: "main.page({page: 'otherincomingoil'})"
+                        label: "OTHER INCOMING MATERIAL",
+                        sref: "main.page({page: 'otherincomingmaterial'})"
                     },
                     {
                         label: "POWER READING",
@@ -42,7 +42,7 @@ angular.module('BookKeeper')
                     },
                     {
                         label: "SALARY",
-                        sref: "main.page({page: 'salary'})"
+                        sref: "main.page({page: 'salarystatements'})"
                     },
                     {
                         label: "CASH BOX",
