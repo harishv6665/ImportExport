@@ -25,20 +25,20 @@ angular.module('BookKeeper')
                         sref: "main.page({page: 'ldo'})"
                     },
                     {
-                        label: "DISEAL",
-                        sref: "main.page({page: 'diseal'})"
+                        label: "DIESEL",
+                        sref: "main.page({page: 'diesel'})"
                     },
                     {
                         label: "OTHER INCOMING OIL",
-                        sref: "main.page({page: 'other incoming oil'})"
+                        sref: "main.page({page: 'otherincomingoil'})"
                     },
                     {
                         label: "POWER READING",
-                        sref: "main.page({page: 'power reading'})"
+                        sref: "main.page({page: 'powerreading'})"
                     },
                     {
                         label: "OUTGOING MATERIAL",
-                        sref: "main.page({page: 'outgoing material'})"
+                        sref: "main.page({page: 'outgoingmaterial'})"
                     },
                     {
                         label: "SALARY",
@@ -46,7 +46,7 @@ angular.module('BookKeeper')
                     },
                     {
                         label: "CASH BOX",
-                        sref: "main.page({page: 'cash box'})"
+                        sref: "main.page({page: 'cashbox'})"
                     },
                     {
                         label: "EXPENDITURE",
