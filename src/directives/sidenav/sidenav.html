@@ -1,6 +1,9 @@
 <nav class="bk-sidenav__nav-list">
     <a ng-repeat="link in sideNavLinks"
        ui-sref={{link.sref}}
+       ng-class = "{
+       	 'active': link.isActive()
+       }"
        class="bk-sidenav__nav-list__link clearfix">
         <span class="bk-sidenav__nav-list__link__icon fleft"></span>
         <span class="bk-sidenav__nav-list__link__title fleft">{{link.label}}</span>

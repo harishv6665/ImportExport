@@ -1,62 +1,73 @@
 angular.module('BookKeeper')
-    .directive('bkSidenav', function ($http) {
-        return {
-            templateUrl: "/dist/views/sidenav.html",
-            restrict: "E",
-            controller: ['$scope', '$http', function ($scope, $http) {
-
-                // $scope.getData = function(path) {
-                //     $http.get(path).then(function (result) {
-                //         console.log("got the path", result);
-                //     })
-                // }
-
-                $scope.sideNavLinks = [
-                    {
-                        label: "AGGRADE",
-                        sref: "main.page({page: 'aggrade'})"
-                    },
-                    {
-                        label: "BITUMEN",
-                        sref: "main.page({page: 'bitumen'})"
-                    },
-                    {
-                        label: "LDO",
-                        sref: "main.page({page: 'ldo'})"
-                    },
-                    {
-                        label: "DIESEL",
-                        sref: "main.page({page: 'diesel'})"
-                    },
-                    {
-                        label: "OTHER INCOMING MATERIAL",
-                        sref: "main.page({page: 'otherincomingmaterial'})"
-                    },
-                    {
-                        label: "POWER READING",
-                        sref: "main.page({page: 'powerreading'})"
-                    },
-                    {
-                        label: "OUTGOING MATERIAL",
-                        sref: "main.page({page: 'outgoingmaterial'})"
-                    },
-                    {
-                        label: "SALARY",
-                        sref: "main.page({page: 'salarystatements'})"
-                    },
-                    {
-                        label: "CASH BOX",
-                        sref: "main.page({page: 'cashbox'})"
-                    },
-                    {
-                        label: "EXPENDITURE",
-                        sref: "main.page({page: 'expenditure'})"
-                    },
-                    {
-                        label: "SUMMARY",
-                        sref: "main.page({page: 'summary'})"
-                    }
-                ];
-            }]
-        };
-    });
+    .directive('bkSidenav', ["$stateParams", function ($stateParams) {
+            return {
+                templateUrl: "/dist/views/sidenav.html",
+                restrict: "E",
+                controller: ['$scope', '$http', function ($scope, $http) {
+    
+                    // $scope.getData = function(path) {
+                    //     $http.get(path).then(function (result) {
+                    //         console.log("got the path", result);
+                    //     })
+                    // }
+    
+                    $scope.sideNavLinks = [
+                        {
+                            label: "AGGRADE",
+                            sref: "main.page({page: 'aggrade'})",
+                            isActive: function(){ return 'aggrade' === $stateParams.page}
+                        },
+                        {
+                            label: "BITUMEN",
+                            sref: "main.page({page: 'bitumen'})",
+                            isActive: function(){ return 'bitumen' === $stateParams.page}
+                        },
+                        {
+                            label: "LDO",
+                            sref: "main.page({page: 'ldo'})",
+                            isActive: function(){ return 'ldo' === $stateParams.page}
+                        },
+                        {
+                            label: "DIESEL",
+                            sref: "main.page({page: 'diesel'})",
+                            isActive: function(){ return 'diesel' === $stateParams.page}
+                        },
+                        {
+                            label: "OTHER INCOMING MATERIAL",
+                            sref: "main.page({page: 'otherincomingmaterial'})",
+                            isActive: function(){ return 'otherincomingmaterial' === $stateParams.page}
+                        },
+                        {
+                            label: "POWER READING",
+                            sref: "main.page({page: 'powerreading'})",
+                            isActive: function(){ return 'powerreading' === $stateParams.page}
+                        },
+                        {
+                            label: "OUTGOING MATERIAL",
+                            sref: "main.page({page: 'outgoingmaterial'})",
+                            isActive: function(){ return 'outgoingmaterial' === $stateParams.page}
+                        },
+                        {
+                            label: "SALARY",
+                            sref: "main.page({page: 'salarystatements'})",
+                            isActive: function(){ return 'salarystatements' === $stateParams.page}
+                        },
+                        {
+                            label: "CASH BOX",
+                            sref: "main.page({page: 'cashbox'})",
+                            isActive: function(){ return 'cashbox' === $stateParams.page}
+                        },
+                        {
+                            label: "EXPENDITURE",
+                            sref: "main.page({page: 'expenditure'})",
+                            isActive: function(){ return 'expenditure' === $stateParams.page}
+                        },
+                        {
+                            label: "SUMMARY",
+                            sref: "main.page({page: 'summary'})",
+                            isActive: function(){ return 'summary' === $stateParams.page}
+                        }
+                    ];
+                }]
+            };
+        }]);
