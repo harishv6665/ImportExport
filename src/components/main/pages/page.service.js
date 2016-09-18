@@ -23,7 +23,7 @@ angular.module('BookKeeper')
 							...HeaderService.headers,
 							...self.updateFields(category)
 						};
-						console.log(data.dataOrder)
+						
 						data.headers = [...data.headers.slice(0,1), 'ACTIONS', 
 							...data.headers.slice(1)];
 						return data
