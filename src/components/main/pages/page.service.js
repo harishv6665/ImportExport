@@ -66,7 +66,7 @@ angular.module('BookKeeper')
 				.customPOST({
 					...data,
 					...convertedDatetime||{},
-					userid: Number(sessionStorage.getItem("user"))
+					userId: Number(sessionStorage.getItem("user"))
 				})
 			}
 		}
