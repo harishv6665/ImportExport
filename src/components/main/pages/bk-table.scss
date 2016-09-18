@@ -21,24 +21,26 @@
   background: rgba(100, 116, 131, 0.3) !important;
 }
 
-.bk-table th {
-  height: 48px;
-  font-weight: 600;
-  color: #313942;
-}
-
 .bk-table td {
-  height: 40px;
-  color: #708293;
+  height: 42px;
+  color: rgba(49, 57, 66, 0.6);
   transition: all 0.15s ease-out;
 }
 
 .bk-table th,
 .bk-table td {
-  padding: 0 30px 0 10px;
+  padding: 0 50px 0 10px;
   font-size: 14px;
   vertical-align: middle;
   white-space: nowrap;
+}
+
+.bk-table th {
+  height: 48px;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(49, 57, 66, 0.85);
 }
 
 .bk-table tr:nth-child(odd) td {
@@ -46,47 +48,66 @@
 }
 
 .bk-table th:first-child,
-.bk-table td:first-child,
-.bk-table th:nth-child(3),
-.bk-table td:nth-child(3) {
-  padding: 0 15px;
+.bk-table td:first-child {
+  padding: 0 40px 0 20px;
   text-align: center;
+
+}
+.bk-table th:nth-child(2),
+.bk-table td:nth-child(2) {
+  text-align: center;
+  padding: 0 40px 0 0;
 }
 
 .bk-table__action-button {
-  height: 22px;
+  height: 24px;
   border: none;
   border-radius: 3px;
-  padding: 0px 10px 0px 25px;
+  padding: 0px 10px 0px 27px;
   color: #fff;
   font-size: 12px;
   font-weight: 100;
   position: relative;
+  margin-top: 1px;
 }
 
 .bk-table__action-button.edit {
-  background: rgba(25, 157, 220, 0.8);
+  background: rgba(25, 157, 220, 1);
   margin-right: 10px;
 }
 
 .bk-table__action-button.delete {
-  background: rgba(244, 67, 54, 0.8);
+  background: rgba(244, 67, 54, 0.9);
 }
 
-.bk-table__action-button.edit:hover {
-  background: rgba(25, 157, 220, 1);
-}
+//.bk-table__action-button.edit:hover {
+//  background: rgba(25, 157, 220, 1);
+//}
 
-.bk-table__action-button.delete:hover {
-  background: rgba(244, 67, 54, 1);
-}
+//.bk-table__action-button.delete:hover {
+//  background: rgba(244, 67, 54, 1);
+//}
 
 .bk-table__action-button__icon {
   position: absolute;
   left: 10px;
-  top: 3px;
+  top: 4px;
 }
 
 .bk-table__action-button__icon:before {
-  font-size: 10px;
+  font-size: 11px;
+}
+
+.bk-table__action-button.disabled {
+  background: #d0d0d0;
+  cursor: no-drop;
+  color: #929292;
+}
+
+.bk-table__action-button__title {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  position: relative;
+  top: -1px;
 }
