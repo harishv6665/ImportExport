@@ -1,0 +1,121 @@
+<form class="bk-page__form-popup__wrapper"
+    name="aggrade_form">
+    <div class="bk-page__form-popup">
+        <div class="bk-page__form-popup__header">
+            <h6 class="bk-page__form-popup__header__title">Form</h6>
+        </div>
+        <div class="bk-page__form-popup__content">
+            <div class="bk-page__form-popup__content__form">
+
+                <div class="bk-page__form-popup__content__form__row__cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Board Type :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__wrapper">
+                            <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header">
+                                <span class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__title">
+                                <input type="text" 
+                                    name="boardType" 
+                                    disabled="true"
+                                    ng-model="pageCtrl.contentPopup.model.boardType"
+                                    placeholder="Select Board Type">
+                                
+                                </span>
+                            </div>
+                            <ul class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list">
+                                <li class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list__item"
+                                    ng-repeat="item in ['KEB', 'DG']"
+                                    ng-click="pageCtrl.contentPopup.model.boardType = item"
+                                    >{{item}}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                <div class="bk-page__form-popup__content__form__row">
+                    <div class="bk-page__form-popup__content__form__row__cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Entry Date :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="date" 
+                            name="entryDate"
+                            ng-model="pageCtrl.contentPopup.model.entryDate"
+                            class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+                <div class="bk-page__form-popup__content__form__row">
+                    <div class="bk-page__form-popup__content__form__row__cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">O/P Load :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number" 
+                            name="opLoad"
+                            ng-model="pageCtrl.contentPopup.model.opLoad"
+                            class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell fleft half-cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Start Reading :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number" 
+                            name="startReading"
+                            ng-model="pageCtrl.contentPopup.model.startReading"
+                            class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+
+                    <div class="bk-page__form-popup__content__form__row__cell fright half-cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">End Reading :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"  
+                                name="endReading"
+                                ng-model="pageCtrl.contentPopup.model.endReading"
+                            class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row clearfix">
+            
+
+                <div class="bk-page__form-popup__content__form__row">
+                    <div class="bk-page__form-popup__content__form__row__cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label clearfix">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title fleft">Total no of Hours Consumed :</span>
+                            <!-- <span class="bk-page__form-popup__content__form__row__cell__input-label__title bold fright">Total litre : <span class="bold">5</span></span> -->
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                disabled="true" 
+                                name="totalHrsConsumed"
+                                min="0"
+                                ng-model="pageCtrl.contentPopup.model.totalHrsConsumed"
+                                ng-value="pageCtrl.contentPopup.model.endReading - pageCtrl.contentPopup.model.startReading"
+                                class="bk-page__form-popup__content__form__row__cell__input"
+                            >
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="bk-page__form-popup__footer">
+        <button class="bk-page__form-popup__footer__button save fright"
+            ng-click="pageCtrl.contentPopup.onAdd(aggrade_form, pageCtrl.contentPopup.model)">
+            <span class="bk-page__form-popup__footer__button__title">Save</span>
+        </button>
+        <button class="bk-page__form-popup__footer__button cancel fright"
+                ng-click="pageCtrl.contentPopup.onClose()">
+            <span class="bk-page__form-popup__footer__button__title">Cancel</span>
+        </button>
+    </div>
+</form>
