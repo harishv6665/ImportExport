@@ -44,7 +44,7 @@ angular.module('BookKeeper')
 
 
 			self.modifyDateTime = function(cell) {
-				let data = {}
+				let data = {};
 				if (cell[$stateParams.page + "ItemEntryDate"])
 					data[$stateParams.page + "ItemEntryDate"] = $filter('date')(cell[$stateParams.page+ "ItemEntryDate"], 'dd/MM/yyyy');
 				if (cell[$stateParams.page + "ItemEntryTime"])
@@ -57,6 +57,10 @@ angular.module('BookKeeper')
 					data["entryTime"] = HeaderService.converttotime(cell[$stateParams.page+ "entryTime"]);
 				if (cell["invoiceDate"])
 					data["invoiceDate"] = $filter('date')(cell["invoiceDate"], 'dd/MM/yyyy');
+				if (cell["outputDate"])
+					data["outputDate"] = $filter('date')(cell["outputDate"], 'dd/MM/yyyy');
+				if (cell[ "outputTime"])
+					data[ "outputTime"] = HeaderService.converttotime(cell["outputTime"]);
 
 				return data;
 			}

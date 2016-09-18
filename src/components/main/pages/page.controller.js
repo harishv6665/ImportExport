@@ -21,9 +21,12 @@ angular.module('BookKeeper')
 						let data2 = _.forEach(data, function(val, key){ 
 						   data[key] = new Date(val)
 						})
-						
-						let time = obj[$stateParams.page + "ItemEntryTime"].split(":")
-						data2[$stateParams.page + "ItemEntryTime"] = new Date(1970, 0, 1, time[0], time[1], 0)
+
+                        if (obj[$stateParams.page + "ItemEntryTime"]){
+                            let time = obj[$stateParams.page + "ItemEntryTime"].split(":")
+                            data2[$stateParams.page + "ItemEntryTime"] = new Date(1970, 0, 1, time[0], time[1], 0)
+                        }
+
 						this.model = {
 							...obj,
 							...data2
