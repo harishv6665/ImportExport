@@ -28,6 +28,10 @@ angular.module('BookKeeper')
 		"ENTRY TIME": { header:"aggradeItemEntryTime", type: ""},
 		};
 
+	self.otherincomingmaterial ={
+		"MATERIAL DESCRIPTION": { header:"materialDescription", type: ""}
+	};
+
 	self.bitumen ={
 		"ENTRY DATE": { header:"bitumenItemEntryDate", type: converttodate },
 	};
