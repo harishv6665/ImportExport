@@ -42,7 +42,7 @@ angular.module('BookKeeper')
 
 		  "SI NO": {"header": "id", "type": ""},
 		  "ACTIONS": {"header": "action", "type": function(cell){
-								return (((converttodate(new Date ())-converttodate(cell.created)) / (1000 * 24 * 60 * 60)) > 1)  || (cell.buserid !== sessionStorage.getItem("user"))
+								return (((converttodate(new Date ())-converttodate(cell.created)) / (1000 * 24 * 60 * 60)) > 1)  || (cell.buserid !== Number(sessionStorage.getItem("user")))
 							}},
 		  "ENTRY DATE": {"header": "entryDate", "type": converttodate},
 		  "ENTRY TIME": {"header": "entryTime", "type": ""}, 
