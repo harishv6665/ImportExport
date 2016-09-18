@@ -22,7 +22,7 @@
   width: 100%;
   height: 100%;
   font-size: 14px;
-  color: #b5bbc2;
+  color: #838e9c;
   padding-right: 33px;
 }
 
@@ -37,7 +37,7 @@
   position: absolute;
   width: 10px;
   height: 10px;
-  border: 2px solid #dfe1e4;
+  border: 2px solid #838e9c;
   border-radius: 50%;
 }
 
@@ -45,8 +45,8 @@
   content: '';
   position: absolute;
   width: 2px;
-  height: 9px;
-  background: #dfe1e4;
+  height: 8px;
+  background: #838e9c;
   right: -12px;
   top: 11px;
   transform-origin: top;
@@ -81,9 +81,10 @@
 
 .bk-page__header__button__icon.add-icon {
   position: absolute;
-  font-size: 18px;
+  font-size: 20px;
   left: 15px;
-  top: 6px;
+  top: 5px;
+  font-weight: 500;
 }
 
 .bk-page__header__button__icon.filter-icon {
