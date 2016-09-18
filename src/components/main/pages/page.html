@@ -110,7 +110,7 @@
 
         <div class="bk-page__table-pagination__details fleft">
             <span class="bk-page__table-pagination__details__title">Showing:</span>
-            <span class="bk-page__table-pagination__details__sub-title">1 - 50 of 134</span>
+            <span class="bk-page__table-pagination__details__sub-title">{{pageCtrl.tableData.count? Number(pageCtrl.$stateParams.pageno) + 1 : 0 }} - {{pageCtrl.pagination.last_page }} of {{pageCtrl.tableData.count}}</span>
         </div>
 
         <div class="bk-page__table-pagination__nav fright">
