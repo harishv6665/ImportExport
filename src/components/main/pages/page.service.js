@@ -5,91 +5,13 @@ angular.module('BookKeeper')
 		"$stateParams",
 		"Restangular",
 		"$filter",
-		function($rootScope, $stateParams, Restangular, $filter){
+		"HeaderService",
+		function($rootScope, $stateParams, Restangular, $filter, HeaderService){
 
 			var self = this;
 			
-			function converttodate(time) {
-				var date = new Date(time);
-				return $filter('date')(time, 'd/MMM/yyyy')
-
-				return ("0" + date.getDate().toString()).substr(-2) + "/" + ("0" + (date.getMonth() + 1).toString()).substr(-2) + "/" + (date.getFullYear().toString()).substr(2);
-			
-			}
-			function converttotime(time) {
-				var date = new Date(time);
-				return $filter('date')(time, 'H:mm')
-
-				return date.getHours() + ':' + date.getMinutes()
-			}
-
-			function convertdateandtime(time){
-				return $filter('date')(time, 'medium')
-				return converttodate(time) + ", "+ converttotime(time)
-			}
-
-
-
-			self.aggrade = {
-					"SI NO": { header: "id", type: ""},
-					"ACTIONS": { header:"action",
-								type: function(cell){
-										return (((converttodate(new Date ())-converttodate(cell.created)) / (1000 * 24 * 60 * 60)) > 1)  || (cell.buserid !== sessionStorage.getItem("user"))
-									}
-								},
-					"ENTRY DATE": { header:"aggradeItemEntryDate", type: converttodate },
-					"ENTRY TIME": { header:"aggradeItemEntryTime", type: ""},
-					"TRIP SHEET NO": { header:"tripSheetNumber", type: ""},
-					"VEHICLE NO": { header:"vehicleNumber", type: ""},
-					"SUPPLIER NAME": { header:"supplierName", type: ""},
-					"MATERIAL": { header:"material", type: ""},
-					"QUANTITY IN TONNES": { header:"quantityInTonnes", type: ""},
-					"RATE PER TONNE": { header:"ratePerTonne", type: ""},
-					"TOTAL AMOUNT (Rs)": { header:"totalAmount", type: ""},
-					"CREATED": { header:"created", type: convertdateandtime },
-					"LAST MODIFIED": { header:"lastmodified", type: convertdateandtime },
-					"USERID": { header:"buserid", type: ""}};
-
-			self.bitumen ={
-				"SI NO" : { header:"id", type: ""},
-				"ACTIONS": { header:"action",
-								type: function(cell){
-										return (((converttodate(new Date ())-converttodate(cell.created)) / (1000 * 24 * 60 * 60)) > 1)  || (cell.buserid !== sessionStorage.getItem("user"))
-									}
-								},
-				"ENTRY DATE": { header:"bitumenItemEntryDate", type: converttodate },
-				"INVOICE NO": { header:"invoiceNo", type: ""},
-				"VEHICLE NO": { header:"vehicleNumber", type: ""},
-				"SUPPLIER NAME": { header:"supplierName", type: ""},
-				"MATERIAL": { header:"material", type: ""},
-				"TOTAL TONE": { header:"totalTone", type: ""},
-				"INVOICE AMOUNT (Rs)": { header:"invoiceAmount", type: ""},
-				"CREATED": { header:"created", type: converttodate },
-				"LAST MODIFIED": { header:"lastmodified", type: convertdateandtime },
-				"USERID": { header:"buserid", type: ""}
-			};
-			
-			self.ldo ={
-				"SI NO" : { header:"id", type: ""},
-				"ACTIONS": { header:"action",
-					type: function(cell){
-							return (((converttodate(new Date ())-converttodate(cell.created)) / (1000 * 24 * 60 * 60)) > 1)  || (cell.buserid != sessionStorage.getItem("user"))
-						}
-					},
-				"ENTRY DATE" : { header:"ldoEntryDate", type: converttodate },
-				"VEHICLE NO" : { header:"vehicleNumber", type: ""},
-				"TRIP SHEET NO" : { header:"tripSheetNumber", type: ""},
-				"EMPTY WEIGHT (Kgs)" : { header:"emptyWeightInKgs", type: ""},
-				"LOAD WEIGHTIN (Kgs)" : { header:"loadWeightInKgs", type: ""},
-				"NET WEIGHT (Kgs)" : { header:"netWeightInKgs", type: ""},
-				"PRICE PER LITRE (Rs)" : { header:"pricePerLitre", type: ""},
-				"TOTAL NET (ltrs)" : { header:"totalNetInLtrs", type: ""},
-				"TOTAL AMOUNT (Rs)" : { header:"totalAmount", type: ""},
-				"CONSUMED (ltrs)" : { header:"consumedNetInLtrs", type: ""},
-				"BALANCE (ltrs)" : { header:"balanceInLtrs", type: ""},
-				"CREATED" : { header:"created", type: converttodate },
-				"LAST MODIFIED" : { header:"lastmodified", type: convertdateandtime },
-				"USERID" : { header:"buserid", type: ""}
+			self.updateFields = function(category) {
+				return HeaderService[category || $stateParams.page] || { };
 			};
 
 			self.getData = function ({category, page, userid}){
@@ -97,8 +19,11 @@ angular.module('BookKeeper')
 					.get({category, page, userid})
 					.then(function({data}){
 						
-						data.dataOrder = self [category || $stateParams.page];
-						console.log(self [category || $stateParams.page], category, $stateParams.page)
+						data.dataOrder = {
+							...HeaderService.headers,
+							...self.updateFields(category)
+						};
+						console.log(data.dataOrder)
 						data.headers = [...data.headers.slice(0,1), 'ACTIONS', 
 							...data.headers.slice(1)];
 						return data
@@ -123,7 +48,7 @@ angular.module('BookKeeper')
 				if (cell[$stateParams.page + "ItemEntryDate"])
 					data[$stateParams.page + "ItemEntryDate"] = $filter('date')(cell[$stateParams.page+ "ItemEntryDate"], 'dd/MM/yyyy');
 				if (cell[$stateParams.page + "ItemEntryTime"])
-					data[$stateParams.page + "ItemEntryTime"] = converttotime(cell[$stateParams.page+ "ItemEntryTime"]);
+					data[$stateParams.page + "ItemEntryTime"] = HeaderService.converttotime(cell[$stateParams.page+ "ItemEntryTime"]);
 				if (cell[$stateParams.page + "EntryDate"])
 					data[$stateParams.page + "EntryDate"] = $filter('date')(cell[$stateParams.page+ "EntryDate"], 'dd/MM/yyyy');
 				
