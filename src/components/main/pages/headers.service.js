@@ -98,6 +98,9 @@ angular.module('BookKeeper')
 		  "NET PAYABLE": {"header": "netPayable", "type": ""},
 		  "CASH RECEIVED FROM": {"header": "cashReceivedFrom", "type": ""},
 		  "CASH GIVEN TO": {"header": "cashGivenTo", "type": ""},
-		  "SHORT DESCRIPTION": {"header": "shortDescription", "type": ""}
+		  "SHORT DESCRIPTION": {"header": "shortDescription", "type": ""},
+		  "TOTAL CONSUMED (Hrs) ": {"header": "totalHrsConsumed", "type": ""},
+		  "DELIVERED SITE": {"header": "deliveredSite", "type": ""},
+		  "TYPE OF MATERIAL": {"header": "typeOfMaterial", "type": ""}
 		}
 }])
