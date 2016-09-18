@@ -40,7 +40,8 @@
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Expenditure :</span>
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
-                            <input type="text"
+                            <input type="number"
+                                    min="0"
                                     name="expenditure"
                                    ng-model="pageCtrl.contentPopup.model.expenditure"
                                    class="bk-page__form-popup__content__form__row__cell__input">
@@ -63,15 +64,15 @@
                 </div>
 
         </div>
-        <div class="bk-page__form-popup__footer">
-            <button class="bk-page__form-popup__footer__button save fright"
-                    ng-click="pageCtrl.contentPopup.onAdd(bitumen_form, pageCtrl.contentPopup.model)">
-                <span class="bk-page__form-popup__footer__button__title">Save</span>
-            </button>
-            <button class="bk-page__form-popup__footer__button cancel fright"
-                    ng-click="pageCtrl.contentPopup.onClose()">
-                <span class="bk-page__form-popup__footer__button__title">Cancel</span>
-            </button>
-        </div>
+    </div>
+    <div class="bk-page__form-popup__footer">
+        <button class="bk-page__form-popup__footer__button save fright"
+                ng-click="pageCtrl.contentPopup.onAdd(bitumen_form, pageCtrl.contentPopup.model)">
+            <span class="bk-page__form-popup__footer__button__title">Save</span>
+        </button>
+        <button class="bk-page__form-popup__footer__button cancel fright"
+                ng-click="pageCtrl.contentPopup.onClose()">
+            <span class="bk-page__form-popup__footer__button__title">Cancel</span>
+        </button>
     </div>
 </form>

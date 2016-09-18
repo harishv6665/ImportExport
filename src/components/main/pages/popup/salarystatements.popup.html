@@ -27,8 +27,8 @@
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
                             <input type="text"
-                                    name="expenditure"
-                                   ng-model="pageCtrl.contentPopup.model.expenditure"
+                                    name="designation"
+                                   ng-model="pageCtrl.contentPopup.model.designation"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                             <ul class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list">
                                 <li class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list__item"
                                     ng-repeat="item in ['M', 'F']"
-                                    ng-click="pageCtrl.contentPopup.model.salaryMonth = item"
+                                    ng-click="pageCtrl.contentPopup.model.gender = item"
                                     >{{item}}</li>
                             </ul>
                         </div>
@@ -106,6 +106,7 @@
                                     name="totalDaysOfMonth"
                                     min="0"
                                     max="31"
+                                    ng-change="pageCtrl.contentPopup.model.numOfDaysWorked = pageCtrl.contentPopup.model.totalDaysOfMonth - pageCtrl.contentPopup.model.noOfLeaveTaken"
                                     ng-model="pageCtrl.contentPopup.model.totalDaysOfMonth"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
@@ -121,6 +122,7 @@
                                     name="noOfLeaveTaken"
                                     min="0"
                                     max="31"
+                                    ng-change="pageCtrl.contentPopup.model.numOfDaysWorked = pageCtrl.contentPopup.model.totalDaysOfMonth - pageCtrl.contentPopup.model.noOfLeaveTaken"
                                    ng-model="pageCtrl.contentPopup.model.noOfLeaveTaken"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
@@ -220,7 +222,7 @@
     </div>
     <div class="bk-page__form-popup__footer">
         <button class="bk-page__form-popup__footer__button save fright"
-                ng-click="pageCtrl.contentPopup.onAdd(bitumen_form, pageCtrl.contentPopup.model)">
+                ng-click="pageCtrl.contentPopup.model.netPayable = ((pageCtrl.contentPopup.model.salaryPerDay * (pageCtrl.contentPopup.model.totalDaysOfMonth - pageCtrl.contentPopup.model.noOfLeaveTaken)) + pageCtrl.contentPopup.model.extraConveyance - pageCtrl.contentPopup.model.salaryAdvance + pageCtrl.contentPopup.model.bonus);pageCtrl.contentPopup.onAdd(bitumen_form, pageCtrl.contentPopup.model)">
             <span class="bk-page__form-popup__footer__button__title">Save</span>
         </button>
         <button class="bk-page__form-popup__footer__button cancel fright"

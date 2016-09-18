@@ -12,6 +12,7 @@ angular.module('BookKeeper')
 			self.contentPopup = {
 				model: {},
 				show: function (obj) {
+					this.model = {};
 					if(obj) {
 						let data = {}
 						
