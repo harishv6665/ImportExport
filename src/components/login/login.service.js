@@ -9,7 +9,7 @@ angular.module('BookKeeper')
 			var self = this;
 			let save = function (response){
 				sessionStorage.setItem("user", response.data.userid);
-				sessionStorage.setItem("username", `${response.data.users[0].firstName} ${response.data.users[0].lastName}`);
+				sessionStorage.setItem("username", `${response.data.firstName} ${response.data.lastName||''}`);
 				sessionStorage.setItem("token", response.sessionId);
 			};
 

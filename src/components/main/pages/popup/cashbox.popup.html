@@ -1,0 +1,77 @@
+<form class="bk-page__form-popup__wrapper"
+      name="bitumen_form">
+    <div class="bk-page__form-popup">
+        <div class="bk-page__form-popup__header">
+            <h6 class="bk-page__form-popup__header__title">Add Cashbox Entry</h6>
+        </div>
+        <div class="bk-page__form-popup__content">
+            <div class="bk-page__form-popup__content__form">
+
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fleft">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Cash From :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text"
+                                    name="cashFrom"
+                                    ng-model="pageCtrl.contentPopup.model.cashFrom"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fright"
+                        ng-init="">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Date :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="date"
+                                    name="entryDate"
+                                   ng-model="pageCtrl.contentPopup.model.entryDate"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row">
+                    <div class="bk-page__form-popup__content__form__row__cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Expenditure :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text"
+                                    name="expenditure"
+                                   ng-model="pageCtrl.contentPopup.model.expenditure"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row">
+                    <div class="bk-page__form-popup__content__form__row__cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Balance (Rs) :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                    name="balance"
+                                   ng-model="pageCtrl.contentPopup.model.balance"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+        <div class="bk-page__form-popup__footer">
+            <button class="bk-page__form-popup__footer__button save fright"
+                    ng-click="pageCtrl.contentPopup.onAdd(bitumen_form, pageCtrl.contentPopup.model)">
+                <span class="bk-page__form-popup__footer__button__title">Save</span>
+            </button>
+            <button class="bk-page__form-popup__footer__button cancel fright"
+                    ng-click="pageCtrl.contentPopup.onClose()">
+                <span class="bk-page__form-popup__footer__button__title">Cancel</span>
+            </button>
+        </div>
+    </div>
+</form>

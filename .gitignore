@@ -7,3 +7,4 @@ net-dist
 *.exe
 *.zip
 .idea
+.DS_Store
