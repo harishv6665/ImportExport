@@ -1,3 +1,4 @@
+// vinoj
 angular.module('BookKeeper')
 	.service('LoginService', [
 		"$rootScope",
@@ -6,9 +7,9 @@ angular.module('BookKeeper')
 		"Restangular",
 		function($rootScope, $state, $stateParams, Restangular){
 			var self = this;
-
 			let save = function (response){
 				sessionStorage.setItem("user", response.data.userid);
+				sessionStorage.setItem("username", `${response.data.users[0].firstName} ${response.data.users[0].lastName}`);
 				sessionStorage.setItem("token", response.sessionId);
 			};
 

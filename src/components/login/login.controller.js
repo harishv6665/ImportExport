@@ -5,8 +5,8 @@ angular.module('BookKeeper')
 		"LoginService",
 		function($rootScope, $stateParams, service){
 			var self = this;
-			self.username = "admin"
-			self.password = "qwerty"
+			self.username = ""
+			self.password = ""
 			console.log("login controlller")
 			self.validate = function(form) {
 				console.log("validate function called", form.$valid)

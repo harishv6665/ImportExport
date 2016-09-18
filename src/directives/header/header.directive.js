@@ -5,7 +5,8 @@ angular.module('BookKeeper').directive('bkHeader', ["Restangular",
         templateUrl : "/dist/views/header.html",
         restrict: "E",
         controller: ["$scope", function($scope){
-
+                    $scope.username = sessionStorage.getItem("username");
+                    
                 	$scope.logout = function(){
                 		console.log("...")
                 		Restangular.one("user/logout")
