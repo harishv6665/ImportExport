@@ -114,22 +114,22 @@
         </div>
 
         <div class="bk-page__table-pagination__nav fright">
-            <button class="bk-page__table-pagination__nav__button prev">
+            <button class="bk-page__table-pagination__nav__button prev"
+                ng-disabled="pageCtrl.$stateParams.pageno==0"
+                ui-sref="main.page({ page: pageCtrl.$stateParams.page, pageno: pageCtrl.$stateParams.pageno - 1 })">
                 <span class="bk-page__table-pagination__nav__button__title"></span>
             </button>
-            <button class="bk-page__table-pagination__nav__button">
-                <span class="bk-page__table-pagination__nav__button__title">1</span>
+            <button class="bk-page__table-pagination__nav__button"
+                ng-repeat="pageno in pageCtrl.pagination.range"
+                ng-class="{
+                    'active': pageCtrl.$stateParams.pageno + 1 == pageno
+                }"
+                ui-sref="main.page({ page: pageCtrl.$stateParams.page, pageno: pageno - 1 })">
+                <span class="bk-page__table-pagination__nav__button__title">{{pageno}}</span>
             </button>
-            <button class="bk-page__table-pagination__nav__button active">
-                <span class="bk-page__table-pagination__nav__button__title">2</span>
-            </button>
-            <button class="bk-page__table-pagination__nav__button">
-                <span class="bk-page__table-pagination__nav__button__title">3</span>
-            </button>
-            <button class="bk-page__table-pagination__nav__button">
-                <span class="bk-page__table-pagination__nav__button__title">4</span>
-            </button>
-            <button class="bk-page__table-pagination__nav__button next">
+            <button class="bk-page__table-pagination__nav__button next"
+                ng-disabled="pageCtrl.$stateParams.pageno == pageCtrl.pagination.upperLimit - 1"
+                ui-sref="main.page({ page: pageCtrl.$stateParams.page, pageno: pageCtrl.$stateParams.pageno + 1 })">
                 <span class="bk-page__table-pagination__nav__button__title"></span>
             </button>
         </div>

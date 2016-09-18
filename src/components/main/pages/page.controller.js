@@ -7,7 +7,7 @@ angular.module('BookKeeper')
 		function( $rootScope, $stateParams, Service, Data){
 
 			var self = this;
-
+			self.$stateParams = $stateParams;
 			self.contentPopup = {
 				model: {},
 				show: function (obj) {
@@ -74,6 +74,12 @@ angular.module('BookKeeper')
 
 			self.tableData =  Data;
 			self.delete = Service.delete;
-			
+
+
+			self.pagination = {
+				upperLimit: _.ceil(Data.count/50),
+				
+			}
+			self.pagination.range = _.range($stateParams.pageno+1, self.pagination.upperLimit + 1).slice(0, 5)			
 		}
 ])
