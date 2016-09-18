@@ -1,0 +1,231 @@
+<form class="bk-page__form-popup__wrapper"
+      name="bitumen_form">
+    <div class="bk-page__form-popup">
+        <div class="bk-page__form-popup__header">
+            <h6 class="bk-page__form-popup__header__title">Add Salary statement Entry</h6>
+        </div>
+
+        <div class="bk-page__form-popup__content">
+            <div class="bk-page__form-popup__content__form">
+                <div class="bk-page__form-popup__content__form__row">
+                    <div class="bk-page__form-popup__content__form__row__cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Name :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text"
+                                    name="empName"
+                                   ng-model="pageCtrl.contentPopup.model.empName"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+                <div class="bk-page__form-popup__content__form__row">
+                    <div class="bk-page__form-popup__content__form__row__cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Designation :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text"
+                                    name="expenditure"
+                                   ng-model="pageCtrl.contentPopup.model.expenditure"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+                <div class="bk-page__form-popup__content__form__row">
+                    <div class="bk-page__form-popup__content__form__row__cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Gender :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__wrapper">
+                            <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header">
+                                <input type="text"
+                                       class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__title"
+                                        name="gender"
+                                        disabled="true"
+                                        ng-model="pageCtrl.contentPopup.model.gender"
+                                        placeholder="Select gender">
+                                <span class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__icon"></span>
+                            </div>
+                            <ul class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list">
+                                <li class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list__item"
+                                    ng-repeat="item in ['M', 'F']"
+                                    ng-click="pageCtrl.contentPopup.model.salaryMonth = item"
+                                    >{{item}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fleft">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Month :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__wrapper">
+                            <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header">
+                                <input type="text"
+                                       class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__title"
+                                        name="salaryMonth"
+                                        disabled="true"
+                                        ng-model="pageCtrl.contentPopup.model.salaryMonth"
+                                        placeholder="Select Month">
+                                <span class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__icon"></span>
+                            </div>
+                            <ul class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list">
+                                <li class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list__item"
+                                    ng-repeat="item in ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
+                                    ng-click="pageCtrl.contentPopup.model.salaryMonth = item"
+                                    >{{item}}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fright"
+                        ng-init="">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Year :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text"
+                                    name="salaryYear"
+                                   ng-model="pageCtrl.contentPopup.model.salaryYear"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+                 <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fleft">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Total Days of Month :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                    name="totalDaysOfMonth"
+                                    min="0"
+                                    max="31"
+                                    ng-model="pageCtrl.contentPopup.model.totalDaysOfMonth"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fright"
+                        ng-init="">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Leave taken :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                    name="noOfLeaveTaken"
+                                    min="0"
+                                    max="31"
+                                   ng-model="pageCtrl.contentPopup.model.noOfLeaveTaken"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fleft">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Worked Days :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                    name="numOfDaysWorked"
+                                    disabled="true" 
+                                    min="0"
+                                    max="31"
+                                    ng-value="pageCtrl.contentPopup.model.totalDaysOfMonth - pageCtrl.contentPopup.model.noOfLeaveTaken"
+                                    ng-model="pageCtrl.contentPopup.model.numOfDaysWorked"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fright"
+                        ng-init="">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Salary per Day :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                    name="salaryPerDay"
+                                    min="0"
+                                   ng-model="pageCtrl.contentPopup.model.salaryPerDay"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fleft">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Extra Conveyance :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                    name="extraConveyance"
+                                    min="0"
+                                    ng-model="pageCtrl.contentPopup.model.extraConveyance"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fright"
+                        ng-init="">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Salary Advance :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                    name="salaryAdvance"
+                                    min="0"
+                                   ng-model="pageCtrl.contentPopup.model.salaryAdvance"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fleft">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Bonus if Any :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                    name="bonus"
+                                    min="0"
+                                    ng-model="pageCtrl.contentPopup.model.bonus"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fright"
+                        ng-init="">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">NET PAYABLE :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                    name="netPayable"
+                                    disabled="true"
+                                    min="0"
+                                    ng-value="(pageCtrl.contentPopup.model.salaryPerDay * (pageCtrl.contentPopup.model.totalDaysOfMonth - pageCtrl.contentPopup.model.noOfLeaveTaken)) + pageCtrl.contentPopup.model.extraConveyance - pageCtrl.contentPopup.model.salaryAdvance + pageCtrl.contentPopup.model.bonus" 
+                                   ng-model="pageCtrl.contentPopup.model.netPayable"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="bk-page__form-popup__footer">
+        <button class="bk-page__form-popup__footer__button save fright"
+                ng-click="pageCtrl.contentPopup.onAdd(bitumen_form, pageCtrl.contentPopup.model)">
+            <span class="bk-page__form-popup__footer__button__title">Save</span>
+        </button>
+        <button class="bk-page__form-popup__footer__button cancel fright"
+                ng-click="pageCtrl.contentPopup.onClose()">
+            <span class="bk-page__form-popup__footer__button__title">Cancel</span>
+        </button>
+    </div>
+</form>
