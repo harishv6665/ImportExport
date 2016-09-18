@@ -131,7 +131,21 @@
   font-size: 14px;
   padding: 6px 10px;
   float: left;
-  color: #313942;
+  color: #696e75;
+  border: none;
+  background: none;
+  width: calc(100% - 20px);
+}
+
+.bk-page__form-popup__content__form__row__cell__cust-dropdown__header__icon {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #9e9e9e;
+  border-right: none;
+  border-top: none;
+  transform: rotate(-45deg);
+  top: 9px;
 }
 
 .bk-page__form-popup__content__form__row__cell__cust-dropdown__list {
