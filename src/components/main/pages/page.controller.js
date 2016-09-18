@@ -4,7 +4,8 @@ angular.module('BookKeeper')
 		"$stateParams",
 		"PageService",
 		"Data",
-		function( $rootScope, $stateParams, Service, Data){
+		"$state",
+		function( $rootScope, $stateParams, Service, Data, $state){
 
 			var self = this;
 			self.$stateParams = $stateParams;
@@ -37,7 +38,10 @@ angular.module('BookKeeper')
 						Service.create({page: $stateParams.page, data: this.model})
 							.then((data)=>{
 								this[$stateParams.page + 'visibile'] = false;
-								self.tableData.itemsData.push(data);
+								// self.tableData.itemsData.push(data);
+								$state.transitionTo($state.current, $stateParams, { 
+								  reload: true, inherit: false, notify: true
+								});
 							})
 				},
 				onEdit: function (form, obj){
