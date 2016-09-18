@@ -1,0 +1,161 @@
+<form class="bk-page__form-popup__wrapper"
+      name="ldo_form">
+    <div class="bk-page__form-popup">
+
+        <div class="bk-page__form-popup__header">
+            <h6 class="bk-page__form-popup__header__title">Add LDO record</h6>
+        </div>
+
+        <div class="bk-page__form-popup__content">
+            <div class="bk-page__form-popup__content__form">
+
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell fleft half-cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Entry Date :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="date"
+                                   name="ldoEntryDate"
+                                   ng-model="pageCtrl.contentPopup.model.ldoEntryDate"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+
+                    <div class="bk-page__form-popup__content__form__row__cell fright half-cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Tripsheet No :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text"
+                                   name="tripSheetNumber"
+                                   ng-model="pageCtrl.contentPopup.model.tripSheetNumber"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row">
+                    <div class="bk-page__form-popup__content__form__row__cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Vehicle No :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text"
+                                   name="vehicleNumber"
+                                   ng-model="pageCtrl.contentPopup.model.vehicleNumber"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell fleft half-cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Load Weight(Kgs) :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                   name="loadWeightInKgs"
+                                   ng-model="pageCtrl.contentPopup.model.loadWeightInKgs"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+
+                    <div class="bk-page__form-popup__content__form__row__cell fright half-cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Empty Weight(Kgs) :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                   name="emptyWeightInKgs"
+                                   ng-model="pageCtrl.contentPopup.model.emptyWeightInKgs"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row">
+                    <div class="bk-page__form-popup__content__form__row__cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Net Weight(Kgs) :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                   name="netWeightInKgs"
+                                   ng-model="pageCtrl.contentPopup.model.netWeightInKgs"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell fleft half-cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Total Net(Ltrs) :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                   name="totalNetInLtrs"
+                                   ng-model="pageCtrl.contentPopup.model.totalNetInLtrs"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+
+                    <div class="bk-page__form-popup__content__form__row__cell fright half-cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Consumed Net(Kgs) :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                   name="consumedNetInLtrs"
+                                   ng-model="pageCtrl.contentPopup.model.consumedNetInLtrs"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row">
+                    <div class="bk-page__form-popup__content__form__row__cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Price per Litre :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                   name="pricePerLitre"
+                                   ng-model="pageCtrl.contentPopup.model.pricePerLitre"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row">
+                    <div class="bk-page__form-popup__content__form__row__cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Total Amount :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                   name="totalAmount"
+                                   ng-model="pageCtrl.contentPopup.model.totalAmount"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="bk-page__form-popup__footer">
+            <button class="bk-page__form-popup__footer__button save fright"
+                    ng-click="pageCtrl.contentPopup.onAdd(ldo_form, pageCtrl.contentPopup.model)">
+                <span class="bk-page__form-popup__footer__button__title">Save</span>
+            </button>
+            <button class="bk-page__form-popup__footer__button cancel fright"
+                    ng-click="pageCtrl.contentPopup.onClose()">
+                <span class="bk-page__form-popup__footer__button__title">Cancel</span>
+            </button>
+        </div>
+
+    </div>
+</form>

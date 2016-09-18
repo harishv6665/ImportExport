@@ -1,8 +1,8 @@
 <form class="bk-page__form-popup__wrapper"
-    name="aggrade_form">
+      name="aggrade_form">
     <div class="bk-page__form-popup">
         <div class="bk-page__form-popup__header">
-            <h6 class="bk-page__form-popup__header__title">Form</h6>
+            <h6 class="bk-page__form-popup__header__title">Add aggrade record</h6>
         </div>
         <div class="bk-page__form-popup__content">
             <div class="bk-page__form-popup__content__form">
@@ -10,27 +10,39 @@
                 <div class="bk-page__form-popup__content__form__row">
                     <div class="bk-page__form-popup__content__form__row__cell">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
-                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Trip sheet No :</span>
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Supplier Name :</span>
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
                             <input type="text"
-                                name="tripSheetNumber"
-                                ng-model="pageCtrl.contentPopup.model.tripSheetNumber"
-                                class="bk-page__form-popup__content__form__row__cell__input">
+                                   name="supplierName"
+                                   ng-model="pageCtrl.contentPopup.model.supplierName"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
                 </div>
 
-                <div class="bk-page__form-popup__content__form__row">
-                    <div class="bk-page__form-popup__content__form__row__cell">
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fleft">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Trip sheet No :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text"
+                                   name="tripSheetNumber"
+                                   ng-model="pageCtrl.contentPopup.model.tripSheetNumber"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fright">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Vehicle No :</span>
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
-                            <input type="text" 
-                            name="vehicleNumber"
-                            ng-model="pageCtrl.contentPopup.model.vehicleNumber"
-                            class="bk-page__form-popup__content__form__row__cell__input">
+                            <input type="text"
+                                   name="vehicleNumber"
+                                   ng-model="pageCtrl.contentPopup.model.vehicleNumber"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
                 </div>
@@ -41,10 +53,10 @@
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Date :</span>
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
-                            <input type="date" 
-                            name="aggradeItemEntryDate"
-                            ng-model="pageCtrl.contentPopup.model.aggradeItemEntryDate"
-                            class="bk-page__form-popup__content__form__row__cell__input">
+                            <input type="date"
+                                   name="aggradeItemEntryDate"
+                                   ng-model="pageCtrl.contentPopup.model.aggradeItemEntryDate"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
 
@@ -54,40 +66,53 @@
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
                             <input type="time"
-                            autocomplete = "on"  
-                            placeholder="hrs:mins"
-                            name="aggradeItemEntryTime"
-                            ng-model="pageCtrl.contentPopup.model.aggradeItemEntryTime"
-                            class="bk-page__form-popup__content__form__row__cell__input">
+                                   autocomplete="on"
+                                   placeholder="hrs:mins"
+                                   name="aggradeItemEntryTime"
+                                   ng-model="pageCtrl.contentPopup.model.aggradeItemEntryTime"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
                 </div>
 
                 <div class="bk-page__form-popup__content__form__row clearfix">
-                    <div class="bk-page__form-popup__content__form__row__cell fleft half-cell">
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fleft">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
-                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Load weight(Tonnes) :</span>
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Material :</span>
                         </div>
-                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
-                            <input type="number"
-                            min="0"
-                            name="quantityInTonnes"
-                            ng-model="pageCtrl.contentPopup.model.quantityInTonnes"
-                            class="bk-page__form-popup__content__form__row__cell__input">
+                        <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__wrapper">
+                            <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header">
+                                <input type="text"
+                                       class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__title"
+                                       name="material"
+                                       disabled="true"
+                                       ng-model="pageCtrl.contentPopup.model.material"
+                                       placeholder="Select material">
+                                <span class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__icon"></span>
+                            </div>
+                            <ul class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list">
+                                <li class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list__item"
+                                    ng-repeat="item in ['6mm', '10mm', '12mm', '20mm', '40mm', 'msand', 'others']"
+                                    ng-click="pageCtrl.contentPopup.model.material = item"
+                                >{{item}}
+                                </li>
+                            </ul>
                         </div>
                     </div>
 
                     <div class="bk-page__form-popup__content__form__row__cell fright half-cell">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
-                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Supplier Name :</span>
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Load weight(Tonnes) :</span>
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
-                            <input type="text" 
-                            name="supplierName"
-                            ng-model="pageCtrl.contentPopup.model.supplierName" 
-                            class="bk-page__form-popup__content__form__row__cell__input">
+                            <input type="number"
+                                   min="0"
+                                   name="quantityInTonnes"
+                                   ng-model="pageCtrl.contentPopup.model.quantityInTonnes"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
+
                 </div>
 
                 <div class="bk-page__form-popup__content__form__row clearfix">
@@ -102,56 +127,31 @@
                             class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div> -->
-                    <div class="bk-page__form-popup__content__form__row__cell half-cell fleft">
-                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
-                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Material :</span>
-                        </div>
-                        <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__wrapper">
-                            <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header">
-                                <span class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__title">
-                                <input type="text" 
-                                    name="material" 
-                                    disabled="true"
-                                    ng-model="pageCtrl.contentPopup.model.material"
-                                    placeholder="Select material">
-                                
-                                </span>
-                            </div>
-                            <ul class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list">
-                                <li class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list__item"
-                                    ng-repeat="item in ['6mm', '10mm', '12mm', '20mm', '40mm', 'msand', 'others']"
-                                    ng-click="pageCtrl.contentPopup.model.material = item"
-                                    >{{item}}</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="bk-page__form-popup__content__form__row__cell fright half-cell">
+
+                    <div class="bk-page__form-popup__content__form__row__cell fleft half-cell">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Price per litre :</span>
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
-                            <input type="number" 
-                                name="ratePerTonne"
-                                min="0"
-                                ng-model="pageCtrl.contentPopup.model.ratePerTonne"
-                                class="bk-page__form-popup__content__form__row__cell__input">
+                            <input type="number"
+                                   name="ratePerTonne"
+                                   min="0"
+                                   ng-model="pageCtrl.contentPopup.model.ratePerTonne"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
-                </div>
-
-                <div class="bk-page__form-popup__content__form__row">
-                    <div class="bk-page__form-popup__content__form__row__cell">
+                    <div class="bk-page__form-popup__content__form__row__cell fright half-cell">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label clearfix">
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title fleft">Total Amount :</span>
                             <!-- <span class="bk-page__form-popup__content__form__row__cell__input-label__title bold fright">Total litre : <span class="bold">5</span></span> -->
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
                             <input type="number"
-                                disabled="true" 
-                                name="totalAmount"
-                                min="0"
-                                ng-value="(pageCtrl.contentPopup.model.quantityInTonnes||0) * (pageCtrl.contentPopup.model.ratePerTonne||0)"
-                                class="bk-page__form-popup__content__form__row__cell__input"
+                                   disabled="true"
+                                   name="totalAmount"
+                                   min="0"
+                                   ng-value="(pageCtrl.contentPopup.model.quantityInTonnes||0) * (pageCtrl.contentPopup.model.ratePerTonne||0)"
+                                   class="bk-page__form-popup__content__form__row__cell__input"
                             >
                         </div>
                     </div>
@@ -161,7 +161,7 @@
         </div>
         <div class="bk-page__form-popup__footer">
             <button class="bk-page__form-popup__footer__button save fright"
-                ng-click="pageCtrl.contentPopup.onAdd(aggrade_form, pageCtrl.contentPopup.model)">
+                    ng-click="pageCtrl.contentPopup.onAdd(aggrade_form, pageCtrl.contentPopup.model)">
                 <span class="bk-page__form-popup__footer__button__title">Save</span>
             </button>
             <button class="bk-page__form-popup__footer__button cancel fright"

@@ -33,7 +33,7 @@ angular.module('BookKeeper')
                             isActive: function(){ return 'diesel' === $stateParams.page}
                         },
                         {
-                            label: "OTHER INCOMING MATERIAL",
+                            label: "INCOMING MATERIAL",
                             sref: "main.page({page: 'otherincomingmaterial'})",
                             isActive: function(){ return 'otherincomingmaterial' === $stateParams.page}
                         },
