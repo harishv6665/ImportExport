@@ -10,7 +10,7 @@ angular.module('BookKeeper').directive('bkHeader', ["Restangular",
                 	$scope.logout = function(){
                 		console.log("...")
                 		Restangular.one("user/logout")
-                		.get({ user: sessionStorage.getItem("user")})
+                		.get({ id: sessionStorage.getItem("user")})
                 			.then(function(){
                 			sessionStorage.clear()
                 			$state.go("login")

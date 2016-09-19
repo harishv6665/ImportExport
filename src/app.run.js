@@ -22,11 +22,11 @@ angular.module('BookKeeper')
 	                $state.go("login");
 	                return false;
 	            }
-	            // if (response.status === 400 && $state.current.name !== 'login') {
-	            //     sessionStorage.clear();
-	            //     $state.go("login");
-	            //     return false;
-	            // }
+	            if (response.status === 400 && $state.current.name !== 'login') {
+	                sessionStorage.clear();
+	                $state.go("login");
+	                return false;
+	            }
 	            if (response.status === 404) {
 	                $state.go("404");
 	                return false;
