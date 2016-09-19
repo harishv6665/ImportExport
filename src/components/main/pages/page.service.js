@@ -2,11 +2,12 @@
 angular.module('BookKeeper')
 	.service('PageService', [
 		"$rootScope",
+		"$state",
 		"$stateParams",
 		"Restangular",
 		"$filter",
 		"HeaderService",
-		function($rootScope, $stateParams, Restangular, $filter, HeaderService){
+		function($rootScope, $state, $stateParams, Restangular, $filter, HeaderService){
 
 			var self = this;
 			
@@ -31,10 +32,13 @@ angular.module('BookKeeper')
 			};
 
 			self.delete = function ({id}){
-				console.log("delete", id)
-				return Restangular.one("item/view", $stateParams.page)
-				.one(id)
-				.remove()
+				return Restangular.one("item/delete")
+				.get({userid: sessionStorage.getItem('user'), category: $stateParams.page, itemid: id})
+				.then(function(data){
+					$state.transitionTo($state.current, $stateParams, { 
+					  reload: true, inherit: false, notify: true
+					});
+				})
 			}
 
 			self.update = function ({page, id, data}){
