@@ -24,10 +24,13 @@ angular.module('BookKeeper')
             });
 
             class confirmPopup extends popup{
-        		show({message, callback}){
+        		show({title, message, okButtonText, showCancelButton, callback}){
         			super.show()
-        			this.message = true
+        			this.title = title;
+        			this.message = message;
         			this.onOkcallback = callback;
+					this.okButtonText = okButtonText;
+					this.showCancelButton = showCancelButton;
         		}
         		onOk(){
         			if (typeof this.onOkcallback == 'function') this.onOkcallback();
@@ -40,7 +43,7 @@ angular.module('BookKeeper')
         	
         	$rootScope.confirmPopup = new confirmPopup();
 
-            Restangular.setErrorInterceptor(function (response) {
+            Restangular.setErrorInterceptor(function (response = {}) {
 	            $rootScope.showLoader = false;
 	            console.log("response", response)
 	            if (response.status === 422 && $state.current.name !== 'login') {
@@ -50,6 +53,7 @@ angular.module('BookKeeper')
 	            }
 	            if (response.status === 400 && $state.current.name !== 'login') {
 	                sessionStorage.clear();
+	                $rootScope.confirmPopup.show({  message: "Bad Request", title: "Error" })
 	                $state.go("login");
 	                return false;
 	            }
@@ -57,6 +61,8 @@ angular.module('BookKeeper')
 	                $state.go("404");
 	                return false;
 	            }
+	            
+	            $rootScope.confirmPopup.show({  message: ((response.data||{}).errormessage) || "Something went wrong!!!", title: "Error" });
 
 	            return true;
 	        })	

@@ -5,22 +5,30 @@
 </div>
 
 <div class="bk-conformation-dialogue__wrapper"
-     ng-if="false">
+     ng-if="$root.confirmPopup.visible">
     <div class="bk-conformation-dialogue">
         <div class="bk-conformation-dialogue__header">
-            <span class="bk-conformation-dialogue__header__title">Confirm Deletion?</span>
+            <span class="bk-conformation-dialogue__header__title">{{$root.confirmPopup.title || "Confirm Deletion"}}</span>
         </div>
         <div class="bk-conformation-dialogue__content">
-            <p class="bk-conformation-dialogue__content__text">
+            <p class="bk-conformation-dialogue__content__text"
+                ng-if="$root.confirmPopup.title !== 'Confirm Deletion'">
+                {{$root.confirmPopup.message}} <br> <br>
+            </p>
+            <p class="bk-conformation-dialogue__content__text"
+                ng-if="$root.confirmPopup.title === 'Confirm Deletion'">
                 Are your sure you want to delete the record? <br> <br>
                 <span class="bold">Note:</span> This action can't be undone!
             </p>
         </div>
         <div class="bk-conformation-dialogue__footer">
-            <button class="bk-conformation-dialogue__footer__button primary">
-                Delete
+            <button class="bk-conformation-dialogue__footer__button primary"
+                ng-click="$root.confirmPopup.onOk()">
+                {{$root.confirmPopup.okButtonText || 'OK'}}
             </button>
-            <button class="bk-conformation-dialogue__footer__button secondary">
+            <button class="bk-conformation-dialogue__footer__button secondary"
+                ng-if="$root.confirmPopup.showCancelButton"
+                ng-click="$root.confirmPopup.close()">
                 Cancel
             </button>
         </div>

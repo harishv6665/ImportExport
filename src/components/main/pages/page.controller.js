@@ -81,7 +81,15 @@ angular.module('BookKeeper')
             }
 
 			self.tableData =  Data;
-			self.delete = Service.delete;
+			self.delete = function (id) {
+				$rootScope.confirmPopup.show({
+					title: "Confirm Deletion",
+					callback: ()=>{Service.delete(id)},
+					okButtonText: "Delete",
+					showCancelButton: true
+				})
+			}
+
 
 
 			self.pagination = {
