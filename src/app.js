@@ -61,6 +61,10 @@ angular.module('BookKeeper',['ui.router', 'restangular'])
                             }]
                         }
                     })
+                    .state("main.settings", {
+                        url: "/page/settings",
+                        templateUrl: "dist/view/settings.html"
+                    })
                     .state("404", {
                         templateUrl:"dist/views/404.html"
                     });
