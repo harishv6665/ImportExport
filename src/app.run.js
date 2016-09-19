@@ -1,3 +1,12 @@
+class popup {
+	show (){
+		this.visible = true;
+	}
+	close (){
+		this.visible = false;
+	}
+};
+
 angular.module('BookKeeper')
     .run(["$rootScope", 
     	"Restangular",
@@ -13,6 +22,23 @@ angular.module('BookKeeper')
 				$rootScope.showLoader = false;
 
             });
+
+            class confirmPopup extends popup{
+        		show({message, callback}){
+        			super.show()
+        			this.message = true
+        			this.onOkcallback = callback;
+        		}
+        		onOk(){
+        			if (typeof this.onOkcallback == 'function') this.onOkcallback();
+        			super.close();
+        		}
+        		close(){
+        			super.close();
+        		}
+            }
+        	
+        	$rootScope.confirmPopup = new confirmPopup();
 
             Restangular.setErrorInterceptor(function (response) {
 	            $rootScope.showLoader = false;

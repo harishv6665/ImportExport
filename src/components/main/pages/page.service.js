@@ -16,10 +16,11 @@ angular.module('BookKeeper')
 			};
 
 			self.getData = function ({category, page, userid}){
+				$rootScope.showLoader = true;
 				return Restangular.one("item/view")
 					.get({category, page, userid})
-					.then(function({data}){
-						
+					.then(function({data}){	
+						$rootScope.showLoader = false;
 						data.dataOrder = {
 							...HeaderService.headers,
 							...self.updateFields(category)
@@ -32,9 +33,11 @@ angular.module('BookKeeper')
 			};
 
 			self.delete = function ({id}){
+				$rootScope.showLoader = true;
 				return Restangular.one("item/delete")
 				.get({userid: sessionStorage.getItem('user'), category: $stateParams.page, itemid: id})
 				.then(function(data){
+					$rootScope.showLoader = false;
 					$state.transitionTo($state.current, $stateParams, { 
 					  reload: true, inherit: false, notify: true
 					});
@@ -42,6 +45,7 @@ angular.module('BookKeeper')
 			}
 
 			self.update = function ({page, id, data}){
+				$rootScope.showLoader = true;
 				return Restangular.one("item/add", page).one(id)
 				.customPUT(data)
 			}
@@ -70,6 +74,7 @@ angular.module('BookKeeper')
 			}
 
 			self.create = function ({page, data}){
+				$rootScope.showLoader = true;
 				let convertedDatetime = self.modifyDateTime (data)
 
 				return Restangular.one("item/add", page)
@@ -77,6 +82,9 @@ angular.module('BookKeeper')
 					...data,
 					...convertedDatetime||{},
 					userId: Number(sessionStorage.getItem("user"))
+				}).then(function(response){
+					$rootScope.showLoader = false;
+					return response
 				})
 			}
 		}
