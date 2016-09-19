@@ -1,6 +1,6 @@
-angular.module('BookKeeper').directive('bkHeader', ["Restangular",
+angular.module('BookKeeper').directive('bkHeader', ["Restangular", "$rootScope",
  "$state",
- function(Restangular, $state) {
+ function(Restangular, $rootScope, $state) {
     return {
         templateUrl : "/dist/views/header.html",
         restrict: "E",
@@ -8,10 +8,11 @@ angular.module('BookKeeper').directive('bkHeader', ["Restangular",
                     $scope.username = sessionStorage.getItem("username");
                     
                 	$scope.logout = function(){
-                		console.log("...")
+                        $rootScope.showLoader = true;
                 		Restangular.one("user/logout")
                 		.get({ id: sessionStorage.getItem("user")})
                 			.then(function(){
+                                $rootScope.showLoader = false;
                 			sessionStorage.clear()
                 			$state.go("login")
                 		})
