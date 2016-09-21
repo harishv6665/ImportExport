@@ -3,27 +3,43 @@
         <h4 class="bk-settings__header__title">Settings</h4>
     </div>
     <div class="bk-settings__container">
-        <div class="bk-settings__container__group clearfix">
+        <form class="bk-settings__container__group clearfix"
+              name="changePassword_form">
             <div class="bk-settings__container__group__left-section fleft">
                 <span class="bk-settings__container__group__left-section__title">Change Password</span>
             </div>
             <div class="bk-settings__container__group__right-section fright">
                 <div class="bk-settings__container__group__right-section__row">
                     <input type="password"
+                           ng-model="settingsCtrl.model.oldPassword"
                            class="bk-settings__container__group__right-section__row__input-box"
-                           placeholder="Enter old password">
+                           placeholder="Enter old password"
+                           required>
                 </div>
                 <div class="bk-settings__container__group__right-section__row">
                     <input type="password"
+                           ng-model="settingsCtrl.model.newPassword"
                            class="bk-settings__container__group__right-section__row__input-box"
-                           placeholder="Enter new password">
+                           placeholder="Enter new password"
+                           required>
                 </div>
                 <div class="bk-settings__container__group__right-section__row">
                     <input type="password"
+                           ng-model="settingsCtrl.model.newPasswordMatch"
                            class="bk-settings__container__group__right-section__row__input-box"
-                           placeholder="Repeat new password">
+                           placeholder="Repeat new password"
+                           required>
                 </div>
+                <div class="bk-settings__container__group__right-section__row">
+                    <button class="bk-settings__container__group__right-section__row__button"
+                            ng-disabled = "changePassword_form.$invalid || settingsCtrl.model.newPasswordMatch !== settingsCtrl.model.newPassword"
+                            ng-class="{'disabled': changePassword_form.$invalid || settingsCtrl.model.newPasswordMatch !== settingsCtrl.model.newPassword}"
+                            ng-click="settingsCtrl.changePassword(settingsCtrl.model)">
+                        <span class="bk-settings__container__group__right-section__row__button__title">Change password</span>
+                    </button>
+                </div>
+                <!--isSame: {{((settingsCtrl.changePassword.newPasswordMatch === settingsCtrl.changePassword.newPassword))}}-->
             </div>
-        </div>
+        </form>
     </div>
 </div>

@@ -110,6 +110,6 @@ angular.module('BookKeeper')
 		  "DELIVERED SITE": {"header": "deliveredSite", "type": ""},
 		  "TYPE OF MATERIAL": {"header": "typeOfMaterial", "type": ""},
 		  "BALANCE (ltrs)": {"header": "balanceInLtrs", "type": ""},
-
+		  "AMOUNT (Rs)" : {"header" : "balance", "type" : ""},
 		}
 }])

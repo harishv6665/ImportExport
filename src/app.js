@@ -66,6 +66,7 @@ angular.module('BookKeeper',['ui.router', 'restangular'])
                         views: {
                           Container: {
                               templateUrl: "dist/views/settings.html",
+                              controller: "settingsController as settingsCtrl"
                           }
                         }
                     })
