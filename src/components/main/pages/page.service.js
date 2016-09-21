@@ -22,12 +22,14 @@ angular.module('BookKeeper')
 					.then(function({data}){	
 						$rootScope.showLoader = false;
 						data.dataOrder = {
-							...HeaderService.headers,
+							...HeaderService.headers||[],
 							...self.updateFields(category)
 						};
 						
-						data.headers = [...data.headers.slice(0,1), 'ACTIONS', 
-							...data.headers.slice(1)];
+						data.headers = [...(data.headers || []).slice(0,1), 'ACTIONS', 
+							...(data.headers || []).slice(1)];
+
+							console.log(data)
 						return data
 					})
 			};

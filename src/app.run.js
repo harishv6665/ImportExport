@@ -18,11 +18,6 @@ angular.module('BookKeeper')
     			$state.go("login")
     		}
 
-        	$rootScope.$on('$stateChangeStart', function () {
-				$rootScope.showLoader = false;
-
-            });
-
             class confirmPopup extends popup{
         		show({title, message, okButtonText, showCancelButton, callback}){
         			super.show()
@@ -42,7 +37,12 @@ angular.module('BookKeeper')
             }
         	
         	$rootScope.confirmPopup = new confirmPopup();
-
+			
+			$rootScope.$on('$stateChangeStart', function () {
+				$rootScope.showLoader = false;
+				$rootScope.confirmPopup.close();
+            });
+            
             Restangular.setErrorInterceptor(function (response = {}) {
 	            $rootScope.showLoader = false;
 	            console.log("response", response)
