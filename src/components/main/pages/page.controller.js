@@ -5,7 +5,8 @@ angular.module('BookKeeper')
 		"PageService",
 		"Data",
 		"$state",
-		function( $rootScope, $stateParams, Service, Data, $state){
+		"$filter",
+		function( $rootScope, $stateParams, Service, Data, $state, $filter){
 
 			var self = this;
 			self.$stateParams = $stateParams;
@@ -18,6 +19,8 @@ angular.module('BookKeeper')
 						
 						data[$stateParams.page + "ItemEntryDate"] = obj[$stateParams.page + "ItemEntryDate"]
 						data[$stateParams.page + "EntryDate"] = obj[$stateParams.page + "EntryDate"]
+						data["entryDate"] = obj["entryDate"]
+						data["invoiceDate"] = obj["invoiceDate"]
 						
 						let data2 = _.forEach(data, function(val, key){ 
 						   data[key] = new Date(val)
@@ -26,6 +29,18 @@ angular.module('BookKeeper')
                         if (obj[$stateParams.page + "ItemEntryTime"]){
                             let time = obj[$stateParams.page + "ItemEntryTime"].split(":")
                             data2[$stateParams.page + "ItemEntryTime"] = new Date(1970, 0, 1, time[0], time[1], 0)
+                        }
+                        if (obj["outputTime"]){
+                            let short = $filter('date')(obj["outputTime"], 'h:mm') 
+                            let time = short.split(":")
+                            console.log(short, time)
+                            data2["outputTime"] = new Date(1970, 0, 1, time[0], time[1], 0)
+
+
+                        }
+
+                        if (obj["outputDate"]){
+                            data2["outputDate"] = $filter('date')(obj["outputDate"], 'd/MMM/yyyy')
                         }
 
 						this.model = {

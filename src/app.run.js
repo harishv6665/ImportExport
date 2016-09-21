@@ -48,7 +48,7 @@ angular.module('BookKeeper')
 	            console.log("response", response)
 	            if (response.status === 422 && $state.current.name !== 'login') {
 	            	sessionStorage.clear();
-	                $state.go("login");
+	             	$state.go("login");
 	                return false;
 	            }
 	            if (response.status === 400 && $state.current.name !== 'login') {

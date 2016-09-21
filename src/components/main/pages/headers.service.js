@@ -87,7 +87,7 @@ angular.module('BookKeeper')
 		  "END READING": {"header": "endReading", "type": ""},
 		  "TOTAL POWER CONSUMED (Hrs)": {"header": "totalHrsConsumed", "type": ""},
             "OUTPUT DATE": {"header": "outputDate", "type": converttodate},
-            "OUTPUT TIME": {"header": "outputTime", "type": ""},
+            "OUTPUT TIME": {"header": "outputTime", "type": converttotime},
 		  "DELIVERED SITE": {"header": "deliveredSite", "type": ""},
 		  "TOTAL TONAGE": {"header": "totalTonage", "type": ""},
 		  "SALARY MONTH": {"header": "salaryMonth", "type": ""},

@@ -83,6 +83,7 @@ angular.module('BookKeeper')
 				.customPOST({
 					...data,
 					...convertedDatetime||{},
+					lastmodified: "",
 					userId: Number(sessionStorage.getItem("user"))
 				}).then(function(response){
 					$rootScope.showLoader = false;
