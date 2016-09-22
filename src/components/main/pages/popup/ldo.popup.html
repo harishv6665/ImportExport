@@ -106,7 +106,7 @@
 
                     <div class="bk-page__form-popup__content__form__row__cell fright half-cell">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
-                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Consumed Net(Kgs) :</span>
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Net Consumed(ltrs) :</span>
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
                             <input type="number"
@@ -142,7 +142,7 @@
                                    name="totalAmount"
                                    min="0"
                                    ng-model="pageCtrl.contentPopup.model.totalAmount"
-                                   ng-value="(pageCtrl.contentPopup.model.totalNetInLtrs||0) - (pageCtrl.contentPopup.model.consumedNetInLtrs||0)"
+                                   ng-value="(pageCtrl.contentPopup.model.totalNetInLtrs||0) * (pageCtrl.contentPopup.model.pricePerLitre||0)"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
