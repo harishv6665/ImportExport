@@ -5,7 +5,7 @@
     </div>
 
     <button class="bk-page__header__button refresh fleft clearfix"
-            ng-click="pageCtrl.filterSlider.show()">
+            ng-click="pageCtrl.refresh()">
         <span class="bk-page__header__button__icon flaticon-arrows fleft"></span>
         <span class="bk-page__header__button__title fright">Refresh</span>
     </button>
@@ -26,7 +26,11 @@
 
 <div class="bk-page__table__wrapper">
     <div class="bk-table__wrapper">
-        <table class="bk-table">
+        <div ng-if="!pageCtrl.tableData.itemsData || pageCtrl.tableData.itemsData.length == 0">
+            <span> NO DATA AVAILABLE </span>
+        </div>
+        <table class="bk-table"
+            ng-if="pageCtrl.tableData.itemsData.length > 0">
             <thead>
             <tr>
                 <!-- <th><input class="bk-table__checkbox" type="checkbox"></th>

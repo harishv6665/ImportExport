@@ -10,6 +10,10 @@ angular.module('BookKeeper')
 
 			var self = this;
 			self.$stateParams = $stateParams;
+			self.refresh = ()=>{
+				$state.reload()
+			};
+			
 			self.contentPopup = {
 				model: {},
 				show: function (obj) {
