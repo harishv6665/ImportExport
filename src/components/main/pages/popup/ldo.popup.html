@@ -58,6 +58,7 @@
                             <input type="number"
                                    name="loadWeightInKgs"
                                    ng-model="pageCtrl.contentPopup.model.loadWeightInKgs"
+                                   ng-change="pageCtrl.contentPopup.model.netWeightInKgs=(pageCtrl.contentPopup.model.loadWeightInKgs||0) - (pageCtrl.contentPopup.model.emptyWeightInKgs||0)"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
@@ -70,6 +71,7 @@
                             <input type="number"
                                    name="emptyWeightInKgs"
                                    ng-model="pageCtrl.contentPopup.model.emptyWeightInKgs"
+                                   ng-change="pageCtrl.contentPopup.model.netWeightInKgs=(pageCtrl.contentPopup.model.loadWeightInKgs||0) - (pageCtrl.contentPopup.model.emptyWeightInKgs||0)"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
@@ -112,6 +114,7 @@
                             <input type="number"
                                    name="consumedNetInLtrs"
                                    ng-model="pageCtrl.contentPopup.model.consumedNetInLtrs"
+                                   ng-change="pageCtrl.contentPopup.model.totalAmount=(pageCtrl.contentPopup.model.totalNetInLtrs||0) * (pageCtrl.contentPopup.model.pricePerLitre||0)"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
@@ -126,6 +129,7 @@
                             <input type="number"
                                    name="pricePerLitre"
                                    ng-model="pageCtrl.contentPopup.model.pricePerLitre"
+                                   ng-change="pageCtrl.contentPopup.model.totalAmount=(pageCtrl.contentPopup.model.totalNetInLtrs||0) * (pageCtrl.contentPopup.model.pricePerLitre||0)"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>

@@ -28,8 +28,6 @@ angular.module('BookKeeper')
 						
 						data.headers = [...(data.headers || []).slice(0,1), 'ACTIONS', 
 							...(data.headers || []).slice(1)];
-
-							console.log(data)
 						return data
 					})
 			};
