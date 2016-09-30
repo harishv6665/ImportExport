@@ -50,7 +50,14 @@ angular.module('BookKeeper',['ui.router', 'restangular'])
                         resolve: {
                             /* TODO: uncomment when integrating */
                             Data: ['PageService', '$stateParams', function (PageService, $stateParams) {
-                                return PageService.getData({
+
+                                var promise = PageService.getData;
+
+                                if(sessionStorage.getItem("isAdmin") === "true"){
+                                    promise = PageService.getUsers;
+                                }
+
+                                return promise({
                                         category: $stateParams.page,
                                         page: $stateParams.pageno,
                                         userid: sessionStorage.getItem("user")

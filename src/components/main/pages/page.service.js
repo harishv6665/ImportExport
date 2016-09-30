@@ -32,6 +32,27 @@ angular.module('BookKeeper')
 					})
 			};
 
+			self.getUsers = function ({category, userid}){
+				$rootScope.showLoader = true;
+				return Restangular.one("user/list")
+					.get({adminId: userid})
+					.then(function({data}){
+						$rootScope.showLoader = false;
+						data.headers = ["FIRST NAME", "LAST NAME", "USER ID", "ROLE", "PHONE NUMBER"]
+						data.dataOrder = {
+								...HeaderService.headers||[],
+						...self.updateFields(category)
+					};
+
+						data.headers = [...(data.headers || []).slice(0,1), 'ACTIONS',
+						...(data.headers || []).slice(1)];
+
+						data.itemsData = data.users;
+
+						return data
+					})
+			};
+
 			self.delete = function ({id}){
 				$rootScope.showLoader = true;
 				return Restangular.one("item/delete")

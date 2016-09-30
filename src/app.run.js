@@ -11,7 +11,8 @@ angular.module('BookKeeper')
     .run(["$rootScope", 
     	"Restangular",
     	"$state",
-    	function ($rootScope, Restangular, $state) {
+		"$stateParams",
+    	function ($rootScope, Restangular, $state, $stateParams) {
 
     		if (!sessionStorage.getItem("token") && $state.current.name !== 'login'){
     			sessionStorage.clear()
@@ -38,9 +39,26 @@ angular.module('BookKeeper')
         	
         	$rootScope.confirmPopup = new confirmPopup();
 			
-			$rootScope.$on('$stateChangeStart', function () {
+			$rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+				console.log("prev:", fromParams.page, "next:", toParams.page, sessionStorage.getItem('isAdmin') == "true");
+				if (toState.name !== "404" && toParams.page){
+					if(sessionStorage.getItem('isAdmin') == "true" && (toParams.page !== "admin")) {
+						event.preventDefault();
+						$state.go("404");
+					}
+
+					else if (sessionStorage.getItem('isAdmin') == "false" && (toParams.page === "admin")) {
+						event.preventDefault();
+						$state.go("404");
+					}
+				}
+
+				if(sessionStorage.getItem('isAdmin') == "false")
 				$rootScope.showLoader = false;
 				$rootScope.confirmPopup.close();
+
+
+
             });
             
             Restangular.setErrorInterceptor(function (response = {}) {

@@ -48,7 +48,11 @@ angular.module('BookKeeper')
 
 		  "SI NO": {"header": "id", "type": ""},
 		  "ACTIONS": {"header": "action", "type": function(cell){
-								return (((converttodate(new Date ())-converttodate(cell.created)) / (1000 * 24 * 60 * 60)) > 1)  || (cell.buserid !== Number(sessionStorage.getItem("user")))
+							if(sessionStorage.getItem('isAdmin') === "true") {
+								return false;
+							}
+
+							return (((converttodate(new Date ())-converttodate(cell.created)) / (1000 * 24 * 60 * 60)) > 1)  || (cell.buserid !== Number(sessionStorage.getItem("user")))
 							}},
 		  "ENTRY DATE": {"header": "entryDate", "type": converttodate},
 		  "ENTRY TIME": {"header": "entryTime", "type": ""},
@@ -111,5 +115,10 @@ angular.module('BookKeeper')
 		  "TYPE OF MATERIAL": {"header": "typeOfMaterial", "type": ""},
 		  "BALANCE (ltrs)": {"header": "balanceInLtrs", "type": ""},
 		  "AMOUNT (Rs)" : {"header" : "balance", "type" : ""},
+			"FIRST NAME" : {"header" : "firstName", "type" : ""},
+			"LAST NAME" : {"header" : "lastName", "type" : ""},
+			"USER ID" : {"header" : "userid", "type" : ""},
+			"ROLE" : {"header" : "role", "type" : ""},
+			"PHONE NUMBER" : {"header" : "phonenumber", "type" : ""},
 		}
 }])

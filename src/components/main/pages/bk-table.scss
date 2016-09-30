@@ -6,6 +6,20 @@
 .bk-table__wrapper {
   height: calc(100% - 45px);
   overflow: auto;
+  position: relative;
+}
+
+.bk-table__error-msg {
+  position: absolute;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  left: 50%;
+  font-size: 50px;
+  font-weight: 800;
+  opacity: 0.2;
+  color: #313942;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 
 .bk-table {

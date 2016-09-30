@@ -11,6 +11,8 @@ angular.module('BookKeeper')
 				sessionStorage.setItem("user", response.data.userid);
 				sessionStorage.setItem("username", `${response.data.firstName} ${response.data.lastName||''}`);
 				sessionStorage.setItem("token", response.sessionId);
+				sessionStorage.setItem("isAdmin", response.redirectParam === "/admin");
+
 			};
 
 			self.login =  function ({ username, password, role}) {
@@ -23,7 +25,12 @@ angular.module('BookKeeper')
 						if (response.successMessage === 'login successful') {
 							
 							save(response)
-							$state.go("main.page", { page: "aggrade"})
+							console.log(response);
+							if(response.redirectParam == '/admin'){
+								$state.go("main.page", { page: "admin"})
+							} else {
+								$state.go("main.page", { page: "aggrade"})
+							}
 							return response;
 						}
 					})

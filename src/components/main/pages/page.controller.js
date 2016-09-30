@@ -13,7 +13,7 @@ angular.module('BookKeeper')
 			self.refresh = ()=>{
 				$state.reload()
 			};
-			
+			self.isAdmin = (sessionStorage.getItem('isAdmin') == "true");
 			self.contentPopup = {
 				model: {},
 				show: function (obj) {
