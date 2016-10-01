@@ -52,7 +52,9 @@ angular.module('BookKeeper')
 							...data2
 						};
 					}
-					
+
+					console.log("in", $stateParams.page)
+
 					this[$stateParams.page + 'visibile'] = true;
 				},
 				onAdd: function (form, obj){

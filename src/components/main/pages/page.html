@@ -76,7 +76,7 @@
 
                         <button class="bk-table__action-button delete"
                                 ng-if="pageCtrl.isAdmin"
-                                ng-click="pageCtrl.delete(cell)">
+                                >
                             <span class="bk-table__action-button__icon flaticon-delete"></span>
                             <span class="bk-table__action-button__title">RESET PASSWORD</span>
                         </button>
@@ -176,4 +176,5 @@
 <div ng-include="'dist/views/salarystatements.popup.html'" ng-if="pageCtrl.contentPopup.salarystatementsvisibile"></div>
 <div ng-include="'dist/views/powerreading.popup.html'" ng-if="pageCtrl.contentPopup.powerreadingvisibile"></div>
 <div ng-include="'dist/views/outgoingmaterial.popup.html'" ng-if="pageCtrl.contentPopup.outgoingmaterialvisibile"></div>
+<div ng-include="'dist/views/admin.popup.html'" ng-if="pageCtrl.contentPopup.adminvisibile"></div>
 

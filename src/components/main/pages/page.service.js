@@ -10,7 +10,7 @@ angular.module('BookKeeper')
 		function($rootScope, $state, $stateParams, Restangular, $filter, HeaderService){
 
 			var self = this;
-			
+
 			self.updateFields = function(category) {
 				return HeaderService[category || $stateParams.page] || { };
 			};
@@ -19,14 +19,14 @@ angular.module('BookKeeper')
 				$rootScope.showLoader = true;
 				return Restangular.one("item/view")
 					.get({category, page, userid})
-					.then(function({data}){	
+					.then(function({data}){
 						$rootScope.showLoader = false;
 						data.dataOrder = {
 							...HeaderService.headers||[],
 							...self.updateFields(category)
 						};
-						
-						data.headers = [...(data.headers || []).slice(0,1), 'ACTIONS', 
+
+						data.headers = [...(data.headers || []).slice(0,1), 'ACTIONS',
 							...(data.headers || []).slice(1)];
 						return data
 					})
@@ -53,16 +53,31 @@ angular.module('BookKeeper')
 					})
 			};
 
-			self.delete = function ({id}){
+			self.delete = function ({id, userid}){
 				$rootScope.showLoader = true;
-				return Restangular.one("item/delete")
-				.get({userid: sessionStorage.getItem('user'), category: $stateParams.page, itemid: id})
-				.then(function(data){
-					$rootScope.showLoader = false;
-					$state.transitionTo($state.current, $stateParams, { 
-					  reload: true, inherit: false, notify: true
-					});
-				})
+
+                if(sessionStorage.getItem("isAdmin") == "true") {
+                    console.log("item id", userid);
+                    return Restangular.one("user/delete")
+                        // .get({userid: sessionStorage.getItem('user'), category: $stateParams.page, itemid: id})
+                        .get({adminId: sessionStorage.getItem('user'), userId: userid})
+                        .then(function(data){
+                            $rootScope.showLoader = false;
+                            $state.transitionTo($state.current, $stateParams, {
+                                reload: true, inherit: false, notify: true
+                            });
+                        })
+                } else {
+                    return Restangular.one("item/delete")
+                        .get({userid: sessionStorage.getItem('user'), category: $stateParams.page, itemid: id})
+                        .then(function(data){
+                            $rootScope.showLoader = false;
+                            $state.transitionTo($state.current, $stateParams, {
+                                reload: true, inherit: false, notify: true
+                            });
+                        })
+                }
+
 			}
 
 			self.update = function ({page, id, data}){
@@ -98,16 +113,28 @@ angular.module('BookKeeper')
 				$rootScope.showLoader = true;
 				let convertedDatetime = self.modifyDateTime (data)
 
-				return Restangular.one("item/add", page)
-				.customPOST({
-					...data,
-					...convertedDatetime||{},
-					lastmodified: "",
-					userId: Number(sessionStorage.getItem("user"))
+				if(sessionStorage.getItem('isAdmin') == "true") {
+					return Restangular.one("user/create")
+						.customPOST({
+							...data,
+						adminId: Number(sessionStorage.getItem("user"))
 				}).then(function(response){
-					$rootScope.showLoader = false;
-					return response
-				})
+						$rootScope.showLoader = false;
+						return response
+					})
+				} else {
+					return Restangular.one("item/add", page)
+						.customPOST({
+							...data,
+						...convertedDatetime||{},
+						lastmodified: "",
+						userId: Number(sessionStorage.getItem("user"))
+				}).then(function(response){
+						$rootScope.showLoader = false;
+						return response
+					})
+				}
+
 			}
 		}
 ])
