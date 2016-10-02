@@ -68,7 +68,9 @@ bk-header {
   border-radius: 50%;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url(images/prof-pic.jpg);
+  top: 5px;
+  position: relative;
+  /*background-image: url(images/prof-pic.jpg);*/
 }
 
 .bk-header__profile-dropdown__header__prof-title {
