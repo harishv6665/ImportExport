@@ -14,13 +14,18 @@
                         ng-model="LoginCtrl.username"
                         required="true" 
                         name="username"
+                        ng-change="LoginCtrl.errormessage =''"
                        placeholder="Username">
                 <input type="password"
                         required="true"
                         name="password" 
                         ng-model="LoginCtrl.password"
+                        ng-change="LoginCtrl.errormessage =''"
                        class="bk-login__left__form__input-box"
                        placeholder="Password">
+                <span class="clearfix">
+                    {{LoginCtrl.errormessage}}
+                </span>
                 <div class="bk-login__left__form__button__wrapper clearfix">
                     <button 
                         class="bk-login__left__form__button fleft" 

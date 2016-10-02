@@ -15,6 +15,11 @@ angular.module('BookKeeper')
 						username: self.username,
 						password: self.password,
 						role: self.userType
+					}).then(function(error){
+						console.log(error)
+					},function(error){
+						console.log(error)
+						self.errormessage = error.data && error.data.errormessage? error.data.errormessage : "Something went wrong";
 					})
 				}
 			}

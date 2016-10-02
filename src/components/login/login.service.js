@@ -21,6 +21,7 @@ angular.module('BookKeeper')
 				return Restangular.one("login")
 					.customPOST({username, password, role})
 					.then(function (response) {
+						console.log(response)
 						$rootScope.showLoader = false;
 						if (response.successMessage === 'login successful') {
 							
