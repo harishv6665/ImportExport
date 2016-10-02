@@ -1,7 +1,12 @@
 <bk-header></bk-header>
 <div class="bk-main-container">
-    <bk-sidenav></bk-sidenav>
-    <div ui-view="Container" class="bk-page__wrapper"></div>
+    <bk-sidenav ng-if="mainController.isAdmin == 'false'"></bk-sidenav>
+    <div ui-view="Container" 
+        class="bk-page__wrapper"
+        ng-class="{
+            expand: mainController.isAdmin == 'true'
+        }" 
+    ></div>
 </div>
 
 <div class="bk-conformation-dialogue__wrapper"

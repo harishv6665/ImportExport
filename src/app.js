@@ -32,7 +32,12 @@ angular.module('BookKeeper',['ui.router', 'restangular'])
                     })
                     .state("main", {
                         url: "/main",
-                        templateUrl: "dist/views/main.html"
+                        templateUrl: "dist/views/main.html",
+                        controller: [function (){
+                            self = this;
+                            this.isAdmin = sessionStorage.getItem('isAdmin')
+                        }],
+                        controllerAs: 'mainController'
                     })
                     .state("main.page", {
                         url: "/page/:page",
