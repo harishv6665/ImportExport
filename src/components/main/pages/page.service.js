@@ -38,7 +38,7 @@ angular.module('BookKeeper')
 					.get({adminId: userid})
 					.then(function({data}){
 						$rootScope.showLoader = false;
-						data.headers = ["FIRST NAME", "LAST NAME", "USER ID", "ROLE", "PHONE NUMBER"]
+						data.headers = ["FIRST NAME", "LAST NAME", "USER NAME", "USER ID", "ROLE", "PHONE NUMBER"]
 						data.dataOrder = {
 								...HeaderService.headers||[],
 						...self.updateFields(category)

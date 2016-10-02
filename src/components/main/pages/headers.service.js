@@ -115,10 +115,11 @@ angular.module('BookKeeper')
 		  "TYPE OF MATERIAL": {"header": "typeOfMaterial", "type": ""},
 		  "BALANCE (ltrs)": {"header": "balanceInLtrs", "type": ""},
 		  "AMOUNT (Rs)" : {"header" : "balance", "type" : ""},
-			"FIRST NAME" : {"header" : "firstName", "type" : ""},
-			"LAST NAME" : {"header" : "lastName", "type" : ""},
-			"USER ID" : {"header" : "userid", "type" : ""},
-			"ROLE" : {"header" : "role", "type" : ""},
-			"PHONE NUMBER" : {"header" : "phonenumber", "type" : ""},
+		  "USER NAME" : {"header" : "username", "type" : ""},
+		  "FIRST NAME" : {"header" : "firstName", "type" : ""},
+		  "LAST NAME" : {"header" : "lastName", "type" : ""},
+		  "USER ID" : {"header" : "userid", "type" : ""},
+		  "ROLE" : {"header" : "role", "type" : ""},
+		  "PHONE NUMBER" : {"header" : "phonenumber", "type" : ""},
 		}
 }])
