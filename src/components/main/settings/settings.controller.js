@@ -31,22 +31,5 @@ angular.module('BookKeeper')
 
             };
 
-            // self.contentPopup = {
-            //     model: {},
-            //
-            //     onAdd: function (form, obj){
-            //         let context = this;
-            //         if(form.$valid)
-            //             Service.create({page: $stateParams.page, data: this.model})
-            //                 .then((data)=>{
-            //                 this[$stateParams.page + 'visibile'] = false;
-            //         // self.tableData.itemsData.push(data);
-            //         $state.transitionTo($state.current, $stateParams, {
-            //             reload: true, inherit: false, notify: true
-            //         });
-            //     })
-            //     }
-            // };
-
         }
     ])
