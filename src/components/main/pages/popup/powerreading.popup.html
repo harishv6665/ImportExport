@@ -88,7 +88,6 @@
                             <input type="number" 
                             name="startReading"
                             ng-model="pageCtrl.contentPopup.model.startReading"
-                            ng-change="pageCtrl.contentPopup.model.totalHrsConsumed =pageCtrl.contentPopup.model.endReading - pageCtrl.contentPopup.model.startReading"
                             class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
@@ -100,7 +99,6 @@
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
                             <input type="number"  
                                 name="endReading"
-                                ng-change="pageCtrl.contentPopup.model.totalHrsConsumed = pageCtrl.contentPopup.model.endReading - pageCtrl.contentPopup.model.startReading"
                                 ng-model="pageCtrl.contentPopup.model.endReading"
                             class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
@@ -114,15 +112,13 @@
                     <div class="bk-page__form-popup__content__form__row__cell">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label clearfix">
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title fleft">Total no of Hours Consumed :</span>
-                            <!-- <span class="bk-page__form-popup__content__form__row__cell__input-label__title bold fright">Total litre : <span class="bold">5</span></span> -->
+                            
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
                             <input type="number"
-                                disabled="true" 
                                 name="totalHrsConsumed"
                                 min="0"
                                 ng-model="pageCtrl.contentPopup.model.totalHrsConsumed"
-                                ng-value="pageCtrl.contentPopup.model.endReading - pageCtrl.contentPopup.model.startReading"
                                 class="bk-page__form-popup__content__form__row__cell__input"
                             >
                         </div>
