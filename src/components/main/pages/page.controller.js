@@ -14,9 +14,10 @@ angular.module('BookKeeper')
 				$state.reload()
 			};
 			self.isAdmin = (sessionStorage.getItem('isAdmin') == "true");
+
 			self.contentPopup = {
 				model: {},
-				show: function (obj) {
+				show: function (obj, type='') {
 					this.model = {};
 					if(obj) {
 						let data = {}
@@ -53,29 +54,27 @@ angular.module('BookKeeper')
 						};
 					}
 
-					console.log("in", $stateParams.page)
-
-					this[$stateParams.page + 'visibile'] = true;
+					this[$stateParams.page + (type) + 'visibile'] = true;
 				},
-				onAdd: function (form, obj){
+				onAdd: function (form, obj, type=''){
 					let context = this;
 					if(form.$valid)
-						Service.create({page: $stateParams.page, data: this.model})
+						Service.create({page: $stateParams.page, data: { ...context.model, userId: context.model.userid}})
 							.then((data)=>{
-								this[$stateParams.page + 'visibile'] = false;
+								this[$stateParams.page + type + 'visibile'] = false;
 								// self.tableData.itemsData.push(data);
 								$state.transitionTo($state.current, $stateParams, { 
 								  reload: true, inherit: false, notify: true
 								});
 							})
 				},
-				onEdit: function (form, obj){
+				onEdit: function (form, obj, type =''){
 					let context = this;
 					if(form.$valid)
-						Service.edit({page: $stateParams.page, data: context.model})
+						Service.edit({page: $stateParams.page, data: { ...context.model, userId: context.model.userid}})
 							.then((data)=>{
 
-								this[$stateParams.page + 'visibile'] = false;
+								this[$stateParams.page + type + 'visibile'] = false;
 								
 								var findItem = self.tableData.itemsData.find(function(item){
 									return item.buserid = context.model.userid
@@ -85,11 +84,47 @@ angular.module('BookKeeper')
 
 							})
 				},
-				onClose: function () {
-					this[$stateParams.page + 'visibile'] = false;
+				onReset: function(form, obj, type =''){
+					let context = this;
+					if (!obj.password){
+						$rootScope.confirmPopup.show({
+							title: "Notification",
+							message: "Please provide a password.",
+							okButtonText: "Ok",
+							showCancelButton: false
+						})
+						return;
+					}
+					if(form.$valid && obj.password == obj.confirmpassword)
+						Service.resetPassword({page: $stateParams.page, data: { ...context.model, userId: context.model.userid}
+
+					})
+							.then((data)=>{
+
+								this[$stateParams.page + type + 'visibile'] = false;
+								
+								var findItem = self.tableData.itemsData.find(function(item){
+									return item.buserid = context.model.userid
+								});
+								
+								_.assign(findItem, context.model);
+
+							})	
+					else {
+						$rootScope.confirmPopup.show({
+							title: "Notification",
+							message: "Passwords provided are not matching.",
+							okButtonText: "Ok",
+							showCancelButton: false
+						})
+					}
+				},
+				onClose: function (type='') {
+					this[$stateParams.page + type + 'visibile'] = false;
 					this.model = {}
 				}
 			};
+			
 
 			self.filterSlider = {
 			    visible: false,

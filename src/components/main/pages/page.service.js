@@ -108,13 +108,28 @@ angular.module('BookKeeper')
 
 				return data;
 			}
+			self.resetPassword = function({page, data}){
+				$rootScope.showLoader = true;
+				let convertedDatetime = self.modifyDateTime (data)
 
+				if(sessionStorage.getItem('isAdmin') == "true") {
+					return Restangular.one("user/resetpassword")
+						.customPOST({
+							password: data.password,
+							userId: data.userid,
+							adminId: Number(sessionStorage.getItem("user"))
+				}).then(function(response){
+						$rootScope.showLoader = false;
+						return response
+					})
+				}
+			}
 			self.create = function ({page, data}){
 				$rootScope.showLoader = true;
 				let convertedDatetime = self.modifyDateTime (data)
 
 				if(sessionStorage.getItem('isAdmin') == "true") {
-					return Restangular.one("user/create")
+					return Restangular.one("user", data.userid? "edit" : "create")
 						.customPOST({
 							...data,
 						adminId: Number(sessionStorage.getItem("user"))

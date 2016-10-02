@@ -1,8 +1,7 @@
 <div class="bk-login__wrapper">
 
     <form novalidate 
-        name="loginform"
-        autocomplete="on" 
+        name="loginform" 
         ng-init="LoginCtrl.userType = 'admin'"
         class="bk-login">
         <div class="bk-login__logo"></div>
@@ -14,12 +13,12 @@
                        class="bk-login__left__form__input-box"
                         ng-model="LoginCtrl.username"
                         required="true" 
-                        autocomplete="on" 
+                        name="username"
                        placeholder="Username">
                 <input type="password"
-                        required="true" 
+                        required="true"
+                        name="password" 
                         ng-model="LoginCtrl.password"
-                        autocomplete="on" 
                        class="bk-login__left__form__input-box"
                        placeholder="Password">
                 <div class="bk-login__left__form__button__wrapper clearfix">

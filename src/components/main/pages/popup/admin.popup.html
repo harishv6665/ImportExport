@@ -1,9 +1,11 @@
 <form class="bk-page__form-popup__wrapper"
       name="admin_form"
       autocomplete="off">
+      <input type="text" style="display:none">
+      <input type="password" style="display:none">
     <div class="bk-page__form-popup">
         <div class="bk-page__form-popup__header">
-            <h6 class="bk-page__form-popup__header__title">Add user record</h6>
+            <h6 class="bk-page__form-popup__header__title">{{!pageCtrl.contentPopup.model.userid? "Add": "Edit"}} user record</h6>
         </div>
         <div class="bk-page__form-popup__content">
             <div class="bk-page__form-popup__content__form">
@@ -48,7 +50,8 @@
                         </div>
                     </div>
 
-                    <div class="bk-page__form-popup__content__form__row__cell fright half-cell">
+                    <div class="bk-page__form-popup__content__form__row__cell fright half-cell"
+                      ng-if="!pageCtrl.contentPopup.model.userid">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Password :</span>
                         </div>

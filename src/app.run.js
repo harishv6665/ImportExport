@@ -64,15 +64,15 @@ angular.module('BookKeeper')
             Restangular.setErrorInterceptor(function (response = {}) {
 	            $rootScope.showLoader = false;
 	            console.log("response", response)
-	            if (response.status === 422 && $state.current.name !== 'login') {
+	            if (response.data && response.data.errorcode === 10000001 && $state.current.name !== 'login') {
 	            	sessionStorage.clear();
 	             	$state.go("login");
 	                return false;
 	            }
 	            if (response.status === 400 && $state.current.name !== 'login') {
-	                sessionStorage.clear();
+	                // sessionStorage.clear();
 	                $rootScope.confirmPopup.show({  message: "Bad Request", title: "Error" })
-	                $state.go("login");
+	                // $state.go("login");
 	                return false;
 	            }
 	            if (response.status === 404) {

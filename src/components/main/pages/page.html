@@ -76,7 +76,7 @@
 
                         <button class="bk-table__action-button delete"
                                 ng-if="pageCtrl.isAdmin"
-                                >
+                                ng-click="pageCtrl.contentPopup.show(cell, 'resetpassword')">
                             <span class="bk-table__action-button__icon flaticon-delete"></span>
                             <span class="bk-table__action-button__title">RESET PASSWORD</span>
                         </button>
@@ -84,35 +84,6 @@
                     </div>
                     {{(cell[head.header] && head.type)? head.type(cell[head.header]):cell[head.header]}}
                 </td>
-                <!-- <td><input class="bk-table__checkbox" type="checkbox"></td>
-                <td>{{cell.id}}</td>
-                <td>
-                    <div class="bk-table__toggler__wrapper">
-                        <input class="bk-table__toggler__input-ckbox" type="checkbox" id="box1">
-                        <label class="bk-table__toggler__label" for="box1">
-                            <span class="bk-table__toggler__label__control">
-                                <span class="bk-table__toggler__label__control__slider"></span>
-                            </span>
-                            <span class="bk-table__toggler__label__tooltip"></span>
-                        </label>
-                    </div>
-                </td>
-                <td>
-                    <div class="bk-table__action-button__wrapper">
-
-                        <button class="bk-table__action-button edit">
-                            Edit
-                        </button>
-
-                        <button class="bk-table__action-button delete">
-                            Delete
-                        </button>
-
-                    </div>
-                </td>
-                <td>{{cell.first_name}}</td>
-                <td>{{cell.last_name}}</td>
-                <td>{{cell.ip_address}}</td> -->
             </tr>
             </tbody>
         </table>
@@ -177,4 +148,5 @@
 <div ng-include="'dist/views/powerreading.popup.html'" ng-if="pageCtrl.contentPopup.powerreadingvisibile"></div>
 <div ng-include="'dist/views/outgoingmaterial.popup.html'" ng-if="pageCtrl.contentPopup.outgoingmaterialvisibile"></div>
 <div ng-include="'dist/views/admin.popup.html'" ng-if="pageCtrl.contentPopup.adminvisibile"></div>
+<div ng-include="'dist/views/admin-reset-password.popup.html'" ng-if="pageCtrl.contentPopup.adminresetpasswordvisibile"></div>
 
