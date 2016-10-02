@@ -73,7 +73,7 @@ angular.module('BookKeeper')
 		  "TOTAL TONE": {"header": "totalTone", "type": ""},
 		  "INVOICE AMOUNT (Rs)": {"header": "invoiceAmount", "type": ""},
 		  "EMPTY WEIGHT (Kgs)": {"header": "emptyWeightInKgs", "type": ""},
-		  "LOAD WEIGHTIN (Kgs)": {"header": "loadWeightInKgs", "type": ""},
+		  "LOAD WEIGHT (Kgs)": {"header": "loadWeightInKgs", "type": ""},
 		  "NET WEIGHT (Kgs)": {"header": "netWeightInKgs", "type": ""},
 		  "PRICE PER LITRE (Rs)": {"header": "pricePerLitre", "type": ""},
 		  "TOTAL NET (ltrs)": {"header": "totalNetInLtrs", "type": ""},

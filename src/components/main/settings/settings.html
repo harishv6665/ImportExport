@@ -12,12 +12,14 @@
                 <div class="bk-settings__container__group__right-section__row">
                     <input type="password"
                            ng-model="settingsCtrl.model.oldPassword"
+                           name="oldPassword" 
                            class="bk-settings__container__group__right-section__row__input-box"
                            placeholder="Enter old password"
                            required>
                 </div>
                 <div class="bk-settings__container__group__right-section__row">
                     <input type="password"
+                           name="newPassword"
                            ng-model="settingsCtrl.model.newPassword"
                            class="bk-settings__container__group__right-section__row__input-box"
                            placeholder="Enter new password"
@@ -25,6 +27,7 @@
                 </div>
                 <div class="bk-settings__container__group__right-section__row">
                     <input type="password"
+                           name="confirmPassword"
                            ng-model="settingsCtrl.model.newPasswordMatch"
                            class="bk-settings__container__group__right-section__row__input-box"
                            placeholder="Repeat new password"
@@ -34,7 +37,7 @@
                     <button class="bk-settings__container__group__right-section__row__button"
                             ng-disabled = "changePassword_form.$invalid || settingsCtrl.model.newPasswordMatch !== settingsCtrl.model.newPassword"
                             ng-class="{'disabled': changePassword_form.$invalid || settingsCtrl.model.newPasswordMatch !== settingsCtrl.model.newPassword}"
-                            ng-click="settingsCtrl.changePassword(settingsCtrl.model)">
+                            ng-click="settingsCtrl.changePassword(settingsCtrl.model, changePassword_form)">
                         <span class="bk-settings__container__group__right-section__row__button__title">Change password</span>
                     </button>
                 </div>

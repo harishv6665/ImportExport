@@ -7,7 +7,7 @@
         <div class="bk-page__form-popup__content">
             <div class="bk-page__form-popup__content__form">
 
-                <div class="bk-page__form-popup__content__form__row__cell">
+<!--                 <div class="bk-page__form-popup__content__form__row__cell">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Board Type :</span>
                         </div>
@@ -21,6 +21,28 @@
                                     placeholder="Select Board Type">
                                 
                                 </span>
+                            </div>
+                            <ul class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list">
+                                <li class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list__item"
+                                    ng-repeat="item in ['KEB', 'DG']"
+                                    ng-click="pageCtrl.contentPopup.model.boardType = item"
+                                    >{{item}}</li>
+                            </ul>
+                        </div>
+                </div> -->
+                <div class="bk-page__form-popup__content__form__row__cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Board Type :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__wrapper">
+                            <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header">
+                                <input type="text"
+                                       class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__title"
+                                        name="boardType"
+                                        disabled="true"
+                                        ng-model="pageCtrl.contentPopup.model.boardType"
+                                        placeholder="Select Board Type">
+                                <span class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__icon"></span>
                             </div>
                             <ul class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list">
                                 <li class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list__item"
