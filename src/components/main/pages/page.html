@@ -88,8 +88,8 @@
             </tbody>
         </table>
     </div>
-
-    <div class="bk-page__table-pagination__wrapper clearfix">
+    <div ng-if="!pageCtrl.isAdmin" 
+        class="bk-page__table-pagination__wrapper clearfix">
 
         <div class="bk-page__table-pagination__details fleft">
             <span class="bk-page__table-pagination__details__title">Showing:</span>
