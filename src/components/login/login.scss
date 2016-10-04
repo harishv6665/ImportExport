@@ -33,7 +33,7 @@
   left: 50%;
   transform: translateX(-50%);
   top: -130px;
-  background: url(images/bluedart.png) no-repeat;
+  background: url(images/sbc.png) no-repeat;
   background-size: contain;
   background-position: center center;
 }
@@ -113,6 +113,27 @@ button.bk-login__left__form__button:hover {
 
 .bk-login__left__form__check-box__wrapper {
   padding-top: 9px;
+}
+
+.bk-login__left__form__error__wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate3d(-50%, 40px, 0);
+  white-space: nowrap;
+}
+
+.bk-login__left__form__error__title {
+  color: #F44336;
+  font-size: 15px;
+  padding-left: 12px;
+}
+
+.bk-login__left__form__error__icon:before {
+  font-size: 24px;
+  transform: translateY(4px);
+  display: inline-block;
+  color: #F44336;
 }
 
 .bk-login__left__form__check-box {

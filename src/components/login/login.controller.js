@@ -18,7 +18,8 @@ angular.module('BookKeeper')
 					}).then(function(error){
 						console.log(error)
 					},function(error){
-						console.log(error)
+						console.log(error);
+						self.showError = true;
 						self.errormessage = error.data && error.data.errormessage? error.data.errormessage : "Something went wrong";
 					})
 				}

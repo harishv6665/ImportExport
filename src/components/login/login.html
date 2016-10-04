@@ -23,9 +23,6 @@
                         ng-change="LoginCtrl.errormessage =''"
                        class="bk-login__left__form__input-box"
                        placeholder="Password">
-                <span class="clearfix">
-                    {{LoginCtrl.errormessage}}
-                </span>
                 <div class="bk-login__left__form__button__wrapper clearfix">
                     <button 
                         class="bk-login__left__form__button fleft" 
@@ -64,6 +61,13 @@
 
                 </ul>
             </div>
+        </div>
+
+        <div class="bk-login__left__form__error__wrapper clearfix" ng-show="LoginCtrl.showError">
+                <span class="bk-login__left__form__error__icon flaticon-signs"></span>
+                <span class="bk-login__left__form__error__title">
+                    {{LoginCtrl.errormessage}}
+                </span>
         </div>
     </form>
 </div>
