@@ -26,6 +26,8 @@ angular.module('BookKeeper')
 						data[$stateParams.page + "EntryDate"] = obj[$stateParams.page + "EntryDate"]
 						data["entryDate"] = obj["entryDate"]
 						data["invoiceDate"] = obj["invoiceDate"]
+						data["incomingDate"] = obj["incomingDate"]
+						data["outgoingDate"] = obj["outgoingDate"]
 						
 						let data2 = _.forEach(data, function(val, key){ 
 						   data[key] = new Date(val)

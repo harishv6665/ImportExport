@@ -1,4 +1,6 @@
 <form class="bk-page__form-popup__wrapper"
+      ng-init="materials = ['6mm', '10mm', '12mm', '20mm', '40mm', 'msand', 'other']"
+      novalidate 
       name="bitumen_form">
     <div class="bk-page__form-popup">
         <div class="bk-page__form-popup__header">
@@ -8,7 +10,7 @@
             <div class="bk-page__form-popup__content__form">
 
                 <div class="bk-page__form-popup__content__form__row clearfix">
-                    <div class="bk-page__form-popup__content__form__row__cell half-cell fleft">
+                    <div class="bk-page__form-popup__content__form__row__cell">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Invoice No :</span>
                         </div>
@@ -19,21 +21,34 @@
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fleft">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Incomig Date :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="date"
+                                   name="incomingDate"
+                                   ng-model="pageCtrl.contentPopup.model.incomingDate"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
 
                     <div class="bk-page__form-popup__content__form__row__cell half-cell fright"
                         ng-init="">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
-                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Date :</span>
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Outgoing Date :</span>
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
                             <input type="date"
-                                    name="bitumenItemEntryDate"
-                                   ng-model="pageCtrl.contentPopup.model.bitumenItemEntryDate"
+                                    name="outgoingDate"
+                                   ng-model="pageCtrl.contentPopup.model.outgoingDate"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
                 </div>
-
                 <div class="bk-page__form-popup__content__form__row">
                     <div class="bk-page__form-popup__content__form__row__cell">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
@@ -77,8 +92,8 @@
                     </div>
                 </div>
 
-                <div class="bk-page__form-popup__content__form__row clearfix">
-                    <div class="bk-page__form-popup__content__form__row__cell half-cell fleft">
+                <!-- <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Material :</span>
                         </div>
@@ -100,13 +115,148 @@
                             </ul>
                         </div>
                     </div>
+                </div> -->
+                <div class="bk-page__form-popup__content__form__row clearfix"
+                  >
+                    <div class="bk-page__form-popup__content__form__row__cell"
+                      ng-class="{
+                        'half-cell fleft': pageCtrl.showOther
+                      }"
+                      ng-init="pageCtrl.showOther = pageCtrl.contentPopup.model.material && materials.indexOf(pageCtrl.contentPopup.model.material) == -1">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Material :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__wrapper">
+                            <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header">
+                                <input type="text"
+                                       class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__title"
+                                       name="material"
+                                       disabled="true"
+                                       ng-if="!pageCtrl.showOther"
+                                       ng-model="pageCtrl.contentPopup.model.material"
+                                       placeholder="Select material">
 
+                                <input type="text"
+                                       class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__title"
+                                       disabled="true"
+                                       ng-if="pageCtrl.showOther"
+                                       placeholder="Other">
 
+                                <span class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__icon"></span>
+                            </div>
+                            <ul class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list">
+                                <li class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list__item"
+                                    ng-repeat="item in materials"
+                                    ng-click="pageCtrl.showOther = item == 'other'; pageCtrl.contentPopup.model.material = pageCtrl.showOther? '': item;"
+                                >{{item}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
+                    <div class="bk-page__form-popup__content__form__row__cell"
+                      ng-class="{
+                        'fright half-cell': pageCtrl.showOther
+                      }"
+                      ng-if="pageCtrl.showOther">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Describe material:</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text"
+                                   name="quantityInTonnes"
+                                   ng-model="pageCtrl.contentPopup.model.material"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
 
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fleft">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Invoice Tone :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                   name="invoiceTone"
+                                   min="0"
+                                   ng-change="pageCtrl.contentPopup.model.difference = pageCtrl.contentPopup.model.invoiceTone - pageCtrl.contentPopup.model.netWeight; pageCtrl.contentPopup.model.excessOrShortage = pageCtrl.contentPopup.model.difference>0? 'shortage': (pageCtrl.contentPopup.model.difference == 0? 'equal' : 'excess')"
+                                   ng-model="pageCtrl.contentPopup.model.invoiceTone"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
                     <div class="bk-page__form-popup__content__form__row__cell half-cell fright">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
-                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Total tone :</span>
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Gross wight :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                    min="0"
+                                    name="grossWeight"
+                                   ng-model="pageCtrl.contentPopup.model.grossWeight"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fleft">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Empty Weight :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                   name="emptyWeight"
+                                   min="0"
+                                   ng-model="pageCtrl.contentPopup.model.emptyWeight"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fright">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Net wight :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                    min="0"
+                                    name="netWeight"
+                                    ng-change="pageCtrl.contentPopup.model.difference = pageCtrl.contentPopup.model.invoiceTone - pageCtrl.contentPopup.model.netWeight; pageCtrl.contentPopup.model.excessOrShortage = pageCtrl.contentPopup.model.difference>0? 'shortage': (pageCtrl.contentPopup.model.difference == 0? 'equal' : 'excess')"
+                                   ng-model="pageCtrl.contentPopup.model.netWeight"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    
+                    <div class="bk-page__form-popup__content__form__row__cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Shortage/Excess :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text"
+                                    disabled="true" 
+                                    name="excessOrShortage"
+                                   ng-model="pageCtrl.contentPopup.model.excessOrShortage"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fleft">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Transportation Charges :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                   name="transprtationCharges"
+                                   ng-model="pageCtrl.contentPopup.model.transprtationCharges"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fright">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">TDS :</span>
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
                             <input type="number"
