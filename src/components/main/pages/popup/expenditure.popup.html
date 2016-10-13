@@ -7,6 +7,21 @@
         <div class="bk-page__form-popup__content">
             <div class="bk-page__form-popup__content__form">
 
+                <div class="bk-page__form-popup__content__form__row">
+                    <div class="bk-page__form-popup__content__form__row__cell"
+                         ng-init="">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Entry Date :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="date"
+                                   name="entryDate"
+                                   ng-model="pageCtrl.contentPopup.model.entryDate"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
                 <div class="bk-page__form-popup__content__form__row clearfix">
                     <div class="bk-page__form-popup__content__form__row__cell half-cell fleft">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
@@ -20,38 +35,49 @@
                         </div>
                     </div>
 
-                    <div class="bk-page__form-popup__content__form__row__cell half-cell fright"
-                        ng-init="">
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fright">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
-                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Date :</span>
-                        </div>
-                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
-                            <input type="date"
-                                    name="entryDate"
-                                   ng-model="pageCtrl.contentPopup.model.entryDate"
-                                   class="bk-page__form-popup__content__form__row__cell__input">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bk-page__form-popup__content__form__row">
-                    <div class="bk-page__form-popup__content__form__row__cell">
-                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
-                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Expenditure / Cash Given to  :</span>
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Cash Given to :</span>
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
                             <input type="text"
-                                    name="cashGivenTo"
+                                   name="cashGivenTo"
                                    ng-model="pageCtrl.contentPopup.model.cashGivenTo"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
                 </div>
 
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fleft">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Cash amount (Rs) :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text"
+                                   name="cashAmount"
+                                   ng-model="pageCtrl.contentPopup.model.cashAmount"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+
+                    <div class="bk-page__form-popup__content__form__row__cell half-cell fright">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Expenditure amount (Rs) :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text"
+                                   name="expenditureAmount"
+                                   ng-model="pageCtrl.contentPopup.model.expenditureAmount"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
                 <div class="bk-page__form-popup__content__form__row">
                     <div class="bk-page__form-popup__content__form__row__cell">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
-                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Amount (Rs) :</span>
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Balance amount (Rs) :</span>
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
                             <input type="number"
