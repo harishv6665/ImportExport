@@ -52,11 +52,11 @@ angular.module('BookKeeper')
                             sref: "main.page({page: 'salarystatements'})",
                             isActive: function(){ return 'salarystatements' === $stateParams.page}
                         },
-                        {
-                            label: "CASH BOX",
-                            sref: "main.page({page: 'cashbox'})",
-                            isActive: function(){ return 'cashbox' === $stateParams.page}
-                        },
+                        // {
+                        //     label: "CASH BOX",
+                        //     sref: "main.page({page: 'cashbox'})",
+                        //     isActive: function(){ return 'cashbox' === $stateParams.page}
+                        // },
                         {
                             label: "EXPENDITURE",
                             sref: "main.page({page: 'expenditure'})",
