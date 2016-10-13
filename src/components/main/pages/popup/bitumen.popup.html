@@ -181,7 +181,7 @@
                             <input type="number"
                                    name="invoiceTone"
                                    min="0"
-                                   ng-change="pageCtrl.contentPopup.model.difference = pageCtrl.contentPopup.model.invoiceTone - pageCtrl.contentPopup.model.netWeight; pageCtrl.contentPopup.model.excessOrShortage = pageCtrl.contentPopup.model.difference>0? 'shortage': (pageCtrl.contentPopup.model.difference == 0? 'equal' : 'excess')"
+                                   ng-change="pageCtrl.contentPopup.difference = pageCtrl.contentPopup.model.invoiceTone - pageCtrl.contentPopup.model.netWeight; pageCtrl.contentPopup.model.excessOrShortage = pageCtrl.contentPopup.difference>0? 'shortage': (pageCtrl.contentPopup.difference == 0? 'equal' : 'excess')"
                                    ng-model="pageCtrl.contentPopup.model.invoiceTone"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
@@ -220,7 +220,7 @@
                             <input type="number"
                                     min="0"
                                     name="netWeight"
-                                    ng-change="pageCtrl.contentPopup.model.difference = pageCtrl.contentPopup.model.invoiceTone - pageCtrl.contentPopup.model.netWeight; pageCtrl.contentPopup.model.excessOrShortage = pageCtrl.contentPopup.model.difference>0? 'shortage': (pageCtrl.contentPopup.model.difference == 0? 'equal' : 'excess')"
+                                    ng-change="pageCtrl.contentPopup.difference = pageCtrl.contentPopup.model.invoiceTone - pageCtrl.contentPopup.model.netWeight; pageCtrl.contentPopup.model.excessOrShortage = pageCtrl.contentPopup.difference>0? 'shortage': (pageCtrl.contentPopup.difference == 0? 'equal' : 'excess')"
                                    ng-model="pageCtrl.contentPopup.model.netWeight"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
@@ -271,7 +271,7 @@
         </div>
         <div class="bk-page__form-popup__footer">
             <button class="bk-page__form-popup__footer__button save fright"
-                    ng-click="pageCtrl.contentPopup.onAdd(bitumen_form, pageCtrl.contentPopup.model)">
+                    ng-click="pageCtrl.contentPopup.model.difference = (pageCtrl.contentPopup.difference)<0? pageCtrl.contentPopup.difference*-1: pageCtrl.contentPopup.difference; pageCtrl.contentPopup.onAdd(bitumen_form, pageCtrl.contentPopup.model)">
                 <span class="bk-page__form-popup__footer__button__title">Save</span>
             </button>
             <button class="bk-page__form-popup__footer__button cancel fright"
