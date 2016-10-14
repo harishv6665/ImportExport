@@ -229,7 +229,7 @@
 
                 <div class="bk-page__form-popup__content__form__row clearfix">
                     
-                    <div class="bk-page__form-popup__content__form__row__cell">
+                    <div class="bk-page__form-popup__content__form__row__cell  half-cell fleft">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Shortage/Excess :</span>
                         </div>
@@ -238,6 +238,18 @@
                                     disabled="true" 
                                     name="excessOrShortage"
                                    ng-model="pageCtrl.contentPopup.model.excessOrShortage"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                    <div class="bk-page__form-popup__content__form__row__cell  half-cell fright">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Difference :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text"
+                                    disabled="true" 
+                                    name="difference"
+                                   ng-value="(pageCtrl.contentPopup.difference)<0? pageCtrl.contentPopup.difference*-1: pageCtrl.contentPopup.difference"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
