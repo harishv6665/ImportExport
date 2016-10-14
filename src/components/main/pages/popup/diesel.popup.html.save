@@ -1,0 +1,175 @@
+<form class="bk-page__form-popup__wrapper"
+      name="diesel_form">
+    <div class="bk-page__form-popup">
+
+        <div class="bk-page__form-popup__header">
+            <h6 class="bk-page__form-popup__header__title">Add diesel record</h6>
+        </div>
+
+        <div class="bk-page__form-popup__content">
+            <div class="bk-page__form-popup__content__form">
+
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell fleft half-cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Entry date :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="date"
+                                   name="entryDate"
+                                   ng-model="pageCtrl.contentPopup.model.entryDate"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+
+                    <div class="bk-page__form-popup__content__form__row__cell fright half-cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Indent date :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="date"
+                                   name="invoiceDate"
+                                   ng-model="pageCtrl.contentPopup.model.invoiceDate"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row">
+                    <div class="bk-page__form-popup__content__form__row__cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Supplier Name :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text"
+                                   name="supplierName"
+                                   ng-model="pageCtrl.contentPopup.model.supplierName"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell fleft half-cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Indent No :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text"
+                                   name="invoiceNo"
+                                   ng-model="pageCtrl.contentPopup.model.invoiceNo"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+
+                    <div class="bk-page__form-popup__content__form__row__cell fright half-cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Vehicle No :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text"
+                                   name="vehicleNumber"
+                                   ng-model="pageCtrl.contentPopup.model.vehicleNumber"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row">
+                    <div class="bk-page__form-popup__content__form__row__cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Material :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__wrapper">
+                            <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header">
+                                <input type="text"
+                                       class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__title"
+                                       name="material"
+                                       disabled="true"
+                                       ng-model="pageCtrl.contentPopup.model.material"
+                                       placeholder="Select material">
+                                <span class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__icon"></span>
+                            </div>
+                            <ul class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list">
+                                <li class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list__item"
+                                    ng-repeat="item in ['6mm', '10mm', '12mm', '20mm', '40mm', 'msand', 'others']"
+                                    ng-click="pageCtrl.contentPopup.model.material = item"
+                                >{{item}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+     
+
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell fleft half-cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Diesel Recieved(ltrs) :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                   name="dieselReceivedInLtrs"
+                                   ng-model="pageCtrl.contentPopup.model.dieselReceivedInLtrs"
+                                   ng-change="pageCtrl.contentPopup.model.totalAmount=(pageCtrl.contentPopup.model.dieselReceivedInLtrs||0) * (pageCtrl.contentPopup.model.pricePerLitre||0)"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+
+                    <div class="bk-page__form-popup__content__form__row__cell fright half-cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Diesel Disposed(ltrs) :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                   name="dieselDisposedInLtrs"
+                                   ng-model="pageCtrl.contentPopup.model.dieselDisposedInLtrs"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell fleft half-cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Price per litre :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                   name="pricePerLitre"
+                                   ng-model="pageCtrl.contentPopup.model.pricePerLitre"
+                                   ng-change="pageCtrl.contentPopup.model.totalAmount=(pageCtrl.contentPopup.model.dieselReceivedInLtrs||0) * (pageCtrl.contentPopup.model.pricePerLitre||0)"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+
+                    <div class="bk-page__form-popup__content__form__row__cell fright half-cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Total amount :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                   disabled="true"
+                                   name="totalAmount"
+                                   ng-model="pageCtrl.contentPopup.model.totalAmount"
+                                   ng-value="(pageCtrl.contentPopup.model.dieselReceivedInLtrs||0) * (pageCtrl.contentPopup.model.pricePerLitre||0)"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="bk-page__form-popup__footer">
+            <button class="bk-page__form-popup__footer__button save fright"
+                    ng-click="pageCtrl.contentPopup.onAdd(diesel_form, pageCtrl.contentPopup.model)">
+                <span class="bk-page__form-popup__footer__button__title">Save</span>
+            </button>
+            <button class="bk-page__form-popup__footer__button cancel fright"
+                    ng-click="pageCtrl.contentPopup.onClose()">
+                <span class="bk-page__form-popup__footer__button__title">Cancel</span>
+            </button>
+        </div>
+
+    </div>
+</form>
