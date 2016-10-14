@@ -154,7 +154,7 @@
                             <input type="number"
                                     name="salaryPerDay"
                                     min="0"
-				   ng-change="(pageCtrl.contentPopup.model.salaryPerDay * (pageCtrl.contentPopup.model.totalDaysOfMonth - pageCtrl.contentPopup.model.noOfLeaveTaken)) + pageCtrl.contentPopup.model.extraConveyance - pageCtrl.contentPopup.model.salaryAdvance + pageCtrl.contentPopup.model.bonus"
+				   ng-change="pageCtrl.contentPopup.model.netPayable=(pageCtrl.contentPopup.model.salaryPerDay * (pageCtrl.contentPopup.model.totalDaysOfMonth - pageCtrl.contentPopup.model.noOfLeaveTaken)) + pageCtrl.contentPopup.model.extraConveyance - pageCtrl.contentPopup.model.salaryAdvance + pageCtrl.contentPopup.model.bonus"
                                    ng-model="pageCtrl.contentPopup.model.salaryPerDay"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
@@ -170,7 +170,7 @@
                             <input type="number"
                                     name="extraConveyance"
                                     min="0"
-				    ng-change="(pageCtrl.contentPopup.model.salaryPerDay * (pageCtrl.contentPopup.model.totalDaysOfMonth - pageCtrl.contentPopup.model.noOfLeaveTaken)) + pageCtrl.contentPopup.model.extraConveyance - pageCtrl.contentPopup.model.salaryAdvance + pageCtrl.contentPopup.model.bonus"
+				    ng-change="pageCtrl.contentPopup.model.netPayable=(pageCtrl.contentPopup.model.salaryPerDay * (pageCtrl.contentPopup.model.totalDaysOfMonth - pageCtrl.contentPopup.model.noOfLeaveTaken)) + pageCtrl.contentPopup.model.extraConveyance - pageCtrl.contentPopup.model.salaryAdvance + pageCtrl.contentPopup.model.bonus"
                                     ng-model="pageCtrl.contentPopup.model.extraConveyance"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
@@ -185,7 +185,7 @@
                             <input type="number"
                                     name="salaryAdvance"
                                     min="0"
-				    ng-change="(pageCtrl.contentPopup.model.salaryPerDay * (pageCtrl.contentPopup.model.totalDaysOfMonth - pageCtrl.contentPopup.model.noOfLeaveTaken)) + pageCtrl.contentPopup.model.extraConveyance - pageCtrl.contentPopup.model.salaryAdvance + pageCtrl.contentPopup.model.bonus"
+				    ng-change="pageCtrl.contentPopup.model.netPayable=(pageCtrl.contentPopup.model.salaryPerDay * (pageCtrl.contentPopup.model.totalDaysOfMonth - pageCtrl.contentPopup.model.noOfLeaveTaken)) + pageCtrl.contentPopup.model.extraConveyance - pageCtrl.contentPopup.model.salaryAdvance + pageCtrl.contentPopup.model.bonus"
                                    ng-model="pageCtrl.contentPopup.model.salaryAdvance"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
@@ -200,7 +200,7 @@
                             <input type="number"
                                     name="bonus"
                                     min="0"
-				    ng-change="(pageCtrl.contentPopup.model.salaryPerDay * (pageCtrl.contentPopup.model.totalDaysOfMonth - pageCtrl.contentPopup.model.noOfLeaveTaken)) + pageCtrl.contentPopup.model.extraConveyance - pageCtrl.contentPopup.model.salaryAdvance + pageCtrl.contentPopup.model.bonus"
+				    ng-change="pageCtrl.contentPopup.model.netPayable=(pageCtrl.contentPopup.model.salaryPerDay * (pageCtrl.contentPopup.model.totalDaysOfMonth - pageCtrl.contentPopup.model.noOfLeaveTaken)) + pageCtrl.contentPopup.model.extraConveyance - pageCtrl.contentPopup.model.salaryAdvance + pageCtrl.contentPopup.model.bonus"
                                     ng-model="pageCtrl.contentPopup.model.bonus"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
