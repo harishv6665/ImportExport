@@ -46,7 +46,8 @@ angular.module('BookKeeper')
 
                         }
                        
-                      obj["outputDate"] = data2["outputDate"]
+			data2["outputDate"] = obj["outputDate"];
+//                      obj["outputDate"] = data2["outputDate"]
 //                   if (obj["outputDate"]){
     //                        data2["outputDate"] = $filter('date')(obj["outputDate"], 'd/MMM/yyyy')
        //                  }
