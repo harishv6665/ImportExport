@@ -188,7 +188,7 @@
                     </div>
                     <div class="bk-page__form-popup__content__form__row__cell half-cell fright">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
-                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Gross wight :</span>
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Gross weight :</span>
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
                             <input type="number"
@@ -214,7 +214,7 @@
                     </div>
                     <div class="bk-page__form-popup__content__form__row__cell half-cell fright">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
-                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Net wight :</span>
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Net weight :</span>
                         </div>
                         <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
                             <input type="number"
@@ -222,6 +222,7 @@
                                     name="netWeight"
                                     ng-change="pageCtrl.contentPopup.difference = pageCtrl.contentPopup.model.invoiceTone - pageCtrl.contentPopup.model.netWeight; pageCtrl.contentPopup.model.excessOrShortage = pageCtrl.contentPopup.difference>0? 'shortage': (pageCtrl.contentPopup.difference == 0? 'equal' : 'excess')"
                                    ng-model="pageCtrl.contentPopup.model.netWeight"
+					ng-value="pageCtrl.contentPopup.model.grossWeight-pageCtrl.contentPopup.model.emptyWeight"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
