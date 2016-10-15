@@ -1,4 +1,5 @@
 <form class="bk-page__form-popup__wrapper"
+      ng-init="materials = ['6mm', '10mm', '12mm', '20mm', '40mm', 'msand', 'other']"
       name="otherincomingmaterial_form">
     <div class="bk-page__form-popup">
 
@@ -62,9 +63,64 @@
                         </div>
                     </div>
                 </div>
+                <div class="bk-page__form-popup__content__form__row clearfix"
+                  >
+                    <div class="bk-page__form-popup__content__form__row__cell"
+                      ng-class="{
+                        'half-cell fleft': pageCtrl.showOther
+                      }"
+                      ng-init="pageCtrl.showOther = pageCtrl.contentPopup.model.materialDescription && materials.indexOf(pageCtrl.contentPopup.model.materialDescription) == -1">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Material :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__wrapper">
+                            <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header">
+                                <input type="text"
+                                       class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__title"
+                                       name="material"
+                                       disabled="true"
+                                       ng-if="!pageCtrl.showOther"
+                                       ng-model="pageCtrl.contentPopup.model.materialDescription"
+                                       placeholder="Select material">
 
-                <div class="bk-page__form-popup__content__form__row">
-                    <div class="bk-page__form-popup__content__form__row__cell">
+                                <input type="text"
+                                       class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__title"
+                                       disabled="true"
+                                       ng-if="pageCtrl.showOther"
+                                       placeholder="Other">
+
+                                <span class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__icon"></span>
+                            </div>
+                            <ul class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list">
+                                <li class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list__item"
+                                    ng-repeat="item in materials"
+                                    ng-click="pageCtrl.showOther = item == 'other'; pageCtrl.contentPopup.model.materialDescription = pageCtrl.showOther? '': item;"
+                                >{{item}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bk-page__form-popup__content__form__row__cell"
+                      ng-class="{
+                        'fright half-cell': pageCtrl.showOther
+                      }"
+                      ng-if="pageCtrl.showOther">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Describe material:</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text"
+                                   name="quantityInTonnes"
+                                   ng-model="pageCtrl.contentPopup.model.materialDescription"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <!-- <div class="bk-page__form-popup__content__form__row__cell fleft half-cell">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Material Description :</span>
                         </div>
@@ -74,8 +130,22 @@
                                    ng-model="pageCtrl.contentPopup.model.materialDescription"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
+                    </div> -->
+
+                    <div class="bk-page__form-popup__content__form__row__cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Total Tonnes :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                    min="0" 
+                                   name="totalTonnes"
+                                   ng-model="pageCtrl.contentPopup.model.totalTonnes"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
                     </div>
                 </div>
+
 
                 <div class="bk-page__form-popup__content__form__row">
                     <div class="bk-page__form-popup__content__form__row__cell">

@@ -105,6 +105,8 @@ angular.module('BookKeeper')
 					data["entryTime"] = HeaderService.converttotime(cell[$stateParams.page+ "entryTime"]);
 				if (cell["invoiceDate"])
 					data["invoiceDate"] = $filter('date')(cell["invoiceDate"], 'dd/MM/yyyy');
+				if (cell["indentDate"])
+					data["indentDate"] = $filter('date')(cell["indentDate"], 'dd/MM/yyyy');
 				if (cell["outputDate"])
 					data["outputDate"] = $filter('date')(cell["outputDate"], 'dd/MM/yyyy');
 				if (cell[ "outputTime"])

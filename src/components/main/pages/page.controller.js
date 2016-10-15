@@ -28,6 +28,7 @@ angular.module('BookKeeper')
 						data["entryDate"] = obj["entryDate"]
 						data["outputDate"] = obj["outputDate"]
 						data["invoiceDate"] = obj["invoiceDate"]
+						data["indentDate"] = obj["indentDate"]
 						data["incomingDate"] = obj["incomingDate"]
 						data["outgoingDate"] = obj["outgoingDate"]
 						

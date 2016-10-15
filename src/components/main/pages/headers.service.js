@@ -55,6 +55,7 @@ angular.module('BookKeeper')
 							return (((converttodate(new Date ())-converttodate(cell.created)) / (1000 * 24 * 60 * 60)) > 1)  || (cell.buserid !== Number(sessionStorage.getItem("user")))
 							}},
 		  "ENTRY DATE": {"header": "entryDate", "type": converttodate},
+		  "INDENT DATE": {"header": "indentDate", "type": converttodate},
 		  "INCOMING DATE": {"header": "incomingDate", "type": converttodate},
 		  "OUTGOING DATE": {"header": "outgoingDate", "type": converttodate},
 		  "ENTRY TIME": {"header": "entryTime", "type": ""},
@@ -66,6 +67,7 @@ angular.module('BookKeeper')
 		  "SUPPLIER NAME": {"header": "supplierName", "type": ""},
 		  "MATERIAL": {"header": "material", "type": ""},
 		  "QUANTITY IN TONNES": {"header": "quantityInTonnes", "type": ""},
+		  "TOTAL TONNES": {"header": "totalTonnes", "type": ""},
 		  "RATE PER TONNE": {"header": "ratePerTonne", "type": ""},
 		  "TOTAL AMOUNT (Rs)": {"header": "totalAmount", "type": ""},
 		  "CREATED": {"header": "created", type: convertdateandtime},
@@ -135,5 +137,6 @@ angular.module('BookKeeper')
 		  "USER ID" : {"header" : "userid", "type" : ""},
 		  "ROLE" : {"header" : "role", "type" : ""},
 		  "PHONE NUMBER" : {"header" : "phonenumber", "type" : ""},
+		  "INDENT NO" : {"header" : "indentNo", "type" : ""},
 		}
 }])
