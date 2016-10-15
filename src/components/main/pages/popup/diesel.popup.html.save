@@ -75,7 +75,7 @@
                     </div>
                 </div>
 
-<!--                <div class="bk-page__form-popup__content__form__row">
+                <div class="bk-page__form-popup__content__form__row">
                     <div class="bk-page__form-popup__content__form__row__cell">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Material :</span>
@@ -99,7 +99,7 @@
                             </ul>
                         </div>
                     </div>
-                </div> -->
+     
 
                 <div class="bk-page__form-popup__content__form__row clearfix">
                     <div class="bk-page__form-popup__content__form__row__cell fleft half-cell">

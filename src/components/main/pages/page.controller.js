@@ -26,6 +26,7 @@ angular.module('BookKeeper')
 						data[$stateParams.page + "ItemEntryDate"] = obj[$stateParams.page + "ItemEntryDate"]
 						data[$stateParams.page + "EntryDate"] = obj[$stateParams.page + "EntryDate"]
 						data["entryDate"] = obj["entryDate"]
+						data["outputDate"] = obj["outputDate"]
 						data["invoiceDate"] = obj["invoiceDate"]
 						data["incomingDate"] = obj["incomingDate"]
 						data["outgoingDate"] = obj["outgoingDate"]
@@ -46,11 +47,11 @@ angular.module('BookKeeper')
 
 
                         }
-                        
-                        obj["outputDate"] = data2["outputDate"]
-                        // if (obj["outputDate"]){
-                        //     data2["outputDate"] = $filter('date')(obj["outputDate"], 'd/MMM/yyyy')
-                        // }
+                       
+                      obj["outputDate"] = data2["outputDate"]
+//                   if (obj["outputDate"]){
+    //                        data2["outputDate"] = $filter('date')(obj["outputDate"], 'd/MMM/yyyy')
+       //                  }
 
 						this.model = {
 							...obj,
