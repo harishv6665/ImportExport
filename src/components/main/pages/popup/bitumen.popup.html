@@ -194,6 +194,7 @@
                             <input type="number"
                                     min="0"
                                     name="grossWeight"
+					ng-change="pageCtrl.contentPopup.model.netWeight = pageCtrl.contentPopup.model.grossWeight-pageCtrl.contentPopup.model.emptyWeight"
                                    ng-model="pageCtrl.contentPopup.model.grossWeight"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
@@ -209,6 +210,7 @@
                                    name="emptyWeight"
                                    min="0"
                                    ng-model="pageCtrl.contentPopup.model.emptyWeight"
+				ng-change="pageCtrl.contentPopup.model.netWeight =pageCtrl.contentPopup.model.grossWeight-pageCtrl.contentPopup.model.emptyWeight"
                                    class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
