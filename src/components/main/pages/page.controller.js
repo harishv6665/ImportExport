@@ -19,6 +19,7 @@ angular.module('BookKeeper')
 				model: {},
 				show: function (obj, type='') {
 					this.model = {};
+					this.difference = undefined;
 					if(obj) {
 						let data = {}
 						
@@ -58,6 +59,11 @@ angular.module('BookKeeper')
 					}
 
 					this[$stateParams.page + (type) + 'visibile'] = true;
+				},
+				bitumenChange: function(){
+
+					this.difference = (this.model.invoiceTone||0) - (this.model.netWeight||0);
+					this.model.excessOrShortage = this.difference>0? 'shortage': (this.difference == 0? 'equal' : 'excess')
 				},
 				onAdd: function (form, obj, type=''){
 					let context = this;
