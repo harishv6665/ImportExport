@@ -51,7 +51,9 @@ angular.module('BookKeeper')
                 form.reportType = self.reportsModel.duration;
 
 
-                Service.generateReport(form);
+                Service.generateReport(form).then(function(){
+                    self.reportsModel = {};
+                });
             }
         }
     ])
