@@ -21,7 +21,7 @@ angular.module('BookKeeper')
                     self.balances = data;
                 })
             }
-            self.reportsModel = {};
+            self.reportsModel = {duration: 'monthly'};
             
             self.generateReport= function(){
                 console.log("...",self.reportsModel.duration)
@@ -52,7 +52,7 @@ angular.module('BookKeeper')
 
 
                 Service.generateReport(form).then(function(){
-                    self.reportsModel = {};
+                    self.reportsModel = { duration: 'monthly'};
                 });
             }
         }

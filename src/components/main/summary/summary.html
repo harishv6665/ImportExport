@@ -102,7 +102,7 @@
                         <ul class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list">
                             <li class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list__item"
                                 ng-repeat="item in summaryCtrl.categories"
-                                ng-click="summaryCtrl.reportsModel.category = item; summaryCtrl.reportsModel.disableDuration = item === 'Salary Statements'; summaryCtrl.reportsModel.duration='monthly'"
+                                ng-click="summaryCtrl.reportsModel.category = item; summaryCtrl.reportsModel.disableDuration = item === 'Salary Statements'; summaryCtrl.reportsModel.duration='monthly';summaryCtrl.reportsModel.month=summaryCtrl.reportsModel.day = ''"
                             >{{item}}
                             </li>
                         </ul>
