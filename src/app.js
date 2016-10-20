@@ -9,7 +9,9 @@ angular.module('BookKeeper',['ui.router', 'restangular'])
                     requireBase: false
                 });
 
-                $urlRouterProvider.when("", "/");
+                $urlRouterProvider
+                .when("main/page/summary", "/summary")
+                .when("", "/");
                 
                 RestangularProvider.setBaseUrl('services');
 
@@ -79,6 +81,15 @@ angular.module('BookKeeper',['ui.router', 'restangular'])
                           Container: {
                               templateUrl: "dist/views/settings.html",
                               controller: "settingsController as settingsCtrl"
+                          }
+                        }
+                    })
+                    .state("main.summary", {
+                        url: "/summary",
+                        views: {
+                          Container: {
+                              templateUrl: "dist/views/summary.html",
+                              controller: "summaryController as summaryCtrl"
                           }
                         }
                     })

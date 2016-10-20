@@ -1,5 +1,5 @@
 angular.module('BookKeeper')
-    .directive('bkSidenav', ["$stateParams", function ($stateParams) {
+    .directive('bkSidenav', ["$stateParams", '$state',function ($stateParams, $state) {
             return {
                 templateUrl: "/dist/views/sidenav.html",
                 restrict: "E",
@@ -64,8 +64,8 @@ angular.module('BookKeeper')
                         },
                         {
                             label: "SUMMARY",
-                            sref: "main.page({page: 'summary'})",
-                            isActive: function(){ return 'summary' === $stateParams.page}
+                            sref: "main.summary",
+                            isActive: function(){ return 'summary' === $state.name}
                         }
                     ];
                 }]
