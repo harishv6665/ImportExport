@@ -32,7 +32,7 @@ angular.module('BookKeeper')
                     var firstDay = new Date(y, m, 1);
                     var lastDay = new Date(y, m + 1, 0);
                     form.startDate = $filter('date')(firstDay, 'dd/MM/yyyy');
-                    form.endDate = $filter('date')(firstDay, 'dd/MM/yyyy');
+                    form.endDate = $filter('date')(lastDay, 'dd/MM/yyyy');
                     form.year = $filter('date')(firstDay, 'yyyy');
                     form.month = $filter('date')(firstDay, 'LLLL');
 
