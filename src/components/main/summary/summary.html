@@ -1,183 +1,199 @@
-<div>
-    <div class="bk-settings__header">
-        <h4 class="bk-settings__header__title">Summary page</h4>
-    </div>
-    <div class="bk-settings__header clearfix"
-        ng-click="summaryCtrl.toggleBalances = !summaryCtrl.toggleBalances;">
-        <h4 class="bk-settings__header__title">Balance:</h4>
-        <!-- <span class="bk-page__header__button__icon flaticon-arrows" style="right:37px;" 
-          ng-if="summaryCtrl.toggleBalances"
-          ng-click="$event.stopPropagation(); summaryCtrl.getBalances()"></span> -->
-        <span class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__icon summary__page__anchor"
-          ng-class="{
-            invert: summaryCtrl.toggleBalances
-          }"></span>
-    </div>
-    <div class="bk-settings__container"
-    ng-init="!summaryCtrl.balances && summaryCtrl.getBalances()""
-    ng-if="summaryCtrl.toggleBalances">
-        <form class="bk-settings__container__group clearfix"
-              name="changePassword_form">
-            <!-- <div class="bk-settings__container__group__left-section fleft">
-                <span class="bk-settings__container__group__left-section__title">Change Password</span>
-            </div> -->
-
-            <div class="bk-settings__container__group__right-section fright">
-                <div class="bk-page__form-popup__content__form__row__cell ">
-                    <div class="bk-page__form-popup__content__form__row__cell__input-label">
-                        <span class="bk-page__form-popup__content__form__row__cell__input-label__title">LDO Balance :</span>
-                    </div>
-                    <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
-                        <input type="text"
-                               name="ldoEntryDate"
-                               ng-model="summaryCtrl.balances.ldoBalance"
-                               disabled="true"
-                               placeholder="nill" 
-                               class="bk-page__form-popup__content__form__row__cell__input">
-                    </div>
-                </div>
-
-                <div class="bk-page__form-popup__content__form__row__cell">
-                    <div class="bk-page__form-popup__content__form__row__cell__input-label">
-                        <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Diesel Balance :</span>
-                    </div>
-                    <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
-                        <input type="text"
-                               name="dieselDate"
-                               ng-model="summaryCtrl.balances.dieselBalance"
-                               disabled="true"
-                               placeholder="nill" 
-                               class="bk-page__form-popup__content__form__row__cell__input">
-                    </div>
-                </div>
-                <div class="bk-page__form-popup__content__form__row__cell">
-                    <div class="bk-page__form-popup__content__form__row__cell__input-label">
-                        <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Cash Balance :</span>
-                    </div>
-                    <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
-                        <input type="text"
-                               name="cashDate"
-                               ng-model="summaryCtrl.balances.cashBalance"
-                               disabled="true"
-                               placeholder="nill" 
-                               class="bk-page__form-popup__content__form__row__cell__input">
-                    </div>
-                </div>
-                
-                <!--isSame: {{((summaryCtrl.changePassword.newPasswordMatch === summaryCtrl.changePassword.newPassword))}}-->
-            </div>
-        </form>
-    </div>
+<div class="bk-settings__header">
+    <h4 class="bk-settings__header__title">Summary page</h4>
 </div>
-<div>
-    <div class="bk-settings__header clearfix">
-        <h4 class="bk-settings__header__title">Generate Report</h4>
-        <span class="bk-page__header__button__icon flaticon-arrows" style="right:37px;"
-        ng-click="summaryCtrl.reportsModel= { duration: 'monthly'}"></span>
-    </div>
-    <div class="bk-settings__container">
-        <form class="bk-settings__container__group clearfix"
-              name="generateReport_form">
-            <!-- <div class="bk-settings__container__group__left-section fleft">
-                <span class="bk-settings__container__group__left-section__title">Change Password</span>
-            </div> -->
-            <div class="bk-settings__container__group__right-section fright">
+<div class="summary-page__container">
+    <div>
+        <div class="bk-settings__header summary-header clearfix"
+             ng-click="summaryCtrl.toggleBalances = !summaryCtrl.toggleBalances;">
+            <h4 class="bk-settings__header__title fleft">Balance:</h4>
+            <span class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__icon summary__page__anchor"
+                  ng-class="{invert: summaryCtrl.toggleBalances}"></span>
+            <button class="bk-page__header__button refresh fright clearfix"
+                    ng-click="summaryCtrl.reportsModel= { duration: 'monthly'}">
+                <span class="bk-page__header__button__icon flaticon-arrows fleft"></span>
+                <span class="bk-page__header__button__title fright">Refresh</span>
+            </button>
+        </div>
+        <div class="bk-settings__container"
+             ng-init="!summaryCtrl.balances && summaryCtrl.getBalances()"
+             ng-if="summaryCtrl.toggleBalances">
+            <form class="bk-settings__container__group clearfix"
+                  name="changePassword_form">
+                <div class="bk-settings__container__group__right-section summary-card__wrapper fright">
 
-                <div class="bk-page__form-popup__content__form__row__cell">
-                    <div class="bk-page__form-popup__content__form__row__cell__input-label">
-                        <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Category :</span>
+                    <div class="summary-card">
+                        <span class="summary-card__title">LDO Balance</span>
+                        <span class="summary-card__sub-title">{{summaryCtrl.balances.ldoBalance}}</span>
                     </div>
-                    <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__wrapper">
-                        <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header">
-                            <input type="text"
-                                   class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__title"
-                                   name="category"
-                                   disabled="true"
-                                   required="required" 
-                                   ng-model="summaryCtrl.reportsModel.category"
-                                   placeholder="Select category">
 
-                            <span class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__icon"></span>
-                        </div>
-                        <ul class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list">
-                            <li class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list__item"
-                                ng-repeat="item in summaryCtrl.categories"
-                                ng-click="summaryCtrl.reportsModel.category = item; summaryCtrl.reportsModel.disableDuration = item === 'Salary Statements'; summaryCtrl.reportsModel.duration='monthly';summaryCtrl.reportsModel.month=summaryCtrl.reportsModel.day = ''"
-                            >{{item}}
-                            </li>
-                        </ul>
+                    <div class="summary-card">
+                        <span class="summary-card__title">Diesel Balance</span>
+                        <span class="summary-card__sub-title">{{summaryCtrl.balances.dieselBalance}}</span>
                     </div>
+
+                    <div class="summary-card">
+                        <span class="summary-card__title">Cash Balance</span>
+                        <span class="summary-card__sub-title">{{summaryCtrl.balances.cashBalance}}</span>
+                    </div>
+
+                    <!--<div class="bk-page__form-popup__content__form__row__cell ">-->
+                    <!--<div class="bk-page__form-popup__content__form__row__cell__input-label">-->
+                    <!--<span class="bk-page__form-popup__content__form__row__cell__input-label__title">LDO Balance :</span>-->
+                    <!--</div>-->
+                    <!--<div class="bk-page__form-popup__content__form__row__cell__input__wrapper">-->
+                    <!--<input type="text"-->
+                    <!--name="ldoEntryDate"-->
+                    <!--ng-model="summaryCtrl.balances.ldoBalance"-->
+                    <!--disabled="true"-->
+                    <!--placeholder="nill"-->
+                    <!--class="bk-page__form-popup__content__form__row__cell__input">-->
+                    <!--</div>-->
+                    <!--</div>-->
+
+                    <!--<div class="bk-page__form-popup__content__form__row__cell">-->
+                    <!--<div class="bk-page__form-popup__content__form__row__cell__input-label">-->
+                    <!--<span class="bk-page__form-popup__content__form__row__cell__input-label__title">Diesel Balance :</span>-->
+                    <!--</div>-->
+                    <!--<div class="bk-page__form-popup__content__form__row__cell__input__wrapper">-->
+                    <!--<input type="text"-->
+                    <!--name="dieselDate"-->
+                    <!--ng-model="summaryCtrl.balances.dieselBalance"-->
+                    <!--disabled="true"-->
+                    <!--placeholder="nill"-->
+                    <!--class="bk-page__form-popup__content__form__row__cell__input">-->
+                    <!--</div>-->
+                    <!--</div>-->
+
+                    <!--<div class="bk-page__form-popup__content__form__row__cell">-->
+                    <!--<div class="bk-page__form-popup__content__form__row__cell__input-label">-->
+                    <!--<span class="bk-page__form-popup__content__form__row__cell__input-label__title">Cash Balance :</span>-->
+                    <!--</div>-->
+                    <!--<div class="bk-page__form-popup__content__form__row__cell__input__wrapper">-->
+                    <!--<input type="text"-->
+                    <!--name="cashDate"-->
+                    <!--ng-model="summaryCtrl.balances.cashBalance"-->
+                    <!--disabled="true"-->
+                    <!--placeholder="nill"-->
+                    <!--class="bk-page__form-popup__content__form__row__cell__input">-->
+                    <!--</div>-->
+                    <!--</div>-->
+
                 </div>
-                <div class="bk-page__form-popup__content__form__row__cell ">
-                    <div class="bk-page__form-popup__content__form__row__cell__input-label">
-                        <label>
-                          <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Month :</span>
-                          <input type="radio"
-                                 name="month"
-                                 value="monthly" 
-                                 ng-init="summaryCtrl.reportsModel.duration='monthly'"
-                                 ng-model="summaryCtrl.reportsModel.duration">
+            </form>
+        </div>
+        <div>
+            <div class="bk-settings__header summary-header clearfix">
 
-                        </label>
+                <h4 class="bk-settings__header__title fleft">Generate Report:</h4>
 
-                         <label>
-                           <span class="bk-page__form-popup__content__form__row__cell__input-label__title"
-                            ng-class="{
-                              disabled: summaryCtrl.reportsModel.disableDuration
-                            }">Daily :</span>
-                          <input type="radio"
-                                 name="daily"
-                                 value="daily"
-                                 ng-disabled="summaryCtrl.reportsModel.disableDuration"
-                                 ng-model="summaryCtrl.reportsModel.duration">
-                         </label>
-                    </div>
-                    <!-- <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
-                        
-
-
-                    </div> -->
-                </div>
-
-                <div class="bk-page__form-popup__content__form__row__cell"
-                  ng-if="summaryCtrl.reportsModel.duration == 'monthly'"
-                  ng-init="summaryCtrl.reportsModel.month = ''">
-                    <div class="bk-page__form-popup__content__form__row__cell__input-label">
-                        <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Select Month & Year :</span>
-                    </div>
-                    <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
-                        <input type="month"
-                               name="month"
-                               ng-model="summaryCtrl.reportsModel.month"
-                               required="required" 
-                               class="bk-page__form-popup__content__form__row__cell__input">
-                    </div>
-                </div>
-
-                <div class="bk-page__form-popup__content__form__row__cell"
-                  ng-if="summaryCtrl.reportsModel.duration == 'daily'"
-                  ng-init="summaryCtrl.reportsModel.day = ''">
-                    <div class="bk-page__form-popup__content__form__row__cell__input-label">
-                        <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Select Date :</span>
-                    </div>
-                    <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
-                        <input type="date"
-                               name="date"
-                               ng-model="summaryCtrl.reportsModel.day"
-                               required="required" 
-                               class="bk-page__form-popup__content__form__row__cell__input">
-                    </div>
-                </div>
-                <div class="bk-settings__container__group__right-section__row">
-                    <button class="bk-settings__container__group__right-section__row__button"
-                            ng-disabled = "generateReport_form.$invalid"
-                            ng-class="{'disabled': generateReport_form.$invalid}"
-                            ng-click="summaryCtrl.generateReport()">
-                        <span class="bk-settings__container__group__right-section__row__button__title">Generate and Download</span>
-                    </button>
-                </div>
-                <!--isSame: {{((summaryCtrl.changePassword.newPasswordMatch === summaryCtrl.changePassword.newPassword))}}-->
             </div>
-        </form>
+            <div class="bk-settings__container">
+                <form class="bk-settings__container__group reports-form clearfix"
+                      name="generateReport_form"
+                      novalidate>
+                    <div class="bk-settings__container__group__right-section fright">
+                        <div class="bk-page__form-popup__content__form__row">
+                            <div class="bk-page__form-popup__content__form__row__cell">
+                                <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                                    <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Category :</span>
+                                </div>
+                                <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__wrapper">
+                                    <div class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header">
+                                        <input type="text"
+                                               class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__title"
+                                               name="category"
+                                               disabled="true"
+                                               required="required"
+                                               ng-model="summaryCtrl.reportsModel.category"
+                                               placeholder="Select category">
+
+                                        <span class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__icon"></span>
+                                    </div>
+                                    <ul class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list">
+                                        <li class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list__item"
+                                            ng-repeat="item in summaryCtrl.categories"
+                                            ng-click="summaryCtrl.reportsModel.category = item; summaryCtrl.reportsModel.disableDuration = item === 'Salary Statements'; summaryCtrl.reportsModel.duration='monthly';summaryCtrl.reportsModel.month=summaryCtrl.reportsModel.day = ''"
+                                        >{{item}}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row">
+                            <div class="bk-page__form-popup__content__form__row__cell ">
+                                <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                                    <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Choose report type :</span>
+                                </div>
+                                <div class="bk-page__form-popup__content__form__row__cell__input-label summary-radio__input">
+                                    <label>
+                                        <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Month :</span>
+                                        <input type="radio"
+                                               name="month"
+                                               value="monthly"
+                                               ng-init="summaryCtrl.reportsModel.duration='monthly'"
+                                               ng-model="summaryCtrl.reportsModel.duration">
+
+                                    </label>
+
+                                    <label>
+                           <span class="bk-page__form-popup__content__form__row__cell__input-label__title"
+                                 ng-class="{disabled: summaryCtrl.reportsModel.disableDuration}">Daily :</span>
+                                <input type="radio"
+                                       name="daily"
+                                       value="daily"
+                                       ng-disabled="summaryCtrl.reportsModel.disableDuration"
+                                       ng-model="summaryCtrl.reportsModel.duration">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row">
+                            <div class="bk-page__form-popup__content__form__row__cell"
+                                 ng-if="summaryCtrl.reportsModel.duration == 'monthly'"
+                                 ng-init="summaryCtrl.reportsModel.month = ''">
+                                <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                                    <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Select Month & Year :</span>
+                                </div>
+                                <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                                    <input type="month"
+                                           name="month"
+                                           ng-model="summaryCtrl.reportsModel.month"
+                                           required="required"
+                                           class="bk-page__form-popup__content__form__row__cell__input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row">
+                            <div class="bk-page__form-popup__content__form__row__cell"
+                                 ng-if="summaryCtrl.reportsModel.duration == 'daily'"
+                                 ng-init="summaryCtrl.reportsModel.day = ''">
+                                <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                                    <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Select Date :</span>
+                                </div>
+                                <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                                    <input type="date"
+                                           name="date"
+                                           ng-model="summaryCtrl.reportsModel.day"
+                                           required="required"
+                                           class="bk-page__form-popup__content__form__row__cell__input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bk-settings__container__group__right-section__row">
+                            <button class="bk-settings__container__group__right-section__row__button bk-margin-l-r-0"
+                                    ng-disabled="generateReport_form.$invalid"
+                                    ng-class="{'disabled': generateReport_form.$invalid}"
+                                    ng-click="summaryCtrl.generateReport()">
+                                <span class="bk-settings__container__group__right-section__row__button__title">Generate and Download</span>
+                            </button>
+                            <button class="bk-settings__container__group__right-section__row__button"
+                                    ng-click="summaryCtrl.reportsModel= { duration: 'monthly' }">
+                                <span class="bk-settings__container__group__right-section__row__button__title">Reset</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>

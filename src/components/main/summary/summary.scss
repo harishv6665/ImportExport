@@ -77,9 +77,88 @@ button.bk-settings__container__group__right-section__row__button {
 }
 
 .summary__page__anchor {
-    right: 12px;
+  right: 12px;
 }
 
 .summary__page__anchor.invert {
-    transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.summary-page__container {
+  height: calc(100% - 45px);
+  overflow: auto;
+}
+
+.bk-settings__container__group.reports-form,
+.bk-settings__container__group.reports-form .bk-settings__container__group__right-section {
+  min-height: 300px;
+}
+
+.bk-settings__container__group.reports-form .bk-settings__container__group__right-section {
+  padding: 20px;
+  float: left;
+  width: 350px;
+  margin-left: 250px;
+}
+
+.summary-card {
+  border: 1px solid rgba(221, 221, 221, 0.5);
+  padding: 25px 15px;
+  float: left;
+  width: 180px;
+  height: 110px;
+  margin-right: 30px;
+  border-radius: 3px;
+  box-shadow: 2px 2px 10px 0px #ddd;
+}
+
+.summary-card__title {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #6a7076;
+}
+
+.summary-card__sub-title {
+  display: block;
+  font-size: 26px;
+  font-weight: 100;
+  padding-top: 13px;
+  color: #6a7076;
+}
+
+.bk-settings__container__group__right-section {
+  width: calc(100% - 250px);
+  border-left: 1px solid #e2e2e2;
+}
+
+.bk-settings__header.summary-header {
+  background: rgba(221, 221, 221, 0.25);
+}
+
+.bk-settings__container__group__right-section.summary-card__wrapper {
+  padding: 25px;
+}
+
+.bk-page__form-popup__content__form__row__cell__input-label.summary-radio__input {
+  padding-top: 5px;
+  padding-left: 12px;
+}
+
+.bk-page__form-popup__content__form__row__cell__input-label.summary-radio__input label {
+  margin-right: 20px;
+}
+
+.bk-page__form-popup__content__form__row__cell__input-label.summary-radio__input span {
+  font-weight: 600;
+}
+
+.summary-header .bk-page__header__button.refresh {
+  margin-right: 40px;
+  margin-top: 4px;
+}
+
+.bk-page__form-popup__content__form__row__cell__cust-dropdown__header__icon.summary__page__anchor {
+  margin: 8px 5px;
+  transition: all 0.2s ease;
 }
