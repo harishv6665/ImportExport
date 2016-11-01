@@ -164,8 +164,8 @@ angular.module('BookKeeper')
 			console.log("$stateParams.pageno", $stateParams.pageno)
 			self.pagination.range = _.range($stateParams.pageno + 1, self.pagination.upperLimit + 1).slice(0, 5);
 
-			self.pagination.to = ((Number($stateParams.pageno)*50) + 50) < Data.count ? ((Number($stateParams.pageno)*50) + 50) : Data.count;
-			self.pagination.from = self.pagination.to - 50 + 1;
+			self.pagination.to = ((Number($stateParams.pageno) * 50) + 50) < Data.count ? ((Number($stateParams.pageno)*50) + 50) : Data.count;
+			self.pagination.from = (self.pagination.to - 50 + 1) < 0 ? 0 : (self.pagination.to - 50 + 1);
 
 		}
 ])
