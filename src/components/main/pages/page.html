@@ -98,20 +98,20 @@
 
         <div class="bk-page__table-pagination__nav fright">
             <button class="bk-page__table-pagination__nav__button prev"
-                ng-disabled="pageCtrl.$stateParams.pageno==0"
+                ng-disabled="pageCtrl.$stateParams.pageno==1"
                 ui-sref="main.page({ page: pageCtrl.$stateParams.page, pageno: pageCtrl.$stateParams.pageno - 1 })">
                 <span class="bk-page__table-pagination__nav__button__title"></span>
             </button>
             <button class="bk-page__table-pagination__nav__button"
                 ng-repeat="pageno in pageCtrl.pagination.range"
                 ng-class="{
-                    'active': pageCtrl.$stateParams.pageno + 1 == pageno
+                    'active': pageCtrl.$stateParams.pageno == pageno
                 }"
-                ui-sref="main.page({ page: pageCtrl.$stateParams.page, pageno: pageno - 1 })">
+                ui-sref="main.page({ page: pageCtrl.$stateParams.page, pageno: pageno })">
                 <span class="bk-page__table-pagination__nav__button__title">{{pageno}}</span>
             </button>
             <button class="bk-page__table-pagination__nav__button next"
-                ng-disabled="pageCtrl.$stateParams.pageno == pageCtrl.pagination.upperLimit - 1"
+                ng-disabled="pageCtrl.$stateParams.pageno == pageCtrl.pagination.upperLimit"
                 ui-sref="main.page({ page: pageCtrl.$stateParams.page, pageno: pageCtrl.$stateParams.pageno + 1 })">
                 <span class="bk-page__table-pagination__nav__button__title"></span>
             </button>

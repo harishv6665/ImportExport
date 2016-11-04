@@ -162,8 +162,28 @@ angular.module('BookKeeper')
 				
 			}
 			console.log("$stateParams.pageno", $stateParams.pageno)
-			self.pagination.range = _.range($stateParams.pageno + 1, self.pagination.upperLimit + 1).slice(0, 5);
+			
+			let max = 1+ (Math.ceil((Number($stateParams.pageno)+1)/5) * 5);
+			self.pagination.range = _.range(1+ (Math.floor ((Number($stateParams.pageno)-1)/5.0) * 5), 
+				max > Math.ceil(Data.count / 50)? Math.ceil(Data.count / 50)+1 : max);
+			// let tempRange = [];
+			
+			// while (fullRange.length == 0){
+			// 	tempRange.push(fullRange.splice(0, 5))
+			// }
+		
+			// let index = (function (n) {
+			// 	if(n > 0)
+			//          return Math.ceil (n/5.0) * 5;
+			//     else if( n < 0)
+			//          return Math.floor (n/5.0) * 5;
+			//     else
+			//          return 5;
+			// })(Number($stateParams.pageno))
 
+			// self.pagination.range = tempRange[(index / 5) - 1];
+
+		
 			self.pagination.to = ((Number($stateParams.pageno) * 50) + 50) < Data.count ? ((Number($stateParams.pageno)*50) + 50) : Data.count;
 			self.pagination.from = (self.pagination.to - 50 + 1) < 0 ? 0 : (self.pagination.to - 50 + 1);
 

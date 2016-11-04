@@ -45,7 +45,7 @@ angular.module('BookKeeper',['ui.router', 'restangular'])
                         url: "/page/:page",
                         params:{
                             page: "aggrade",
-                            pageno: "0"
+                            pageno: "1"
                         },
                         views: {
                           Container: {
