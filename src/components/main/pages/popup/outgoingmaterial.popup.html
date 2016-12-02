@@ -1,4 +1,5 @@
 <form class="bk-page__form-popup__wrapper"
+    ng-init="materials = ['DBM', 'BM', 'SDBC', 'BC', 'other']"
       name="outgoingmaterial_form">
     <div class="bk-page__form-popup">
 
@@ -36,7 +37,11 @@
                 </div>
 
                 <div class="bk-page__form-popup__content__form__row clearfix">
-                    <div class="bk-page__form-popup__content__form__row__cell half-cell fleft" >
+                    <div class="bk-page__form-popup__content__form__row__cell" 
+                      ng-class="{
+                          'half-cell fleft': pageCtrl.showOther
+                        }"
+                      ng-init="pageCtrl.showOther = pageCtrl.contentPopup.model.material && materials.indexOf(pageCtrl.contentPopup.model.material) == -1">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Type of material :</span>
                         </div>
@@ -46,21 +51,46 @@
                                        class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__title"
                                        name="material"
                                        disabled="true"
+                                       ng-if="!pageCtrl.showOther"
                                        ng-model="pageCtrl.contentPopup.model.typeOfMaterial"
                                        placeholder="Select Material">
+                                <input type="text"
+                                       class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__title"
+                                       disabled="true"
+                                       ng-if="pageCtrl.showOther"
+                                       placeholder="Other">
                                 <span class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__icon"></span>
                             </div>
                             <ul class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list">
                                 <li class="bk-page__form-popup__content__form__row__cell__cust-dropdown__list__item"
-                                    ng-repeat="item in ['DBM', 'BM', 'SDBC', 'BC']"
-                                    ng-click="pageCtrl.contentPopup.model.typeOfMaterial = item"
+                                    ng-repeat="item in materials"
+                                    ng-click="pageCtrl.showOther = item == 'other'; pageCtrl.contentPopup.model.typeOfMaterial = pageCtrl.showOther? '': item;"
                                 >{{item}}
                                 </li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="bk-page__form-popup__content__form__row__cell fright half-cell">
+                    <div class="bk-page__form-popup__content__form__row__cell"
+                      ng-class="{
+                        'fright half-cell': pageCtrl.showOther
+                      }"
+                      ng-if="pageCtrl.showOther">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Describe material:</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text"
+                                   name="quantityInTonnes"
+                                   ng-model="pageCtrl.contentPopup.model.material"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="bk-page__form-popup__content__form__row clearfix">
+
+                    <div class="bk-page__form-popup__content__form__row__cell">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Deliverd site :</span>
                         </div>

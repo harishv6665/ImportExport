@@ -9,9 +9,12 @@ angular.module('BookKeeper')
 
             var self = this;
             self.$stateParams = $stateParams;
-            self.categories = ["Aggrade", "Bitumen ", "Powerreading", "Incoming material", "Outgoing material", "Salary Statements"]
+            self.categories = ["Aggrade", "Bitumen ", "Ldo", "Diesel", "Powerreading", "Incoming material", "Outgoing material", "Salary Statements", "Expenditure"]
             self.categoriesMap = {"Aggrade": "aggrade",
                 "Bitumen ": "bitumen",
+                "Ldo": "ldo",
+                "Diesel": "diesel",
+                "Expenditure": "expenditure",
                 "Powerreading": "powerreading",
                 "Incoming material": "otherincomingmaterial",
                 "Outgoing material": "outgoingmaterial",
