@@ -1,27 +1,38 @@
 <div class="bk-page__header__wrapper clearfix">
-    <!-- <div class="bk-page__header__input__wrapper fleft">
+    <div class="bk-page__header__input__wrapper fleft">
         <input type="text" class="bk-page__header__input-box" placeholder="Search">
         <span class="bk-page__header__input-icon"></span>
-    </div> -->
+    </div>
 
-    <button class="bk-page__header__button refresh fleft clearfix"
-            ng-click="pageCtrl.refresh()">
-        <span class="bk-page__header__button__icon flaticon-arrows fleft"></span>
-        <span class="bk-page__header__button__title fright">Refresh</span>
-    </button>
+    <!--<button class="bk-page__header__button fleft clearfix"-->
+            <!--ng-click="pageCtrl.filterSlider.show()">-->
+        <!--<span class="bk-page__header__button__icon filter-icon fleft"></span>-->
+        <!--<span class="bk-page__header__button__title fright">Filter</span>-->
+    <!--</button>-->
 
-    <!-- <button class="bk-page__header__button fleft clearfix"
-            ng-click="pageCtrl.filterSlider.show()"
-            ng-if="false">
-        <span class="bk-page__header__button__icon filter-icon fleft"></span>
-        <span class="bk-page__header__button__title fright">Filter</span>
-    </button> -->
+    <div class="bk-page__header__date-range__wrapper fleft clearfix">
+        <span class="bk-page__header__date-range__label fleft">Extract records from</span>
+        <div class="bk-page__header__date-range fleft">
+            <input type="date" class="bk-page__header__date-range__input">
+        </div>
+        <span class="bk-page__header__date-range__label fleft">to</span>
+        <div class="bk-page__header__date-range fleft">
+            <input type="date" class="bk-page__header__date-range__input">
+        </div>
+    </div>
 
     <button class="bk-page__header__button primary small fright clearfix"
             ng-click="pageCtrl.contentPopup.show()">
         <span class="bk-page__header__button__icon add-icon fleft">+</span>
         <span class="bk-page__header__button__title fright">Add</span>
     </button>
+
+    <button class="bk-page__header__button refresh fright clearfix"
+            ng-click="pageCtrl.refresh()">
+        <span class="bk-page__header__button__icon flaticon-arrows fleft"></span>
+        <span class="bk-page__header__button__title fright">Refresh</span>
+    </button>
+
 </div>
 
 <div class="bk-page__table__wrapper">
