@@ -30,7 +30,8 @@
                             </ul>
                         </div>
                 </div> -->
-                <div class="bk-page__form-popup__content__form__row__cell">
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell fleft half-cell">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Board Type :</span>
                         </div>
@@ -53,8 +54,7 @@
                         </div>
                     </div>
 
-                <div class="bk-page__form-popup__content__form__row">
-                    <div class="bk-page__form-popup__content__form__row__cell">
+                    <div class="bk-page__form-popup__content__form__row__cell fright half-cell">
                         <div class="bk-page__form-popup__content__form__row__cell__input-label">
                             <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Entry Date :</span>
                         </div>
@@ -100,6 +100,32 @@
                             <input type="number"  
                                 name="endReading"
                                 ng-model="pageCtrl.contentPopup.model.endReading"
+                            class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell fleft half-cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">diesel consumed (ltrs) :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                            name="dieselConsumed"
+                            ng-model="pageCtrl.contentPopup.model.dieselConsumed"
+                            class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+
+                    <div class="bk-page__form-popup__content__form__row__cell fright half-cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">diesel added (ltrs) :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="number"
+                                name="dieselAdded"
+                                ng-model="pageCtrl.contentPopup.model.dieselAdded"
                             class="bk-page__form-popup__content__form__row__cell__input">
                         </div>
                     </div>
