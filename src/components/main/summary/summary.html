@@ -9,7 +9,7 @@
             <span class="bk-page__form-popup__content__form__row__cell__cust-dropdown__header__icon summary__page__anchor"
                   ng-class="{invert: summaryCtrl.toggleBalances}"></span>
             <button class="bk-page__header__button refresh fright clearfix"
-                    ng-click="summaryCtrl.reportsModel= { duration: 'monthly'}">
+                    ng-click="summaryCtrl.reportsModel= { duration: 'monthly'}; $event.stopPropagation();">
                 <span class="bk-page__header__button__icon flaticon-arrows fleft"></span>
                 <span class="bk-page__header__button__title fright">Refresh</span>
             </button>
@@ -22,25 +22,24 @@
                 <div class="bk-settings__container__group__right-section summary-card__wrapper fright">
 
                     <div class="summary-card">
-                        <span class="summary-card__add-btn"></span>
                         <span class="summary-card__title">LDO Balance</span>
                         <span class="summary-card__sub-title">{{summaryCtrl.balances.ldoBalance}}</span>
                     </div>
 
                     <div class="summary-card">
-                        <span class="summary-card__add-btn"></span>
                         <span class="summary-card__title">Diesel Balance</span>
                         <span class="summary-card__sub-title">{{summaryCtrl.balances.dieselBalance}}</span>
                     </div>
 
                     <div class="summary-card">
-                        <span class="summary-card__add-btn"></span>
                         <span class="summary-card__title">Cash Balance</span>
                         <span class="summary-card__sub-title">{{summaryCtrl.balances.cashBalance}}</span>
                     </div>
 
                     <div class="summary-card">
-                        <span class="summary-card__add-btn"></span>
+                        <button class="summary-card__add-btn"
+                                ng-click="summaryCtrl.bitumenBalancePopup.show()">
+                        </button>
                         <span class="summary-card__title">Bitumen Balance</span>
                         <span class="summary-card__sub-title">{{summaryCtrl.balances.bitumenBalance}}</span>
                     </div>
@@ -206,3 +205,43 @@
         </div>
     </div>
 </div>
+
+<form class="bk-page__form-popup__wrapper bitumen-balance__popup"
+      novalidate
+      name="bitumen_balance_form"
+      ng-if="summaryCtrl.bitumenBalancePopup.visible">
+    <div class="bk-page__form-popup">
+        <div class="bk-page__form-popup__header">
+            <h6 class="bk-page__form-popup__header__title">Add Bitumen Balance</h6>
+        </div>
+        <div class="bk-page__form-popup__content">
+            <div class="bk-page__form-popup__content__form">
+
+                <div class="bk-page__form-popup__content__form__row clearfix">
+                    <div class="bk-page__form-popup__content__form__row__cell">
+                        <div class="bk-page__form-popup__content__form__row__cell__input-label">
+                            <span class="bk-page__form-popup__content__form__row__cell__input-label__title">Balance :</span>
+                        </div>
+                        <div class="bk-page__form-popup__content__form__row__cell__input__wrapper">
+                            <input type="text"
+                                   name="balance"
+                                   ng-model="pageCtrl.contentPopup.model.balance"
+                                   class="bk-page__form-popup__content__form__row__cell__input">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="bk-page__form-popup__footer">
+            <button class="bk-page__form-popup__footer__button save fright"
+                    ng-click="summaryCtrl.bitumenBalancePopup.onUpdate(bitumen_balance_form, pageCtrl.contentPopup.model)">
+                <span class="bk-page__form-popup__footer__button__title">Save</span>
+            </button>
+            <button class="bk-page__form-popup__footer__button cancel fright"
+                    ng-click="summaryCtrl.bitumenBalancePopup.onClose()">
+                <span class="bk-page__form-popup__footer__button__title">Cancel</span>
+            </button>
+        </div>
+    </div>
+</form>

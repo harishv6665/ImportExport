@@ -1,12 +1,11 @@
 <bk-header></bk-header>
 <div class="bk-main-container">
     <bk-sidenav ng-if="mainController.isAdmin == 'false'"></bk-sidenav>
-    <div ui-view="Container" 
-        class="bk-page__wrapper"
-        ng-class="{
+    <div ui-view="Container"
+         class="bk-page__wrapper"
+         ng-class="{
             expand: mainController.isAdmin == 'true'
-        }" 
-    ></div>
+        }"></div>
 </div>
 
 <div class="bk-conformation-dialogue__wrapper"
@@ -17,23 +16,23 @@
         </div>
         <div class="bk-conformation-dialogue__content">
             <p class="bk-conformation-dialogue__content__text"
-                ng-if="$root.confirmPopup.title !== 'Confirm Deletion'">
+               ng-if="$root.confirmPopup.title !== 'Confirm Deletion'">
                 {{$root.confirmPopup.message}} <br> <br>
             </p>
             <p class="bk-conformation-dialogue__content__text"
-                ng-if="$root.confirmPopup.title === 'Confirm Deletion'">
+               ng-if="$root.confirmPopup.title === 'Confirm Deletion'">
                 Are your sure you want to delete the record? <br> <br>
                 <span class="bold">Note:</span> This action can't be undone!
             </p>
         </div>
         <div class="bk-conformation-dialogue__footer">
             <button class="bk-conformation-dialogue__footer__button primary"
-                ng-click="$root.confirmPopup.onOk()">
+                    ng-click="$root.confirmPopup.onOk()">
                 {{$root.confirmPopup.okButtonText || 'OK'}}
             </button>
             <button class="bk-conformation-dialogue__footer__button secondary"
-                ng-if="$root.confirmPopup.showCancelButton"
-                ng-click="$root.confirmPopup.close()">
+                    ng-if="$root.confirmPopup.showCancelButton"
+                    ng-click="$root.confirmPopup.close()">
                 Cancel
             </button>
         </div>

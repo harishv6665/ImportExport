@@ -164,18 +164,19 @@ button.bk-settings__container__group__right-section__row__button {
   transition: all 0.2s ease;
 }
 
-span.summary-card__add-btn {
+.summary-card__add-btn {
   position: absolute;
   width: 20px;
   height: 20px;
   background: #2196F3;
   border-radius: 3px;
+  border: none;
   top: 6px;
   right: 6px;
   cursor: pointer;
 }
 
-span.summary-card__add-btn:before {
+.summary-card__add-btn:before {
   content: '+';
   font-size: 20px;
   font-weight: 600;
@@ -184,4 +185,8 @@ span.summary-card__add-btn:before {
   top: -1px;
   line-height: 20px;
   left: 4px;
+}
+
+.bitumen-balance__popup .bk-page__form-popup {
+  height: 185px;
 }
