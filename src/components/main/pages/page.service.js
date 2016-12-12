@@ -104,7 +104,7 @@ angular.module('BookKeeper')
             }
 
             self.exportFilterData = function (startDate, endDate) {
-                window.open(`${location.origin}/services/item/viewbyfilterasexcel?category=${$stateParams.page}&userid${sessionStorage.getItem('user')}&from=${startDate}&to=${endDate}`, '_blank');
+                window.open(`${location.origin}/services/item/viewbyfilterasexcel?category=${$stateParams.page}&userid=${sessionStorage.getItem('user')}&from=${startDate}&to=${endDate}`, '_blank');
             }
 
 			self.modifyDateTime = function(cell) {
