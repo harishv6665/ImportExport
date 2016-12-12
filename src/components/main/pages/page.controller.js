@@ -135,7 +135,29 @@ angular.module('BookKeeper')
 					this.model = {}
 				}
 			};
-			
+            function todate(time) {
+                var date = new Date(time);
+                return $filter('date')(time, 'dd/MM/yyyy')
+            }
+
+			self.filterData = function (startDate, endDate) {
+                // Service.getFilteredData(startDate, endDate)
+                //     .then((data)=>{
+
+
+                    $state.go("main.page", {
+                        page: $stateParams.page,
+                        from: todate(startDate),
+                        to: todate(endDate),
+                        pageno: 1
+                    });
+                // })
+            }
+
+            self.exportFilterData = function (startDate, endDate) {
+                Service.exportFilterData(todate(startDate), todate(endDate))
+                    .then(()=>{})
+            }
 
 			self.filterSlider = {
 			    visible: false,
@@ -187,5 +209,17 @@ angular.module('BookKeeper')
 			self.pagination.to = ((Number($stateParams.pageno - 1) * 50) + 50) < Data.count ? ((Number($stateParams.pageno - 1) * 50) + 50) : Data.count;
 			self.pagination.from = self.pagination.to ==0 ? 0: ((self.pagination.to - 50 + 1) < 0 ? 1 : (self.pagination.to - 50 + 1));
 
+			let listdates= _.map(self.tableData.itemsData, function (data) {
+                return data[$stateParams.page + "ItemEntryDate"] || data[$stateParams.page + "EntryDate"] ||  data["entryDate"] || data.created
+            });
+
+            function converttodate(time) {
+                return new Date(time);
+            }
+
+			self.startDate = converttodate($stateParams.from? $stateParams.from: _.min(listdates));
+            self.endDate = converttodate($stateParams.to? $stateParams.to: _.max(listdates));
+
+            console.log(self.startDate, self.endDate)
 		}
 ])

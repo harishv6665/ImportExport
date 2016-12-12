@@ -75,6 +75,12 @@
   width: 75px;
 }
 
+.bk-page__header__button.auto-width {
+  white-space: nowrap;
+  width: auto;
+  margin-left: 10px;
+}
+
 .bk-page__header__button__title {
   font-size: 13px;
 }

@@ -14,42 +14,42 @@ angular.module('BookKeeper')
                     $scope.sideNavLinks = [
                         {
                             label: "AGGRADE",
-                            sref: "main.page({page: 'aggrade', pageno: '1'})",
+                            sref: "main.page({from: '', to:'', page: 'aggrade', pageno: '1'})",
                             isActive: function(){ return 'aggrade' === $stateParams.page}
                         },
                         {
                             label: "BITUMEN",
-                            sref: "main.page({page: 'bitumen', pageno: '1'})",
+                            sref: "main.page({from: '', to:'', page: 'bitumen', pageno: '1'})",
                             isActive: function(){ return 'bitumen' === $stateParams.page}
                         },
                         {
                             label: "LDO",
-                            sref: "main.page({page: 'ldo', pageno: '1'})",
+                            sref: "main.page({from: '', to:'', page: 'ldo', pageno: '1'})",
                             isActive: function(){ return 'ldo' === $stateParams.page}
                         },
                         {
                             label: "DIESEL",
-                            sref: "main.page({page: 'diesel', pageno: '1'})",
+                            sref: "main.page({from: '', to:'', page: 'diesel', pageno: '1'})",
                             isActive: function(){ return 'diesel' === $stateParams.page}
                         },
                         {
                             label: "INCOMING MATERIAL",
-                            sref: "main.page({page: 'otherincomingmaterial', pageno: '1'})",
+                            sref: "main.page({from: '', to:'', page: 'otherincomingmaterial', pageno: '1'})",
                             isActive: function(){ return 'otherincomingmaterial' === $stateParams.page}
                         },
                         {
                             label: "POWER READING",
-                            sref: "main.page({page: 'powerreading', pageno: '1'})",
+                            sref: "main.page({from: '', to:'', page: 'powerreading', pageno: '1'})",
                             isActive: function(){ return 'powerreading' === $stateParams.page}
                         },
                         {
                             label: "OUTGOING MATERIAL",
-                            sref: "main.page({page: 'outgoingmaterial', pageno: '1'})",
+                            sref: "main.page({from: '', to:'', page: 'outgoingmaterial', pageno: '1'})",
                             isActive: function(){ return 'outgoingmaterial' === $stateParams.page}
                         },
                         {
                             label: "SALARY",
-                            sref: "main.page({page: 'salarystatements', pageno: '1'})",
+                            sref: "main.page({from: '', to:'', page: 'salarystatements', pageno: '1'})",
                             isActive: function(){ return 'salarystatements' === $stateParams.page}
                         },
                         // {
@@ -59,7 +59,7 @@ angular.module('BookKeeper')
                         // },
                         {
                             label: "EXPENDITURE",
-                            sref: "main.page({page: 'expenditure'})",
+                            sref: "main.page({from: '', to:'', page: 'expenditure'})",
                             isActive: function(){ return 'expenditure' === $stateParams.page}
                         },
                         {

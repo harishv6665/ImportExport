@@ -45,7 +45,9 @@ angular.module('BookKeeper',['ui.router', 'restangular'])
                         url: "/page/:page",
                         params:{
                             page: "aggrade",
-                            pageno: "1"
+                            pageno: "1",
+                            from: '',
+                            to: '',
                         },
                         views: {
                           Container: {
@@ -63,13 +65,18 @@ angular.module('BookKeeper',['ui.router', 'restangular'])
                                 if(sessionStorage.getItem("isAdmin") === "true"){
                                     promise = PageService.getUsers;
                                 }
+                                if ($stateParams.from && $stateParams.to)
+                                    promise = PageService.getFilteredData;
 
                                 return promise({
+                                        from: $stateParams.from,
+                                        to: $stateParams.to,
                                         category: $stateParams.page,
                                         page: $stateParams.pageno,
                                         userid: sessionStorage.getItem("user")
                                          })
                                     .then(function (data) {
+                                        console.log('data', data)
                                     return data;
                                 })
                             }]

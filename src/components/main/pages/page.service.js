@@ -15,10 +15,10 @@ angular.module('BookKeeper')
 				return HeaderService[category || $stateParams.page] || { };
 			};
 
-			self.getData = function ({category, page, userid}){
+			self.getData = function ({category, page, userid, from, to}){
 				$rootScope.showLoader = true;
 				return Restangular.one("item/view")
-					.get({category, page, userid})
+					.get({category, page, userid, from, to})
 					.then(function({data}){
 						$rootScope.showLoader = false;
 						data.dataOrder = {
@@ -86,6 +86,26 @@ angular.module('BookKeeper')
 				.customPUT(data)
 			}
 
+            self.getFilteredData = function ({category, page, userid, from, to}) {
+                $rootScope.showLoader = true;
+                return Restangular.one("item/viewbyfilter")
+                    .get({category, page, userid, from, to})
+                    .then(function({data}){
+                        $rootScope.showLoader = false;
+                        data.dataOrder = {
+                                ...HeaderService.headers||[],
+                        ...self.updateFields(category)
+                    };
+
+                        data.headers = [...(data.headers || []).slice(0,1), 'ACTIONS',
+                        ...(data.headers || []).slice(1)];
+                        return data
+                    })
+            }
+
+            self.exportFilterData = function (startDate, endDate) {
+                window.open(`${location.origin}/services/item/viewbyfilterasexcel?category=${$stateParams.page}&userid${sessionStorage.getItem('user')}&from=${startDate}&to=${endDate}`, '_blank');
+            }
 
 			self.modifyDateTime = function(cell) {
 				let data = {};
