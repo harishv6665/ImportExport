@@ -209,7 +209,7 @@ angular.module('BookKeeper')
 			self.pagination.from = self.pagination.to ==0 ? 0: ((self.pagination.to - 50 + 1) < 0 ? 1 : (self.pagination.to - 50 + 1));
 
 			let listdates= _.map(self.tableData.itemsData, function (data) {
-                return data[$stateParams.page + "ItemEntryDate"] || data[$stateParams.page + "EntryDate"] ||  data["entryDate"] || data.created
+                return data[$stateParams.page + "ItemEntryDate"] || data[$stateParams.page + "EntryDate"] ||  data["entryDate"] || data["incomingDate"] || data.created
             });
 
             function converttodate(time) {
