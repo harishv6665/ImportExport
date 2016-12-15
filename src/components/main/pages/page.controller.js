@@ -156,7 +156,6 @@ angular.module('BookKeeper')
 
             self.exportFilterData = function (startDate, endDate) {
                 Service.exportFilterData(todate(startDate), todate(endDate))
-                    .then(()=>{})
             }
 
 			self.filterSlider = {
