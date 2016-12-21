@@ -40,7 +40,7 @@ angular.module('BookKeeper')
         	$rootScope.confirmPopup = new confirmPopup();
 			
 			$rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-				console.log("prev:", fromParams.page, "next:", toParams.page, sessionStorage.getItem('isAdmin') == "true");
+				
 				if (toState.name !== "404" && toParams.page){
 					if(sessionStorage.getItem('isAdmin') == "true" && (toParams.page !== "admin")) {
 						event.preventDefault();

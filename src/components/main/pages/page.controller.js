@@ -141,17 +141,13 @@ angular.module('BookKeeper')
             }
 
 			self.filterData = function (startDate, endDate) {
-                // Service.getFilteredData(startDate, endDate)
-                //     .then((data)=>{
-
 
                     $state.go("main.page", {
                         page: $stateParams.page,
-                        from: todate(startDate),
-                        to: todate(endDate),
+                        from: startDate,
+                        to: endDate,
                         pageno: 1
                     });
-                // })
             }
 
             self.exportFilterData = function (startDate, endDate) {
@@ -215,9 +211,9 @@ angular.module('BookKeeper')
             function converttodate(time) {
                 return new Date(time);
             }
-
-			self.startDate = converttodate($stateParams.from? $stateParams.from: _.min(listdates));
-            self.endDate = converttodate($stateParams.to? $stateParams.to: _.max(listdates));
+            
+			self.startDate = converttodate($stateParams.from? ($stateParams.from): _.min(listdates));
+            self.endDate = converttodate($stateParams.to? ($stateParams.to): _.max(listdates));
 
             console.log(self.startDate, self.endDate)
 		}

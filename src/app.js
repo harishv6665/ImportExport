@@ -58,7 +58,7 @@ angular.module('BookKeeper',['ui.router', 'restangular'])
                         },
                         resolve: {
                             /* TODO: uncomment when integrating */
-                            Data: ['PageService', '$stateParams', function (PageService, $stateParams) {
+                            Data: ['PageService', '$stateParams', '$filter',function (PageService, $stateParams, $filter) {
 
                                 var promise = PageService.getData;
 
@@ -67,10 +67,16 @@ angular.module('BookKeeper',['ui.router', 'restangular'])
                                 }
                                 if ($stateParams.from && $stateParams.to)
                                     promise = PageService.getFilteredData;
-
+                                
+                                function todate(time) {
+                                    if (!time) return;
+                                    var date = new Date(time);
+                                    return $filter('date')(time, 'dd/MM/yyyy')
+                                }
+                                
                                 return promise({
-                                        from: $stateParams.from,
-                                        to: $stateParams.to,
+                                        from: todate($stateParams.from),
+                                        to: todate($stateParams.to),
                                         category: $stateParams.page,
                                         page: $stateParams.pageno,
                                         userid: sessionStorage.getItem("user")
