@@ -61,6 +61,7 @@ angular.module('BookKeeper')
             "INCOMING DATE": {"header": "incomingDate", "type": converttodate},
             "OUTGOING DATE": {"header": "outgoingDate", "type": converttodate},
             "ENTRY TIME": {"header": "entryTime", "type": ""},
+            "EMPLOYEE NAME": {"header": "empName", "type": ""},
             "CASH FROM": {header: "cashFrom", type: ""},
             "EXPENDITURE": {header: "expenditure", type: ""},
             "BALANCE": {header: "balance", type: ""},
