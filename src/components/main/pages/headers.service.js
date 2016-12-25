@@ -117,7 +117,7 @@ angular.module('BookKeeper')
             "TOTAL TONAGE": {"header": "totalTonage", "type": ""},
             "SALARY MONTH": {"header": "salaryMonth", "type": ""},
             "SALARY YEAR": {"header": "salaryYear", "type": ""},
-            "EMP  NAME": {"header": "empName", "type": ""},
+            "EMPLOYEE  NAME": {"header": "empName", "type": ""},
             "DESIGNATION": {"header": "designation", "type": ""},
             "GENDER": {"header": "gender", "type": ""},
             "DAYS IN MONTH": {"header": "totalDaysOfMonth", "type": ""},
