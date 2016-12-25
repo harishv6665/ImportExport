@@ -299,6 +299,7 @@
 
 .bk-page__loader__wrapper {
   position: absolute;
+  z-index: 9;
   width: 100%;
   height: 100%;
   background: rgba(49, 57, 66, 0.6);
