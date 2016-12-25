@@ -124,7 +124,7 @@ angular.module('BookKeeper')
             "NUM OF LEAVE TAKEN": {"header": "noOfLeaveTaken", "type": ""},
             "DAYS WORKED": {"header": "numOfDaysWorked", "type": ""},
             "SALARY PER DAY": {"header": "salaryPerDay", "type": ""},
-            "EXTRA CONVEYANCE": {"header": "extraConveyance", "type": ""},
+            "BATA": {"header": "extraConveyance", "type": ""},
             "SALARY ADVANCE": {"header": "salaryAdvance", "type": ""},
             "BONUS": {"header": "bonus", "type": ""},
             "NET PAYABLE": {"header": "netPayable", "type": ""},
